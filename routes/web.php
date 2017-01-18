@@ -10,10 +10,7 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "MainController");
 
 
 Route::group(['prefix' => 'admin'], function () {
