@@ -16,3 +16,5 @@ bootstrap/cache/
 .env
 
 .rocketeer/
+portfolio.local-error_log
+portfolio.local-access_log
