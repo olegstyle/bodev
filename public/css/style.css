@@ -521,6 +521,7 @@ body {
 .btn-bo-wrapper {
     text-align: center;
 }
+
 .btn-bo {
     display: inline-block;
     width: 50%;
@@ -537,6 +538,10 @@ body {
 .btn-bo:hover {
     background-color: #06a598;
     color: white;
+}
+.btn-bo > a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .btn-bo-white {
@@ -604,4 +609,84 @@ body {
     .about-me {
         background-size: auto 100%;
     }
+}
+
+
+/** MARK - projects */
+
+.project {
+    height: 450px;
+    background-size: 100% auto;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
+}
+.project-mini-info {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+.project-mini-info > .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("../images/header_bg.jpg") no-repeat center #4cc3bf;
+    background-size: auto 100%;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+@-webkit-keyframes projectFadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.95; }
+}
+@keyframes projectFadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.95; }
+}
+
+.project:hover .project-mini-info {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+.project:hover .project-mini-info > .bg {
+    -webkit-animation-name: projectFadeIn;
+    animation-name: projectFadeIn;
+}
+.project-mini-info .project-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.project-mini-info .btn-bo-wrapper {
+    width: 100%;
+    position: absolute;
+    bottom: 15px;
+    left: 0;
+}
+.project-mini-info .btn-bo-wrapper .btn-bo {
+    font-size: inherit;
+}
+.project-mini-info .project-name {
+    color: inherit;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 25px 0;
+    padding: 0;
+}
+
+.project-mini-info p {
+    margin: 0 15px 20px;
 }

@@ -97,5 +97,37 @@
                 <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">Подробнее</div></div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="title-wrapper"><h3 class="title animated fadeIn">Портфолио</h3></div>
+            <div class="tabs-wrapper"><ul class="tabs">
+                <li class="tab active">Все навыки</li>
+                <li class="tab">Backend</li>
+                <li class="tab">Frontend</li>
+                <hr />
+            </ul></div>
+            <div class="projects-wrapper">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="project" style="background-image: url('/images/tyretrader-assistant-android.png');">
+                            <div class="project-mini-info animated">
+                                <div class="bg animated"></div>
+                                <div class="project-content">
+                                    <h4 class="project-name">TyreTrader assistant</h4>
+                                    <p class="project-gist"><b>Суть проекта:</b> Калькулятор шин и дисков. Подбор размеров шин и дисков под авто
+                                    </p>
+                                    <p class="project-description"><b>Описание:</b> Приложение создано исключительно для предоставления информации пользователям. В приложении используется SQLite База данных чтобы предоставить пользователю информацию в offline режиме.
+                                    </p>
+                                </div>
+                                <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
+                                    <a href="https://play.google.com/store/apps/details?id=info.tyretrader.assistant" target="_blank">Посмотреть</a>
+                                </div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-bo-wrapper"><div class="btn-bo">Показать все</div></div>
+            </div>
+        </div>
     </body>
 </html>
