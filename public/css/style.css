@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
@@ -10,6 +11,69 @@ body {
     background:linear-gradient(to bottom, #fff 0%, #fff 20%, transparent 20%, transparent 40%, #fff 40%, #fff 60%, transparent 60%, transparent 80%, #fff 80%, #fff 100%);
     cursor: pointer;
 }
+
+
+/** MARK - floatlabel */
+
+.float-label-control { position: relative; margin-bottom: 1.5em; }
+.float-label-control ::-webkit-input-placeholder { color: transparent; }
+.float-label-control :-moz-placeholder { color: transparent; }
+.float-label-control ::-moz-placeholder { color: transparent; }
+.float-label-control :-ms-input-placeholder { color: transparent; }
+.float-label-control input:-webkit-autofill,
+.float-label-control textarea:-webkit-autofill { background-color: transparent !important; -webkit-box-shadow: 0 0 0 1000px white inset !important; -moz-box-shadow: 0 0 0 1000px white inset !important; box-shadow: 0 0 0 1000px white inset !important; }
+.float-label-control input, .float-label-control textarea, .float-label-control label { font-size: 1.3em; box-shadow: none; -webkit-box-shadow: none; }
+.float-label-control input:focus,
+.float-label-control textarea:focus { box-shadow: none; -webkit-box-shadow: none; border-bottom-width: 2px; padding-bottom: 0; }
+.float-label-control textarea:focus { padding-bottom: 4px; }
+.float-label-control input, .float-label-control textarea { display: block; width: 100%; padding: 0.1em 0em 1px 0em; border: none; border-radius: 0px; border-bottom: 1px solid #aaa; outline: none; margin: 0px; background: none; }
+.float-label-control textarea { padding: 0.1em 0em 5px 0em; }
+.float-label-control label { position: absolute; font-weight: normal; top: -1.0em; left: 0.08em; color: #aaaaaa; z-index: 1; font-size: 0.85em; -moz-animation: float-labels 300ms none ease-out; -webkit-animation: float-labels 300ms none ease-out; -o-animation: float-labels 300ms none ease-out; -ms-animation: float-labels 300ms none ease-out; -khtml-animation: float-labels 300ms none ease-out; animation: float-labels 300ms none ease-out; /* There is a bug sometimes pausing the animation. This avoids that.*/ animation-play-state: running !important; -webkit-animation-play-state: running !important; }
+.float-label-control input.empty + label,
+.float-label-control textarea.empty + label { top: 0.1em; font-size: 1.5em; animation: none; -webkit-animation: none; }
+.float-label-control input:not(.empty) + label,
+.float-label-control textarea:not(.empty) + label { z-index: 1; }
+.float-label-control input:not(.empty):focus + label,
+.float-label-control textarea:not(.empty):focus + label { color: #aaaaaa; }
+.float-label-control.label-bottom label { -moz-animation: float-labels-bottom 300ms none ease-out; -webkit-animation: float-labels-bottom 300ms none ease-out; -o-animation: float-labels-bottom 300ms none ease-out; -ms-animation: float-labels-bottom 300ms none ease-out; -khtml-animation: float-labels-bottom 300ms none ease-out; animation: float-labels-bottom 300ms none ease-out; }
+.float-label-control.label-bottom input:not(.empty) + label,
+.float-label-control.label-bottom textarea:not(.empty) + label { top: 3em; }
+
+
+@keyframes float-labels {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: -1em; opacity: 1; }
+}
+
+@-webkit-keyframes float-labels {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: -1em; opacity: 1; }
+}
+
+@keyframes float-labels-bottom {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: 3em; opacity: 1; }
+}
+
+@-webkit-keyframes float-labels-bottom {
+    0% { opacity: 1; color: #aaa; top: 0.1em; font-size: 1.5em; }
+    20% { font-size: 1.5em; opacity: 0; }
+    30% { top: 0.1em; }
+    50% { opacity: 0; font-size: 0.85em; }
+    100% { top: 3em; opacity: 1; }
+}
+
+
+/** MARK - header */
 
 .header {
     background: url("../images/header_bg.jpg") no-repeat left top #4cc3bf;
@@ -100,7 +164,7 @@ body {
     left: 5px;
     top: 5px;
     border-radius: 50%;
-    background: white url("../images/me.jpg") no-repeat left -25px;
+    background: white url("../images/me.jpg") no-repeat left -15px;
     background-size: 100% auto;
 }
 
@@ -531,6 +595,7 @@ body {
     font-size: 21px;
     text-transform: uppercase;
     cursor: pointer;
+    background: transparent;
     -webkit-transition: background-color 250ms linear;
     -ms-transition: background-color 250ms linear;
     transition: background-color 250ms linear;
@@ -689,4 +754,126 @@ body {
 
 .project-mini-info p {
     margin: 0 15px 20px;
+}
+
+
+/** MARK - contacts */
+
+#contacts {
+    padding-bottom: 40px;
+    margin-top: 40px;
+    background: url("../images/contact_me_bg.jpg") no-repeat right top #212121;
+    background-size: 100% auto;
+    position: relative;
+}
+
+#contacts .contact {
+    display: block;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#contacts .contact h3, #contacts .contact p {
+    font-size: 18px;
+    color: white;
+    padding: 0;
+    margin: 0 0 0 90px;
+}
+
+#contacts .contact h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 10px;
+
+}
+#contacts .contact p {
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+
+#contacts .contact .ico {
+    width: 66px;
+    height: 66px;
+    border: 2px solid white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 250ms linear;
+    -ms-transition: all 250ms linear;
+    transition: all 250ms linear;
+}
+#contacts .contact, #contacts .contact:hover, #contacts .contact:hover h3, #contacts .contact:hover p {
+    text-decoration: none;
+}
+#contacts .contact:hover .ico {
+    background-color: #4cc3bf;
+    border: 2px solid #4cc3bf;
+}
+#contacts .social .contact {
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    margin-right: 10px;
+}
+#contacts .float-label-control input, #contacts .float-label-control textarea {
+    border-bottom: 2px solid white;
+    color: white;
+    z-index: 1;
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    background-position: 5px 2px;
+    background-size: auto 30px;
+}
+#contacts .float-label-control textarea {
+    max-width: 100%;
+}
+#contacts .float-label-control label {
+    color: #f9f9f9;
+}
+#contacts .float-label-control input:focus, #contacts .float-label-control textarea:focus {
+    border-bottom: 2px solid #4cc3bf;
+}
+#contacts .float-label-control input.empty + label, #contacts .float-label-control textarea.empty + label {
+    margin-left: 40px;
+}
+
+#contacts form .btn-bo-wrapper {
+    text-align: right;
+}
+
+.ico-s-mail { background-image: url("../images/sMail.png"); }
+.ico-s-skype { background-image: url("../images/sSkype.png"); }
+.ico-s-vk { background-image: url("../images/svk.png"); }
+.ico-s-fb { background-image: url("../images/sfb.png"); }
+.ico-s-insta { background-image: url("../images/sinsta.png"); }
+.ico-s-in { background-image: url("../images/sin.png"); }
+
+#contacts .float-label-control input[name="name"] {
+    background-image: url("../images/cName.png");
+}
+#contacts .float-label-control input[name="email"] {
+    background-image: url("../images/cMail.png");
+}
+#contacts .float-label-control textarea[name="message"] {
+    background-image: url("../images/cMessage.png");
+}
+
+/** MARK - footer */
+
+footer {
+    background: #191919;
+    padding: 15px 0;
+    text-align: center;
+    color: #f9f9f9;
+    font-size: 14px;
+}
+footer p {
+    padding: 0;
+    margin: 0;
 }

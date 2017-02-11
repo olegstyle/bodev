@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="icon" type="img/ico" href="/favicon.ico">
 
         <title>Борисенко Олег - Full Stack Developer</title>
 
@@ -65,7 +66,9 @@
                 <h2 class="animated bounceInRight">frontend development • backend development • android development • iOS development</h2>
             </div>
         </header>
-        <div class="container">
+
+        <div id="skills">
+            <div class="container">
             <div class="title-wrapper"><h3 class="title animated fadeIn">Мои навыки</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
                 <li class="tab active">Все навыки</li>
@@ -87,18 +90,22 @@
 
             <div class="btn-bo-wrapper"><div class="btn-bo">Показать все</div></div>
         </div>
+        </div>
 
-        <div class="about-me">
-            <div class="container">
-                <div class="title-wrapper"><h3 class="title title-white animated fadeIn">Обо мне</h3></div>
-                <p class="description animated fadeIn">Когда мне было еще 6 лет у меня была Sega Mega Drive и я уже тогда догадывался что картридж - это всего лишь устройство для хранения информации. Тогда я думал что когда повзрослею буду делать картриджи!) Время шло и как-то я об этой затеи и забыл. Слишком молод был)
-                    Когда мне было 10 лет я увидел объявление в газете “Ищем программиста” и сразу же побежал к маме спросить кто же такой этот “Программист”. Как только я узнал что эта профессия связана с компьютерами у меня появилась мечта и соответственно цель: Стать программистом!
-                </p>
-                <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">Подробнее</div></div>
+        <div id="about_me">
+            <div class="about-me">
+                <div class="container">
+                    <div class="title-wrapper"><h3 class="title title-white animated fadeIn">Обо мне</h3></div>
+                    <p class="description animated fadeIn">Когда мне было еще 6 лет у меня была Sega Mega Drive и я уже тогда догадывался что картридж - это всего лишь устройство для хранения информации. Тогда я думал что когда повзрослею буду делать картриджи!) Время шло и как-то я об этой затеи и забыл. Слишком молод был)
+                        Когда мне было 10 лет я увидел объявление в газете “Ищем программиста” и сразу же побежал к маме спросить кто же такой этот “Программист”. Как только я узнал что эта профессия связана с компьютерами у меня появилась мечта и соответственно цель: Стать программистом!
+                    </p>
+                    <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">Подробнее</div></div>
+                </div>
             </div>
         </div>
 
-        <div class="container">
+        <div id="portfolio">
+            <div class="container">
             <div class="title-wrapper"><h3 class="title animated fadeIn">Портфолио</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
                 <li class="tab active">Все навыки</li>
@@ -129,5 +136,59 @@
                 <div class="btn-bo-wrapper"><div class="btn-bo">Показать все</div></div>
             </div>
         </div>
+        </div>
+
+        <div id="contacts">
+            <div class="container">
+                <div class="title-wrapper"><h3 class="title title-white animated fadeIn">Контакты</h3></div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a class="contact animated bounceInLeft" href="mailto:olegstyle1@gmail.com">
+                            <h3>Email</h3>
+                            <p>olegstyle1@gmail.com</p>
+                            <div class="ico ico-s-mail"></div>
+                        </a>
+                        <a class="contact animated bounceInLeft" href="skype:olehstail">
+                            <h3>Skype</h3>
+                            <p>olehstail</p>
+                            <div class="ico ico-s-skype"></div>
+                        </a>
+                        <div class="social">
+                            <a class="contact animated bounceInLeft" href="https://vk.com/bodev_pro" target="_blank"><div class="ico ico-s-vk"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.facebook.com/bodev.pro" target="_blank"><div class="ico ico-s-fb"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.instagram.com/olehstail/" target="_blank"><div class="ico ico-s-insta"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.linkedin.com/in/oleg-borisenko-723086129/" target="_blank"><div class="ico ico-s-in"></div></a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <form role="form" method="POST">
+                            <div class="form-group float-label-control">
+                                <input name="name" type="text" class="form-control empty" placeholder="Name">
+                                <label for="">Name</label>
+                            </div>
+                            <div class="form-group float-label-control">
+                                <input name="email" type="email" class="form-control empty" placeholder="Email">
+                                <label for="">Email</label>
+                            </div>
+                            <div class="form-group float-label-control">
+                                <textarea name="message" class="form-control empty" rows="3"></textarea>
+                                <label for="">Message</label>
+                            </div>
+                            <div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">Отправить</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Made by Borisenko Oleg
+                &nbsp;&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;&nbsp;
+                Copyright © 2017
+                &nbsp;&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;&nbsp;
+                All rights reserved
+            </p>
+        </footer>
     </body>
 </html>
