@@ -20,6 +20,8 @@ class MainController extends Controller {
      * @return Response
      */
     public function __invoke() {
+        //App::setLocale();
+
         $now = date_create(date("Y-m-d", time()));
         $techStacks = TechnicalStack::all();
         $projects = Project::all();

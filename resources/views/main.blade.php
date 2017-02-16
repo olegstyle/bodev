@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,7 +27,7 @@
                     <div class="header-menu-wrapper">
                         <div class="hamburger"></div>
                         <ul class="header-menu">
-                            <li><a href="#skills">Навыки</a></li>
+                            <li><a href="#skills">@lang('main.skills')</a></li>
                             <li><a href="#about_me">Обо мне</a></li>
                             <li><a href="#portfolio">Портфолио</a></li>
                             <li><a href="#contacts">Контакты</a></li>
