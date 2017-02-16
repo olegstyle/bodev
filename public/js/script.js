@@ -111,5 +111,8 @@ $(function () {
        $('#contacts .float-label-control label').click(function () {
            $(this).parent().find('input, textarea').eq(0).focus();
        });
+       $('.header-menu > li > a').click(function () {
+           $('.header')
+       });
    });
 });

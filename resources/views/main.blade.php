@@ -183,10 +183,10 @@
 
         <footer>
             <p>
-                Made by Borisenko Oleg
-                &nbsp;&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;&nbsp;
+                <span>Made by Borisenko Oleg
+                &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span> z
                 Copyright © 2017
-                &nbsp;&nbsp;&nbsp;<span>•</span>&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
                 All rights reserved
             </p>
         </footer>
