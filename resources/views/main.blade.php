@@ -186,7 +186,7 @@
         <footer>
             <p>
                 <span>Made by Borisenko Oleg
-                &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span> z
+                &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
                 Copyright © 2017
                 &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
                 All rights reserved
