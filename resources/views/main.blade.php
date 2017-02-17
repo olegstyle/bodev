@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="theme-color" content="#4cc3bf" />
         <link rel="icon" type="img/ico" href="/favicon.ico">
 
         <title>{{ \TCG\Voyager\Voyager::setting('title', '')  }}</title>
@@ -24,6 +25,10 @@
             <div class="container">
                 <div class="icon-wrapper">
                     <img src="/images/logo.png" width="142" height="67" alt="bodev icon">
+                    <div class="lang-wrapper">
+                        <span class="lang @if($locale == 'en') active @endif" data-lang="en">EN</span>
+                        <span class="lang @if($locale == 'ru') active @endif" data-lang="ru">RU</span>
+                    </div>
                     <div class="header-menu-wrapper">
                         <div class="hamburger"></div>
                         <ul class="header-menu">
@@ -73,21 +78,25 @@
             <div class="container">
             <div class="title-wrapper"><h3 class="title animated fadeIn">@lang('main.my_skills')</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
-                <li class="tab active">@lang('main.all_skills')</li>
-                <li class="tab">Backend</li>
-                <li class="tab">Frontend</li>
+                <li class="tab active" data-group="0">@lang('main.all_skills')</li>
+
+                @foreach($tech_groups as $group)
+                    <li class="tab" data-group="{{  $group['id'] }}">{{ $group['name'] }}</li>
+                @endforeach
                 <hr />
             </ul></div>
 
             <div class="skills-wrapper row">
-                <div class="col-lg-2 col-md-3 col-sm-3 col-xs-4">
-                    <div class="skill">
-                        <img src="/images/html5.png" />
-                        <h4>HTML</h4>
-                        <div class="lvl">Strong</div>
-                        <div class="time">4 years<br>1 month</div>
+                @foreach($tech_stacks as $stack)
+                    <div class="skill-group skill-group-{{ $stack['group_id'] }} col-lg-2 col-md-3 col-sm-3 col-xs-4 animated">
+                        <div class="skill" data-id="{{ $stack['id'] }}">
+                            <img src="{{ $stack['image_url'] }}" />
+                            <h4>{{ $stack['name'] }}</h4>
+                            <div class="lvl">{{ $stack['level'] }}</div>
+                            <div class="time">{{ $stack['start'] }}</div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="btn-bo-wrapper"><div class="btn-bo">@lang('main.show_all')</div></div>
@@ -108,30 +117,47 @@
             <div class="container">
             <div class="title-wrapper"><h3 class="title animated fadeIn">@lang('main.my_portfolio')</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
-                <li class="tab active">@lang('main.all_projects')</li>
-                <li class="tab">Backend</li>
-                <li class="tab">Frontend</li>
+                <li class="tab active" data-group="0">@lang('main.all_projects')</li>
+                @foreach($tech_stacks as $ts)
+                    <li class="tab" data-group="{{ $ts['id'] }}">{{ $ts['name'] }}</li>
+                @endforeach
                 <hr />
             </ul></div>
             <div class="projects-wrapper">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                        <div class="project" style="background-image: url('/images/tyretrader-assistant-android.png');">
-                            <div class="project-mini-info animated">
-                                <div class="bg animated"></div>
-                                <div class="project-content">
-                                    <h4 class="project-name">TyreTrader assistant</h4>
-                                    <p class="project-gist"><b>@lang('main.gist'):</b> Калькулятор шин и дисков. Подбор размеров шин и дисков под авто
-                                    </p>
-                                    <p class="project-description"><b>@lang('main.description'):</b> Приложение создано исключительно для предоставления информации пользователям. В приложении используется SQLite База данных чтобы предоставить пользователю информацию в offline режиме.
-                                    </p>
+                    @foreach($projects as $p)
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach">
+                            <div class="project" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
+                                <div class="project-mini-info animated">
+                                    <div class="bg animated"></div>
+                                    <div class="project-content">
+                                        <h4 class="project-name">{{ $p['name'] }}</h4>
+                                        <p class="project-gist"><b>@lang('main.gist'):</b> {{ $p['gist'] }}</p>
+                                        <p class="project-description"><b>@lang('main.description'):</b> {{ $p['description'] }}</p>
+                                        @if(!empty($p['date_start']) && $p['date_start'] != '0000-00-00')
+                                            <p class="project-start"><b>@lang('main.date_start'):</b> {{ $p['date_start'] }}</p>
+                                        @endif
+                                        @if(!empty($p['date_end']) && $p['date_end'] != '0000-00-00')
+                                            <p class="project-end"><b>@lang('main.date_end'):</b> {{ $p['date_end'] }}</p>
+                                        @endif
+                                        @if(!empty($p['stack']))
+                                            <p class="project-tech-stack">
+                                                <b>@lang('main.technology_stack'):</b>
+                                                @foreach($p['stack'] as $s)
+                                                    <img src="{{ $s['image_url'] }}" title="{{ $s['name'] }}" alt="{{ $s['name'] }}" />
+                                                @endforeach
+                                            </p>
+                                        @endif
+                                    </div>
+                                    @if(!empty($p['link']))
+                                        <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
+                                            <a href="{{ $p['link'] }}" target="_blank">@lang('main.look')</a>
+                                        </div></div>
+                                    @endif
                                 </div>
-                                <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
-                                    <a href="https://play.google.com/store/apps/details?id=info.tyretrader.assistant" target="_blank">@lang('main.look')</a>
-                                </div></div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="btn-bo-wrapper"><div class="btn-bo">@lang('main.show_all')</div></div>
             </div>

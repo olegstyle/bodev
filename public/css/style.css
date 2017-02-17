@@ -89,7 +89,7 @@ body {
     display: none;
 }
 
-.icon-wrapper .header-menu-wrapper {
+.icon-wrapper .header-menu-wrapper, .header .lang-wrapper {
     position: absolute;
     top: 50%;
     right: 0;
@@ -115,6 +115,29 @@ body {
     padding: 5px 10px 5px 10px;
     font-size: 23px;
     color: white;
+}
+
+.header .lang-wrapper {
+    right: auto;
+    left: 150px;
+}
+
+.header .lang-wrapper .lang {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.header .lang-wrapper .lang:hover {
+    text-decoration: none;
+}
+
+.header .lang-wrapper .lang.active {
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    cursor: default;
 }
 
 .header h1 {
@@ -680,7 +703,7 @@ body {
 /** MARK - projects */
 
 .project {
-    height: 450px;
+    height: 400px;
     background-size: 100% auto;
     background-position: center top;
     background-repeat: no-repeat;
@@ -730,9 +753,11 @@ body {
 }
 .project-mini-info .project-content {
     position: absolute;
+    max-height: 320px;
     top: 0;
     left: 0;
     z-index: 1;
+    overflow-y: scroll;
 }
 .project-mini-info .btn-bo-wrapper {
     width: 100%;
@@ -748,12 +773,26 @@ body {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    margin: 25px 0;
+    margin: 25px 0 15px;
     padding: 0;
 }
 
 .project-mini-info p {
-    margin: 0 15px 20px;
+    margin: 0 15px 10px;
+}
+
+.project-tech-stack b {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.project-mini-info p.project-start {
+    margin-bottom: 3px;
+}
+
+.project-tech-stack img {
+    max-width: 50px;
+    max-height: 50px;
 }
 
 

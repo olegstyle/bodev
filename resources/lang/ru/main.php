@@ -19,5 +19,8 @@ return [
     'all_projects' => 'Все проекты',
     'gist' => 'Назначние',
     'description' => 'Описание',
-    'look' => 'Посмотреть'
+    'look' => 'Посмотреть',
+    'date_start' => 'Дата начала',
+    'date_end' => 'Дата окончания',
+    'technology_stack' => 'Стек технологий'
 ];
