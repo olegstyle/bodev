@@ -9,7 +9,22 @@
         <meta name="theme-color" content="#4cc3bf" />
         <link rel="icon" type="img/ico" href="/favicon.ico">
 
-        <title>{{ \TCG\Voyager\Voyager::setting('title', '')  }}</title>
+        <title>{{ $seo_title }}</title>
+        <meta property="og:title" content="{{ $seo_title }}" />
+        <meta name="title" content="{{ $seo_title }}" />
+        <meta itemprop="name" content="{{ $seo_title }}">
+
+        <meta name="description" content="{{ $seo_description }}" />
+        <meta property="og:description" content="{{ $seo_description }}" />
+        <meta itemprop="description" content="{{ $seo_description }}">
+
+        <meta name="keywords" content="{{ $seo_keywords }}" />
+        <meta property="og:keywords" content="{{ $seo_keywords }}" />
+        <meta itemprop="keywords" content="{{ $seo_keywords }}">
+
+        <link rel="image_src" href="{{ $seo_image }}" />
+        <meta property="og:image" content="{{ $seo_image }}" />
+        <meta itemprop="image" content="{{ $seo_image }}">
 
         <script type="text/javascript" src="/js/jquery.js"></script>
         <script type="text/javascript" src="/js/script.js"></script>
@@ -93,7 +108,7 @@
                             <img src="{{ $stack['image_url'] }}" />
                             <h4>{{ $stack['name'] }}</h4>
                             <div class="lvl">{{ $stack['level'] }}</div>
-                            <div class="time">{{ $stack['start'] }}</div>
+                            <div class="time">{!! $stack['start'] !!}</div>
                         </div>
                     </div>
                 @endforeach

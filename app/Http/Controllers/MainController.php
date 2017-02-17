@@ -86,6 +86,7 @@ class MainController extends Controller {
                     $tDiff .= ' ';
                 }
             }
+            $tDiff .= "<br>";
             if ($diff->m > 0) {
                 $tDiff .= $diff->m;
                 $tDiff .= ' month';
@@ -129,6 +130,11 @@ class MainController extends Controller {
         $data['email'] = Voyager::setting('email', '');
         $data['skype'] = Voyager::setting('skype', '');
         $data['locale'] = $locale;
+        $data['seo_title'] = Voyager::setting('title', '');
+        $data['seo_keywords'] = Voyager::setting('seo_keywords', '');
+        $data['seo_description'] = Voyager::setting('seo_description', '');
+        $data['seo_image'] = '/images/me.jpg';
+
 
         return view('main', $data);
     }
