@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link rel="icon" type="img/ico" href="/favicon.ico">
 
-        <title>Борисенко Олег - Full Stack Developer</title>
+        <title>{{ \TCG\Voyager\Voyager::setting('title', '')  }}</title>
 
         <script type="text/javascript" src="/js/jquery.js"></script>
         <script type="text/javascript" src="/js/script.js"></script>
@@ -28,9 +28,9 @@
                         <div class="hamburger"></div>
                         <ul class="header-menu">
                             <li><a href="#skills">@lang('main.skills')</a></li>
-                            <li><a href="#about_me">Обо мне</a></li>
-                            <li><a href="#portfolio">Портфолио</a></li>
-                            <li><a href="#contacts">Контакты</a></li>
+                            <li><a href="#about_me">@lang('main.about_me')</a></li>
+                            <li><a href="#portfolio">@lang('main.portfolio')</a></li>
+                            <li><a href="#contacts">@lang('main.contacts')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                             </div>
                             <div class="info info-right-align animated bounceInLeft">
                                 <h3>Email</h3>
-                                <p>olegstyle1@gmail.com</p>
+                                <p>{{ $email }}</p>
                                 <div class="ico ico-mail"></div>
                             </div>
                         </div>
@@ -64,16 +64,16 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="animated bounceInLeft">FULL STACK DEVELOPER</h1>
-                <h2 class="animated bounceInRight">frontend development • backend development • android development • iOS development</h2>
+                <h1 class="animated bounceInLeft">{{ \TCG\Voyager\Voyager::setting('header_title', '') }}</h1>
+                <h2 class="animated bounceInRight">{{ \TCG\Voyager\Voyager::setting('header_subtitle', '') }}</h2>
             </div>
         </header>
 
         <div id="skills">
             <div class="container">
-            <div class="title-wrapper"><h3 class="title animated fadeIn">Мои навыки</h3></div>
+            <div class="title-wrapper"><h3 class="title animated fadeIn">@lang('main.my_skills')</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
-                <li class="tab active">Все навыки</li>
+                <li class="tab active">@lang('main.all_skills')</li>
                 <li class="tab">Backend</li>
                 <li class="tab">Frontend</li>
                 <hr />
@@ -90,27 +90,25 @@
                 </div>
             </div>
 
-            <div class="btn-bo-wrapper"><div class="btn-bo">Показать все</div></div>
+            <div class="btn-bo-wrapper"><div class="btn-bo">@lang('main.show_all')</div></div>
         </div>
         </div>
 
         <div id="about_me">
             <div class="about-me">
                 <div class="container">
-                    <div class="title-wrapper"><h3 class="title title-white animated fadeIn">Обо мне</h3></div>
-                    <p class="description animated fadeIn">Когда мне было еще 6 лет у меня была Sega Mega Drive и я уже тогда догадывался что картридж - это всего лишь устройство для хранения информации. Тогда я думал что когда повзрослею буду делать картриджи!) Время шло и как-то я об этой затеи и забыл. Слишком молод был)
-                        Когда мне было 10 лет я увидел объявление в газете “Ищем программиста” и сразу же побежал к маме спросить кто же такой этот “Программист”. Как только я узнал что эта профессия связана с компьютерами у меня появилась мечта и соответственно цель: Стать программистом!
-                    </p>
-                    <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">Подробнее</div></div>
+                    <div class="title-wrapper"><h3 class="title title-white animated fadeIn">@lang('main.about_me')</h3></div>
+                    <p class="description animated fadeIn">{{ $about_me_short }}</p>
+                    <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">@lang('main.more')</div></div>
                 </div>
             </div>
         </div>
 
         <div id="portfolio">
             <div class="container">
-            <div class="title-wrapper"><h3 class="title animated fadeIn">Портфолио</h3></div>
+            <div class="title-wrapper"><h3 class="title animated fadeIn">@lang('main.my_portfolio')</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
-                <li class="tab active">Все навыки</li>
+                <li class="tab active">@lang('main.all_projects')</li>
                 <li class="tab">Backend</li>
                 <li class="tab">Frontend</li>
                 <hr />
@@ -123,36 +121,36 @@
                                 <div class="bg animated"></div>
                                 <div class="project-content">
                                     <h4 class="project-name">TyreTrader assistant</h4>
-                                    <p class="project-gist"><b>Суть проекта:</b> Калькулятор шин и дисков. Подбор размеров шин и дисков под авто
+                                    <p class="project-gist"><b>@lang('main.gist'):</b> Калькулятор шин и дисков. Подбор размеров шин и дисков под авто
                                     </p>
-                                    <p class="project-description"><b>Описание:</b> Приложение создано исключительно для предоставления информации пользователям. В приложении используется SQLite База данных чтобы предоставить пользователю информацию в offline режиме.
+                                    <p class="project-description"><b>@lang('main.description'):</b> Приложение создано исключительно для предоставления информации пользователям. В приложении используется SQLite База данных чтобы предоставить пользователю информацию в offline режиме.
                                     </p>
                                 </div>
                                 <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
-                                    <a href="https://play.google.com/store/apps/details?id=info.tyretrader.assistant" target="_blank">Посмотреть</a>
+                                    <a href="https://play.google.com/store/apps/details?id=info.tyretrader.assistant" target="_blank">@lang('main.look')</a>
                                 </div></div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="btn-bo-wrapper"><div class="btn-bo">Показать все</div></div>
+                <div class="btn-bo-wrapper"><div class="btn-bo">@lang('main.show_all')</div></div>
             </div>
         </div>
         </div>
 
         <div id="contacts">
             <div class="container">
-                <div class="title-wrapper"><h3 class="title title-white animated fadeIn">Контакты</h3></div>
+                <div class="title-wrapper"><h3 class="title title-white animated fadeIn">@lang('main.contacts')</h3></div>
                 <div class="row">
                     <div class="col-sm-6">
-                        <a class="contact animated bounceInLeft" href="mailto:olegstyle1@gmail.com">
+                        <a class="contact animated bounceInLeft" href="mailto:{{ $email }}">
                             <h3>Email</h3>
-                            <p>olegstyle1@gmail.com</p>
+                            <p>{{ $email }}</p>
                             <div class="ico ico-s-mail"></div>
                         </a>
-                        <a class="contact animated bounceInLeft" href="skype:olehstail">
+                        <a class="contact animated bounceInLeft" href="skype:{{ $skype }}">
                             <h3>Skype</h3>
-                            <p>olehstail</p>
+                            <p>{{ $skype }}</p>
                             <div class="ico ico-s-skype"></div>
                         </a>
                         <div class="social">

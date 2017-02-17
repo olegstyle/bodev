@@ -7,5 +7,17 @@
  */
 
 return [
-    'skills' => 'Skills'
+    'skills' => 'Skills',
+    'about_me' => 'About Me',
+    'portfolio' => 'Portfolio',
+    'contacts' => 'Contacts',
+    'my_skills' => 'My skills',
+    'all_skills' => 'All skills',
+    'show_all' => 'More',
+    'more' => 'More',
+    'my_portfolio' => 'My portfolio',
+    'all_projects' => 'All projects',
+    'gist' => 'Gist',
+    'description' => 'Description',
+    'look' => 'Look'
 ];

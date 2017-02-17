@@ -7,5 +7,17 @@
  */
 
 return [
-    'skills' => 'Навыки'
+    'skills' => 'Навыки',
+    'about_me' => 'Обо мне',
+    'portfolio' => 'Портфолио',
+    'contacts' => 'Контакты',
+    'my_skills' => 'Мои навыки',
+    'all_skills' => 'Все навыки',
+    'show_all' => 'Показать все',
+    'more' => 'Подробнее',
+    'my_portfolio' => 'Мое портфолио',
+    'all_projects' => 'Все проекты',
+    'gist' => 'Назначние',
+    'description' => 'Описание',
+    'look' => 'Посмотреть'
 ];

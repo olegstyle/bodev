@@ -12,6 +12,10 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\ProjectTechnicalStack;
 use App\TechnicalStack;
+use App\TechnicalStackGroup;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Lang;
+use TCG\Voyager\Voyager;
 
 class MainController extends Controller {
     /**
@@ -20,22 +24,43 @@ class MainController extends Controller {
      * @return Response
      */
     public function __invoke() {
-        //App::setLocale();
+        $locale = strtolower('ru');
+        Lang::setLocale($locale);
+        $imageStorage = '/storage/';
+
+        $data = [];
 
         $now = date_create(date("Y-m-d", time()));
+        $techGroup = TechnicalStackGroup::orderBy('order', 'asc')->get();
         $techStacks = TechnicalStack::all();
         $projects = Project::all();
         $p2ts = ProjectTechnicalStack::all();
 
+
+        $techGroupList = [];
+        foreach ($techGroup as $tg) {
+            $techGroupList[$tg->id] = $tg->name;
+        }
+
+
         $techStackList = [];
         foreach ($techStacks as $ts) {
-            $techStackList[$ts->id] = $ts->getAttributes();
-            if ($ts->level > 3 && $ts->level < 8) {
-                $techStackList[$ts->id]['level'] = 'middle';
-            } else if ($ts->level <= 3) {
-                $techStackList[$ts->id]['level'] = 'low';
+            $techStackList[$ts->id] = [
+                'id' => $ts->id,
+                'group_id' => $ts->group_id,
+                'name' => $ts->name,
+                'image_url' => $imageStorage . $ts->image_url
+            ];
+            if ($ts->level >= 5) {
+                $techStackList[$ts->id]['level'] = 'strong';
+            } else if ($ts->level == 4) {
+                $techStackList[$ts->id]['level'] = 'very good';
+            } else if ($ts->level == 3) {
+                $techStackList[$ts->id]['level'] = 'good';
+            } else if ($ts->level == 2) {
+                $techStackList[$ts->id]['level'] = 'not bad';
             } else {
-                $techStackList[$ts->id]['level'] = 'high';
+                $techStackList[$ts->id]['level'] = 'bad';
             }
             $start = date_create($ts->date_start);
             $diff = date_diff($start, $now);
@@ -56,12 +81,22 @@ class MainController extends Controller {
                     $tDiff .= 's';
                 }
             }
-            $techStackList[$ts->id]['diff'] = $tDiff;
+            $techStackList[$ts->id]['start'] = $tDiff;
         }
+
 
         $projectsList = [];
         foreach ($projects as &$project) {
-            $projectsList[$project->id] = $project->getAttributes();
+            $projectsList[$project->id] = [
+                'id' => $project->id,
+                'name' => $project->{'name_'.$locale},
+                'gist' => $project->{'gist_'.$locale},
+                'description' => $project->{'description_'.$locale},
+                'image_url' => $project->image_url,
+                'date_start' => $project->date_start,
+                'date_end' => $project->date_end,
+                'link' => $project->link
+            ];
             $projectsList[$project->id]['stack'] = [];
             foreach ($p2ts as &$ts) {
                 if ($ts->project_id == $project->id) {
@@ -71,8 +106,12 @@ class MainController extends Controller {
                 }
             }
         }
-        //var_dump($techStackList);
-        //var_dump($projectsList);
-        return view('main');
+
+        $data['about_me_long'] = Voyager::setting('about_me_long_' . $locale, '');
+        $data['about_me_short'] = Voyager::setting('about_me_short_' . $locale, '');
+        $data['email'] = Voyager::setting('email', '');
+        $data['skype'] = Voyager::setting('skype', '');
+
+        return view('main', $data);
     }
 }
