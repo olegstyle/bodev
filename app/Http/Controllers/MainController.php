@@ -89,7 +89,7 @@ class MainController extends Controller {
             if ($diff->m > 0) {
                 $tDiff .= $diff->m;
                 $tDiff .= ' month';
-                if ($diff->y > 1) {
+                if ($diff->m > 1) {
                     $tDiff .= 's';
                 }
             }
