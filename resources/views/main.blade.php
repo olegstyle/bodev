@@ -6,8 +6,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <meta name="theme-color" content="#4cc3bf" />
         <link rel="icon" type="img/ico" href="/favicon.ico">
+
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#4cc3bf">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#4cc3bf">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="#4cc3bf">
 
         <title>{{ $seo_title }}</title>
         <meta property="og:title" content="{{ $seo_title }}" />
