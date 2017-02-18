@@ -555,18 +555,30 @@ body {
     box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
 }
 
+.skills-wrapper .skill .image-wrapper {
+    height: 110px;
+    position: relative;
+}
+
 .skills-wrapper .skill img {
     width: 75%;
+    max-height: 110px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .skills-wrapper .skill h4 {
-    font-size: 29px;
+    font-size: 27px;
     font-weight: bold;
     color: #f0652a;
 }
 
 .skills-wrapper .skill .lvl, .skills-wrapper .skill .time {
-    font-size: 18px;
+    font-size: 16px;
     color: #2c3e50;
     text-align: left;
     padding-left: 50px;
@@ -593,7 +605,7 @@ body {
         padding: 10px 5px;
     }
     .skills-wrapper .skill h4 {
-        font-size: 21px;
+        font-size: 18px;
     }
     .skills-wrapper .skill .lvl, .skills-wrapper .skill .time {
         font-size: 14px;
@@ -759,11 +771,13 @@ body {
     z-index: 1;
     overflow-y: scroll;
 }
+.project-mini-info .project-content.without-btn {
+    max-height: 400px;
+}
 .project-mini-info .btn-bo-wrapper {
     width: 100%;
-    position: absolute;
-    bottom: 15px;
-    left: 0;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 .project-mini-info .btn-bo-wrapper .btn-bo {
     font-size: inherit;

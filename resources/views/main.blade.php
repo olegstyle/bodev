@@ -33,6 +33,7 @@
         <meta itemprop="image" content="{{ $seo_image }}">
 
         <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
         <script type="text/javascript" src="/js/script.js"></script>
 
         <!-- Fonts -->
@@ -109,9 +110,9 @@
 
             <div class="skills-wrapper row">
                 @foreach($tech_stacks as $stack)
-                    <div class="skill-group skill-group-{{ $stack['group_id'] }} col-lg-2 col-md-3 col-sm-3 col-xs-4 animated">
+                    <div class="skill-group skill-group-{{ $stack['group_id'] }} col-lg-2 col-md-3 col-sm-3 col-xs-4 animated" @if($loop->index >= 6) style="display: none" @endif>
                         <div class="skill" data-id="{{ $stack['id'] }}">
-                            <img src="{{ $stack['image_url'] }}" />
+                            <div class="image-wrapper"><img src="{{ $stack['image_url'] }}" alt="{{ $stack["name"] }}" /></div>
                             <h4>{{ $stack['name'] }}</h4>
                             <div class="lvl">{{ $stack['level'] }}</div>
                             <div class="time">{!! $stack['start'] !!}</div>
@@ -147,11 +148,11 @@
             <div class="projects-wrapper">
                 <div class="row">
                     @foreach($projects as $p)
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach">
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach" @if($loop->index >= 4) style="display: none" @endif>
                             <div class="project" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
                                 <div class="project-mini-info animated">
                                     <div class="bg animated"></div>
-                                    <div class="project-content">
+                                    <div class="project-content without-btn">
                                         <h4 class="project-name">{{ $p['name'] }}</h4>
                                         <p class="project-gist"><b>@lang('main.gist'):</b> {{ $p['gist'] }}</p>
                                         <p class="project-description"><b>@lang('main.description'):</b> {{ $p['description'] }}</p>
@@ -169,12 +170,12 @@
                                                 @endforeach
                                             </p>
                                         @endif
+                                        @if(!empty($p['link']))
+                                            <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
+                                                    <a href="{{ $p['link'] }}" target="_blank">@lang('main.look')</a>
+                                                </div></div>
+                                        @endif
                                     </div>
-                                    @if(!empty($p['link']))
-                                        <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
-                                            <a href="{{ $p['link'] }}" target="_blank">@lang('main.look')</a>
-                                        </div></div>
-                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -87,12 +87,13 @@ class MainController extends Controller {
                 }
             }
             $tDiff .= "<br>";
-            if ($diff->m > 0) {
-                $tDiff .= $diff->m;
-                $tDiff .= ' month';
-                if ($diff->m > 1) {
-                    $tDiff .= 's';
-                }
+            if ($diff->m <= 0) {
+                $diff->m = 1;
+            }
+            $tDiff .= $diff->m;
+            $tDiff .= ' month';
+            if ($diff->m > 1) {
+                $tDiff .= 's';
             }
             $techStackList[$ts->id]['start'] = $tDiff;
         }
