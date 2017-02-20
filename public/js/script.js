@@ -155,79 +155,43 @@ $(function () {
         $(".project .project-content").niceScroll();
 
        // skill tabs click
-       var limit_skill = true;
-       var last_skill = 0;
        var skills = $('#skills');
-       function showSkills(group) {
-           last_skill = group;
-           if (group == '0') {
-               var q = skills.find('.skills-wrapper > .skill-group');
-               q.fadeOut(0);
-               if (limit_skill) {
-                   q = q.slice(0, 6);
-               }
-               q.fadeIn('fast');
-           } else {
-               var h = skills.find('.skills-wrapper > .skill-group:not(.skill-group-' + group + ')');
-               var afterHide = function () {
-                   var q = skills.find('.skills-wrapper > .skill-group-' + group);
-                   if (limit_skill) {
-                       q = q.slice(0, 6);
-                   }
-                   q.fadeIn('fast');
-               };
-               if (h.length > 0) {
-                   h.fadeOut('fast', afterHide);
-               } else {
-                   afterHide();
-               }
-           }
-       }
+       var skillsGrid = $('#skills-grid');
+       skillsGrid.mixItUp({
+           pagination: { limit: 6 },
+           load: { filter: '.skill-group' }
+       });
        skills.find('.tabs .tab').click(function () {
-           showSkills($(this).data('group'));
+           var g = $(this).data('group');
+           if (g == '0') {
+               skillsGrid.mixItUp('filter', '.skill-group');
+           } else {
+               skillsGrid.mixItUp('filter', '.skill-group-' + g);
+           }
        });
        skills.find('.container > .btn-bo-wrapper > .btn-bo').click(function () {
-           limit_skill = false;
-           showSkills(last_skill);
+           skillsGrid.mixItUp('paginate', { limit: 999 });
            $(this).remove();
        });
 
         //project tabs click
-       var limit_project = true;
-       var last_project = 0;
-       var portfolio = $('#portfolio');
-       function showPortfolio(group) {
-           last_project = group;
-           if (group == '0') {
-               var q = portfolio.find('.projects-wrapper .project-group');
-               q.fadeOut(0);
-               if (limit_project) {
-                   q = q.slice(0, 4);
-               }
-               q.fadeIn('fast');
-           } else {
-               var h = portfolio.find('.projects-wrapper .project-group:not(.project-group-' + group + ')');
-               var afterHide = function () {
-                   var q = portfolio.find('.projects-wrapper .project-group-' + group);
-                   if (limit_project) {
-                       q = q.slice(0, 4);
-                   }
-                   q.fadeIn('fast');
-               };
-               if (h.length > 0) {
-                   h.fadeOut('fast', afterHide);
-               } else {
-                   afterHide();
-               }
-           }
-       }
+       var portfolio = $("#portfolio");
+       var projectGrid = $('#portfolio-grid');
+       projectGrid.mixItUp({
+           pagination: { limit: 4 },
+           load: { filter: '.project-group' }
+       });
        portfolio.find('.tabs .tab').click(function () {
-           showPortfolio($(this).data('group'));
+           var g = $(this).data('group');
+           if (g == '0') {
+               projectGrid.mixItUp('filter', '.project-group');
+           } else {
+               projectGrid.mixItUp('filter', '.project-group-' + g);
+           }
 
        });
        portfolio.find('.projects-wrapper > .btn-bo-wrapper .btn-bo').click(function () {
-           limit_project = false;
-           showPortfolio(last_project);
+           projectGrid.mixItUp('paginate', { limit: 999 });
            $(this).remove();
        });
 

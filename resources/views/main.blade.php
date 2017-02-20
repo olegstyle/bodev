@@ -34,6 +34,8 @@
 
         <script type="text/javascript" src="/js/jquery.js"></script>
         <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
         <script type="text/javascript" src="/js/script.js"></script>
 
         <!-- Fonts -->
@@ -101,16 +103,18 @@
             <div class="title-wrapper"><h3 class="title animated fadeIn">@lang('main.my_skills')</h3></div>
             <div class="tabs-wrapper"><ul class="tabs">
                 <li class="tab active" data-group="0">@lang('main.all_skills')</li>
-
                 @foreach($tech_groups as $group)
-                    <li class="tab" data-group="{{  $group['id'] }}">{{ $group['name'] }}</li>
+                    <li class="tab"
+                        data-group="{{  $group['id'] }}">
+                        {{ $group['name'] }}
+                    </li>
                 @endforeach
                 <hr />
             </ul></div>
 
-            <div class="skills-wrapper row">
+            <div id="skills-grid" class="skills-wrapper row">
                 @foreach($tech_stacks as $stack)
-                    <div class="skill-group skill-group-{{ $stack['group_id'] }} col-lg-2 col-md-3 col-sm-3 col-xs-4 animated" @if($loop->index >= 6) style="display: none" @endif>
+                    <div class="mix skill-group skill-group-{{ $stack['group_id'] }} col-lg-2 col-md-3 col-sm-3 col-xs-4 animated" @if($loop->index >= 6) style="display: none" @endif>
                         <div class="skill" data-id="{{ $stack['id'] }}">
                             <div class="image-wrapper"><img src="{{ $stack['image_url'] }}" alt="{{ $stack["name"] }}" /></div>
                             <h4>{{ $stack['name'] }}</h4>
@@ -141,14 +145,17 @@
             <div class="tabs-wrapper"><ul class="tabs">
                 <li class="tab active" data-group="0">@lang('main.all_projects')</li>
                 @foreach($tech_stacks as $ts)
-                    <li class="tab" data-group="{{ $ts['id'] }}">{{ $ts['name'] }}</li>
+                    <li class="tab"
+                        data-group="{{ $ts['id'] }}">
+                        {{ $ts['name'] }}
+                    </li>
                 @endforeach
                 <hr />
             </ul></div>
             <div class="projects-wrapper">
-                <div class="row">
+                <div id="portfolio-grid" class="row">
                     @foreach($projects as $p)
-                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach" @if($loop->index >= 4) style="display: none" @endif>
+                        <div class="mix col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach" @if($loop->index >= 4) style="display: none" @endif>
                             <div class="project" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
                                 <div class="project-mini-info animated">
                                     <div class="bg animated"></div>

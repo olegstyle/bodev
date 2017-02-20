@@ -943,3 +943,11 @@ footer p {
         display: none;
     }
 }
+
+#portfolio-grid .mix {
+    display: none;
+}
+
+#skills-grid .mix {
+    display: none;
+}
