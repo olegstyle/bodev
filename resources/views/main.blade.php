@@ -31,18 +31,6 @@
         <link rel="image_src" href="{{ $seo_image }}" />
         <meta property="og:image" content="{{ $seo_image }}" />
         <meta itemprop="image" content="{{ $seo_image }}">
-
-        <script type="text/javascript" src="/js/jquery.js"></script>
-        <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
-        <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
-        <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
-        <script type="text/javascript" src="/js/script.js"></script>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/animate.css" rel="stylesheet">
-        <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
         <header class="header">
@@ -245,5 +233,17 @@
                 All rights reserved
             </p>
         </footer>
+
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
+        <script type="text/javascript" src="/js/script.js"></script>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/animate.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
     </body>
 </html>
