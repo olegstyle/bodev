@@ -22,5 +22,11 @@ return [
     'look' => 'Посмотреть',
     'date_start' => 'Дата начала',
     'date_end' => 'Дата окончания',
-    'technology_stack' => 'Стек технологий'
+    'technology_stack' => 'Стек технологий',
+    'name_empty' => 'Не указано имя',
+    'email_empty' => 'Не указан email',
+    'email_invalid' => 'Email не корректный',
+    'message_empty' => 'Не указано сообщение',
+    'send_success' => 'Успешно отправлено',
+    'start_sending' => 'Отправка...'
 ];

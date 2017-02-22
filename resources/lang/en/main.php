@@ -22,5 +22,11 @@ return [
     'look' => 'Look',
     'date_start' => 'Start date',
     'date_end' => 'End date',
-    'technology_stack' => 'Technology stack'
+    'technology_stack' => 'Technology stack',
+    'name_empty' => 'Didn\'t set name',
+    'email_empty' => 'Didn\'t set email',
+    'email_invalid' => 'Email\'s invalid',
+    'message_empty' => 'Didn\'t set message',
+    'send_success' => 'Send success',
+    'start_sending' => 'Sending...'
 ];

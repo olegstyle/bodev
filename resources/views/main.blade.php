@@ -6,6 +6,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" type="img/ico" href="/favicon.ico">
 
         <!-- Chrome, Firefox OS and Opera -->
@@ -31,6 +32,32 @@
         <link rel="image_src" href="{{ $seo_image }}" />
         <meta property="og:image" content="{{ $seo_image }}" />
         <meta itemprop="image" content="{{ $seo_image }}">
+
+        <script type="text/javascript">
+            BODev = {};
+            BODev.Lang = {
+                name_empty: "@lang('main.name_empty')",
+                email_empty: "@lang('main.email_empty')",
+                email_invalid: "@lang('main.email_invalid')",
+                message_empty: "@lang('main.message_empty')",
+                send_success: "@lang('main.send_success')",
+                sending: "@lang('main.start_sending')"
+            };
+        </script>
+
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
+        <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
+        <script type="text/javascript" src="/js/toastr.min.js"></script>
+        <script type="text/javascript" src="/js/script.js"></script>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/animate.css" rel="stylesheet">
+        <link href="/css/toastr.min.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
         <header class="header">
@@ -204,7 +231,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <form role="form" method="POST">
+                        <form id="contact-me" role="form" method="POST">
                             <div class="form-group float-label-control">
                                 <input name="name" type="text" class="form-control empty" placeholder="Name">
                                 <label for="">Name</label>
@@ -213,7 +240,7 @@
                                 <input name="email" type="email" class="form-control empty" placeholder="Email">
                                 <label for="">Email</label>
                             </div>
-                            <div class="form-group float-label-control">
+                            <div class="form-group float-label-control has-error">
                                 <textarea name="message" class="form-control empty" rows="3"></textarea>
                                 <label for="">Message</label>
                             </div>
@@ -233,17 +260,5 @@
                 All rights reserved
             </p>
         </footer>
-
-        <script type="text/javascript" src="/js/jquery.js"></script>
-        <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
-        <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
-        <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
-        <script type="text/javascript" src="/js/script.js"></script>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/animate.css" rel="stylesheet">
-        <link href="/css/style.css" rel="stylesheet">
     </body>
 </html>

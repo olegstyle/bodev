@@ -13,7 +13,9 @@ use App\Project;
 use App\ProjectTechnicalStack;
 use App\TechnicalStack;
 use App\TechnicalStackGroup;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Mail;
 use TCG\Voyager\Voyager;
 
 class MainController extends Controller {
@@ -41,8 +43,8 @@ class MainController extends Controller {
         $now = date_create(date("Y-m-d", time()));
 
         $techGroup = TechnicalStackGroup::orderBy('order', 'asc')->get();
-        $techStacks = TechnicalStack::all();
-        $projects = Project::all();
+        $techStacks = TechnicalStack::orderBy('date_start', 'desc')->orderBy('group_id', 'asc')->get();
+        $projects = Project::orderBy('date_start', 'desc')->get();
         $p2ts = ProjectTechnicalStack::all();
 
 
@@ -61,7 +63,8 @@ class MainController extends Controller {
                 'id' => $ts->id,
                 'group_id' => $ts->group_id,
                 'name' => $ts->name,
-                'image_url' => $imageStorage . $ts->image_url
+                'image_url' => $imageStorage . $ts->image_url,
+                'date_start' => $ts->date_start
             ];
             if ($ts->level >= 5) {
                 $techStackList[$ts->id]['level'] = 'strong';
@@ -121,6 +124,18 @@ class MainController extends Controller {
                     }
                 }
             }
+            usort($projectsList[$project->id]['stack'], function($a, $b) {
+                if (!isset($a['group_id']) || !isset($b['group_id'])) {
+                    return 0;
+                }
+                if ($a['group_id'] == $b['group_id']) {
+                    return $a['group_id'] < $b['group_id'] ? -1 : 1;
+                }
+                if ($a['date_start'] == $b['date_start']) {
+                    return 0;
+                }
+                return $a['date_start'] < $b['date_start'] ? -1 : 1;
+            });
         }
 
         $data['tech_groups'] = $techGroupList;
@@ -138,5 +153,23 @@ class MainController extends Controller {
 
 
         return view('main', $data);
+    }
+
+    public function sendMail(Request $request) {
+        $data = array(
+            'name' => $request->input('name', ''),
+            'email' => $request->input('email', ''),
+            'bodyMessage' => $request->input('message', ''),
+        );
+        if (empty($data['name']) || empty($data['email']) || empty($data['bodyMessage'])) {
+            return response('', 400);
+        }
+
+        Mail::send('mail', $data, function($message) {
+            $message->from('no-reply@bodev.pro', 'BODev.PRO');
+            $message->to('olegstyle1@gmail.com', 'Borisenko Oleg')->subject
+            ("New message at BODev.PRO");
+        });
+        return response('', 200);
     }
 }

@@ -82,7 +82,7 @@
 })(jQuery);
 
 
-/** global
+/** MARK - global
  **************************************************/
 
 function getCookie(name) {
@@ -120,6 +120,54 @@ function setCookie(name, value, options) {
 
     document.cookie = updatedCookie;
 }
+
+function checkEmail(emailAddress) {
+    var sQtext = '[^\\x0d\\x22\\x5c\\x80-\\xff]';
+    var sDtext = '[^\\x0d\\x5b-\\x5d\\x80-\\xff]';
+    var sAtom = '[^\\x00-\\x20\\x22\\x28\\x29\\x2c\\x2e\\x3a-\\x3c\\x3e\\x40\\x5b-\\x5d\\x7f-\\xff]+';
+    var sQuotedPair = '\\x5c[\\x00-\\x7f]';
+    var sDomainLiteral = '\\x5b(' + sDtext + '|' + sQuotedPair + ')*\\x5d';
+    var sQuotedString = '\\x22(' + sQtext + '|' + sQuotedPair + ')*\\x22';
+    var sDomain_ref = sAtom;
+    var sSubDomain = '(' + sDomain_ref + '|' + sDomainLiteral + ')';
+    var sWord = '(' + sAtom + '|' + sQuotedString + ')';
+    var sDomain = sSubDomain + '(\\x2e' + sSubDomain + ')*';
+    var sLocalPart = sWord + '(\\x2e' + sWord + ')*';
+    var sAddrSpec = sLocalPart + '\\x40' + sDomain; // complete RFC822 email address spec
+    var sValidEmail = '^' + sAddrSpec + '$'; // as whole string
+
+    var reValidEmail = new RegExp(sValidEmail);
+
+    return reValidEmail.test(emailAddress);
+}
+
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
+toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-full-width",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+};
+
+
+/** MARK - page
+ **************************************************/
 
 $(function () {
    $(document).ready(function () {
@@ -201,6 +249,35 @@ $(function () {
                expires: 1000*36000
            });
            window.location.reload(false);
+       });
+       $('#contact-me').submit(function () {
+           var form = $(this);
+           var name = form.find('input[name="name"]').val();
+           var email = form.find('input[name="email"]').val();
+           var message = form.find('textarea[name="message"]').val();
+
+           if (name.trim() == '') {
+               toastr["error"](BODev.Lang.name_empty);
+               return false;
+           } else if (email.trim() == '') {
+               form.find('input[name="name"]').val('');
+               toastr["error"](BODev.Lang.email_empty);
+               return false;
+           } else if (message.trim() == '') {
+               toastr["error"](BODev.Lang.message_empty);
+               return false;
+           }
+           toastr["info"](BODev.Lang.sending);
+           $.ajax('/sendmail', {
+               type: "POST",
+               data: form.serialize(),
+               precessData: false,
+           }).done(function () {
+               toastr["success"](BODev.Lang.send_success);
+               form.trigger('reset');
+               form.find('input[name="name"], input[name="email"], textarea[name="message"]').addClass('empty');
+           });
+           return false;
        });
    });
 });
