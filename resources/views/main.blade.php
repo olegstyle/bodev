@@ -173,13 +173,13 @@
                 <div id="portfolio-grid" class="row">
                     @foreach($projects as $p)
                         <div class="mix col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach" @if($loop->index >= 4) style="display: none" @endif>
-                            <div class="project" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
+                            <div class="project animated" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
                                 <div class="project-mini-info animated">
                                     <div class="bg animated"></div>
                                     <div class="project-content without-btn">
                                         <h4 class="project-name">{{ $p['name'] }}</h4>
                                         <p class="project-gist"><b>@lang('main.gist'):</b> {{ $p['gist'] }}</p>
-                                        <p class="project-description"><b>@lang('main.description'):</b> {{ $p['description'] }}</p>
+                                        <p class="project-description"><b>@lang('main.description'):</b> {!! $p['description'] !!}</p>
                                         @if(!empty($p['date_start']) && $p['date_start'] != '0000-00-00')
                                             <p class="project-start"><b>@lang('main.date_start'):</b> {{ $p['date_start'] }}</p>
                                         @endif

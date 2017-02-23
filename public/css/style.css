@@ -555,6 +555,10 @@ body {
     box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
 }
 
+.skills-wrapper .skill:hover {
+    box-shadow: 0 3px 3px rgba(0,0,0,.12), 0 3px 12px rgba(0,0,0,.12);
+}
+
 .skills-wrapper .skill .image-wrapper {
     height: 110px;
     position: relative;
@@ -611,6 +615,11 @@ body {
         font-size: 14px;
         background-size: 20px auto;
         padding-left: 30px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .skills-wrapper .skill img {
+        width: 60%;
     }
 }
 
@@ -722,6 +731,9 @@ body {
     margin-bottom: 15px;
     position: relative;
     box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
+}
+.project:hover {
+    background-size: 125% auto;
 }
 .project-mini-info {
     width: 100%;

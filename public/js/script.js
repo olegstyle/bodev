@@ -206,7 +206,7 @@ $(function () {
        var skills = $('#skills');
        var skillsGrid = $('#skills-grid');
        skillsGrid.mixItUp({
-           pagination: { limit: 6 },
+           pagination: { limit: 12 },
            load: { filter: '.skill-group' }
        });
        skills.find('.tabs .tab').click(function () {
@@ -226,7 +226,7 @@ $(function () {
        var portfolio = $("#portfolio");
        var projectGrid = $('#portfolio-grid');
        projectGrid.mixItUp({
-           pagination: { limit: 4 },
+           pagination: { limit: 12 },
            load: { filter: '.project-group' }
        });
        portfolio.find('.tabs .tab').click(function () {
