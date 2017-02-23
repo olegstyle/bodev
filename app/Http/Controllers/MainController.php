@@ -26,11 +26,15 @@ class MainController extends Controller {
      */
     public function __invoke() {
 
-        $locale = strtolower(isset($_COOKIE['lang']) ? $_COOKIE['lang'] : '');
+        $locale = strtolower(!empty($_COOKIE['lang']) ? $_COOKIE['lang'] : '');
         if ($locale != 'ru' && $locale != 'en') {
-            $locale = (substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-            if ($locale == 'ua' || $locale == 'ru') {
-                $locale = 'ru';
+            if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+                $locale = (substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
+                if ($locale == 'ua' || $locale == 'ru') {
+                    $locale = 'ru';
+                } else {
+                    $locale = 'en';
+                }
             } else {
                 $locale = 'en';
             }

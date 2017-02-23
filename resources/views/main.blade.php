@@ -148,8 +148,10 @@
             <div class="about-me">
                 <div class="container">
                     <div class="title-wrapper"><h3 class="title title-white animated fadeIn">@lang('main.about_me')</h3></div>
-                    <p class="description animated fadeIn">{{ $about_me_short }}</p>
-                    <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">@lang('main.more')</div></div>
+                    <p class="description animated fadeIn">{!! $about_me_short !!}</p>
+                    @if(!empty(trim($about_me_long)))
+                        <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">@lang('main.more')</div></div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -260,5 +262,15 @@
                 All rights reserved
             </p>
         </footer>
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-92535217-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
     </body>
 </html>
