@@ -19,7 +19,7 @@ return [
     'all_projects' => 'All projects',
     'gist' => 'Gist',
     'description' => 'Description',
-    'look' => 'Look',
+    'look' => 'View',
     'date_start' => 'Start date',
     'date_end' => 'End date',
     'technology_stack' => 'Technology stack',

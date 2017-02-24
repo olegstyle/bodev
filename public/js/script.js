@@ -199,9 +199,6 @@ $(function () {
            $('.header').focus();
         });
 
-        //modern scrollbar
-        $(".project .project-content").niceScroll();
-
        // skill tabs click
        var skills = $('#skills');
        var skillsGrid = $('#skills-grid');

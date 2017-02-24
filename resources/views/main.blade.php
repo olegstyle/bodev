@@ -46,7 +46,6 @@
         </script>
 
         <script type="text/javascript" src="/js/jquery.js"></script>
-        <script type="text/javascript" src="/js/jquery.nicescroll.min.js"></script>
         <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
         <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
         <script type="text/javascript" src="/js/toastr.min.js"></script>
@@ -173,9 +172,9 @@
                 <div id="portfolio-grid" class="row">
                     @foreach($projects as $p)
                         <div class="mix col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group @foreach($p['groups'] as $g) project-group-{{ $g }} @endforeach" @if($loop->index >= 4) style="display: none" @endif>
-                            <div class="project animated" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
-                                <div class="project-mini-info animated">
-                                    <div class="bg animated"></div>
+                            <div class="project animated-fast" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
+                                <div class="project-mini-info animated-fast">
+                                    <div class="bg animated-fast"></div>
                                     <div class="project-content without-btn">
                                         <h4 class="project-name">{{ $p['name'] }}</h4>
                                         <p class="project-gist"><b>@lang('main.gist'):</b> {{ $p['gist'] }}</p>

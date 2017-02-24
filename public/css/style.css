@@ -731,9 +731,10 @@ body {
     margin-bottom: 15px;
     position: relative;
     box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
+    transition: all 0.5s ease-in-out;
 }
 .project:hover {
-    background-size: 125% auto;
+    box-shadow: 0 6px 6px rgba(0,0,0,.12), 0 6px 6px rgba(0,0,0,.12);
 }
 .project-mini-info {
     width: 100%;
@@ -775,6 +776,7 @@ body {
     -webkit-animation-name: projectFadeIn;
     animation-name: projectFadeIn;
 }
+
 .project-mini-info .project-content {
     position: absolute;
     width: 100%;
@@ -789,7 +791,7 @@ body {
 }
 .project-mini-info .btn-bo-wrapper {
     width: 100%;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 .project-mini-info .btn-bo-wrapper .btn-bo {
