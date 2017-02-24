@@ -179,7 +179,9 @@
                                     <div class="project-content without-btn">
                                         <h4 class="project-name">{{ $p['name'] }}</h4>
                                         <p class="project-gist"><b>@lang('main.gist'):</b> {{ $p['gist'] }}</p>
-                                        <p class="project-description"><b>@lang('main.description'):</b> {!! $p['description'] !!}</p>
+                                        @if(!empty($p['description']))
+                                            <p class="project-description"><b>@lang('main.description'):</b> {!! $p['description'] !!}</p>
+                                        @endif
                                         @if(!empty($p['date_start']) && $p['date_start'] != '0000-00-00')
                                             <p class="project-start"><b>@lang('main.date_start'):</b> {{ $p['date_start'] }}</p>
                                         @endif
