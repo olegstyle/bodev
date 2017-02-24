@@ -2,3 +2,10 @@
      RewriteEngine on
         RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
+
+<FilesMatch "\.(ico|pdf|jpg|jpeg|png|gif|html|htm|xml|txt|xsl|css|js)$">
+    Header set Cache-Control "max-age=31536050"
+</FilesMatch>
+<FilesMatch "\.(css|js)$">
+    Header set Cache-Control "max-age=64000"
+</FilesMatch>
