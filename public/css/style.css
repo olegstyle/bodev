@@ -785,14 +785,11 @@ body {
 .project-mini-info .project-content {
     position: absolute;
     width: 100%;
-    max-height: 320px;
+    height: 400px;
     top: 0;
     left: 0;
     z-index: 1;
     overflow-y: scroll;
-}
-.project-mini-info .project-content.without-btn {
-    max-height: 400px;
 }
 .project-mini-info .btn-bo-wrapper {
     width: 100%;

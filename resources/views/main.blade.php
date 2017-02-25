@@ -49,6 +49,7 @@
         <!--link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"-->
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
+        <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
         <link href="/css/animate.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
     </head>
@@ -169,7 +170,7 @@
                             <div class="project animated-fast" data-id="{{ $p['id'] }}" style="background-image: url('{{ $p['image_url'] }}');">
                                 <div class="project-mini-info animated-fast">
                                     <div class="bg animated-fast"></div>
-                                    <div class="project-content without-btn">
+                                    <div class="project-content">
                                         <h4 class="project-name">{{ $p['name'] }}</h4>
                                         <p class="project-gist"><b>@lang('main.gist'):</b> {{ $p['gist'] }}</p>
                                         @if(!empty($p['description']))

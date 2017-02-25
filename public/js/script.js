@@ -172,6 +172,9 @@ toastr.options = {
 $(function () {
    $(document).ready(function () {
         $('.project-mini-info .project-content').perfectScrollbar();
+        $('.project').hover(function () {
+            $(this).find('.project-content').perfectScrollbar("update");
+        });
 
         function changeTab(tab) {
            tab.parent().find('hr').css({
