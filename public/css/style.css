@@ -645,9 +645,11 @@ body {
     -ms-transition: background-color 250ms linear;
     transition: background-color 250ms linear;
 }
-.btn-bo:hover {
-    background-color: #06a598;
-    color: white;
+@media (min-width: 768px) {
+    .btn-bo:hover {
+        background-color: #06a598;
+        color: white;
+    }
 }
 .btn-bo > a {
     color: inherit;
@@ -659,9 +661,11 @@ body {
     color: white;
 }
 
-.btn-bo-white:hover {
-    background-color: white;
-    color: #2c3e50;
+@media (min-width: 768px) {
+    .btn-bo-white:hover {
+        background-color: white;
+        color: #2c3e50;
+    }
 }
 
 @media (max-width: 991px) {
@@ -803,7 +807,7 @@ body {
     text-align: center;
     font-size: 18px;
     font-weight: bold;
-    margin: 25px 0 15px;
+    margin: 20px 0 15px;
     padding: 0;
 }
 

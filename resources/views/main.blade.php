@@ -48,6 +48,7 @@
         <!-- Fonts -->
         <!--link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"-->
         <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/perfect-scrollbar.min.css" rel="stylesheet">
         <link href="/css/animate.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
     </head>
@@ -270,6 +271,7 @@
 </html>
 
 <script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/perfect-scrollbar.jquery.min.js"></script>
 <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
 <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
 <script type="text/javascript" src="/js/toastr.min.js"></script>

@@ -171,6 +171,8 @@ toastr.options = {
 
 $(function () {
    $(document).ready(function () {
+        $('.project-mini-info .project-content').perfectScrollbar();
+
         function changeTab(tab) {
            tab.parent().find('hr').css({
                width: tab.width(),
