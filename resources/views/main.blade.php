@@ -192,7 +192,7 @@
                                         @endif
                                         @if(!empty($p['link']))
                                             <div class="btn-bo-wrapper"><div class="btn-bo btn-bo-white">
-                                                    <a href="{{ $p['link'] }}" target="_blank">@lang('main.look')</a>
+                                                    <a href="{{ $p['link'] }}" rel="nofollow" target="_blank">@lang('main.look')</a>
                                                 </div></div>
                                         @endif
                                     </div>
@@ -222,10 +222,10 @@
                             <div class="ico ico-s-skype"></div>
                         </a>
                         <div class="social">
-                            <a class="contact animated bounceInLeft" href="https://vk.com/bodev_pro" target="_blank"><div class="ico ico-s-vk"></div></a>
-                            <a class="contact animated bounceInLeft" href="https://www.facebook.com/bodev.pro" target="_blank"><div class="ico ico-s-fb"></div></a>
-                            <a class="contact animated bounceInLeft" href="https://www.instagram.com/olehstail/" target="_blank"><div class="ico ico-s-insta"></div></a>
-                            <a class="contact animated bounceInLeft" href="https://www.linkedin.com/in/oleg-borisenko-723086129/" target="_blank"><div class="ico ico-s-in"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://vk.com/bodev_pro" rel="nofollow" target="_blank"><div class="ico ico-s-vk"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.facebook.com/bodev.pro" rel="nofollow" target="_blank"><div class="ico ico-s-fb"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.instagram.com/olehstail/" rel="nofollow" target="_blank"><div class="ico ico-s-insta"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.linkedin.com/in/oleg-borisenko-723086129/" rel="nofollow" target="_blank"><div class="ico ico-s-in"></div></a>
                         </div>
                     </div>
                     <div class="col-sm-6">
