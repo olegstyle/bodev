@@ -78,7 +78,7 @@
                         <div class="col-sm-4">
                             <div class="info info-right-align animated bounceInLeft">
                                 <h3>Full Name</h3>
-                                <p>Borisenko Oleg</p>
+                                <p>Borysenko Oleh</p>
                                 <div class="ico ico-profile"></div>
                             </div>
                             <div class="info info-right-align animated bounceInLeft">
@@ -225,7 +225,7 @@
                             <a class="contact animated bounceInLeft" href="https://vk.com/bodev_pro" rel="nofollow" target="_blank"><div class="ico ico-s-vk"></div></a>
                             <a class="contact animated bounceInLeft" href="https://www.facebook.com/bodev.pro" rel="nofollow" target="_blank"><div class="ico ico-s-fb"></div></a>
                             <a class="contact animated bounceInLeft" href="https://www.instagram.com/olehstail/" rel="nofollow" target="_blank"><div class="ico ico-s-insta"></div></a>
-                            <a class="contact animated bounceInLeft" href="https://www.linkedin.com/in/oleg-borisenko-723086129/" rel="nofollow" target="_blank"><div class="ico ico-s-in"></div></a>
+                            <a class="contact animated bounceInLeft" href="https://www.linkedin.com/in/bodev/" rel="nofollow" target="_blank"><div class="ico ico-s-in"></div></a>
                         </div>
                     </div>
                     <div class="col-sm-6">
@@ -251,7 +251,7 @@
 
         <footer>
             <p>
-                <span>Made by Borisenko Oleg
+                <span>Made by Borysenko Oleh
                 &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
                 Copyright © 2017
                 &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
