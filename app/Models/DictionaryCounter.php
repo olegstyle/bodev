@@ -59,8 +59,7 @@ class DictionaryCounter extends Model
     public static function incrementDict($appName, $dict, $type)
     {
         $d = static::getDict($appName, $dict, $type);
-        $d->f_count += 1;
-        var_dump($d->f_count); die();
+        $d->increment('f_count', 1);
         $d->save();
         return $d;
     }

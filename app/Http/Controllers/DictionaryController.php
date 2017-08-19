@@ -51,9 +51,11 @@ class DictionaryController extends Controller
     public function addByType($appName, $dict, $type)
     {
         $type = strtolower($type);
+        var_dump($type); die();
         if (DictionaryCountTypeEnum::isValid($type)) {
             return response([
                 'data' => DictionaryCounter::incrementDict($appName, $dict, $type),
+
             ]);
         }
         return response('', 400);
