@@ -18,12 +18,6 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:api');
 
 Route::group(['prefix' => 'dictionary'], function () {
-    Route::get('{appName}/{dict}/like', 'DictionaryController@getLike');
-    Route::post('{appName}/{dict}/like', 'DictionaryController@addLike');
-
-    Route::get('{appName}/{dict}/share', 'DictionaryController@getShare');
-    Route::post('{appName}/{dict}/share', 'DictionaryController@addShare');
-
-    Route::get('{appName}/{dict}/show', 'DictionaryController@getShow');
-    Route::post('{appName}/{dict}/show', 'DictionaryController@addShow');
+    Route::get('{appName}/{dict}/{type}', 'DictionaryController@getByType');
+    Route::post('{appName}/{dict}/{type}', 'DictionaryController@addByType');
 });

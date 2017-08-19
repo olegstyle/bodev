@@ -26,13 +26,18 @@ class DictionaryController extends Controller
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
      * @param int $dict
+     * @param string $type
      * @return Response
      */
-    public function getLike($appName, $dict)
+    public function getByType($appName, $dict, $type)
     {
-        return response([
-            'data' => DictionaryCounter::getDict($appName, $dict, DictionaryCountTypeEnum::LIKE),
-        ]);
+        $type = strtolower($type);
+        if (DictionaryCountTypeEnum::isValid($type)) {
+            return response([
+                'data' => DictionaryCounter::getDict($appName, $dict, $type),
+            ]);
+        }
+        return response('', 400);
     }
 
     /**
@@ -40,69 +45,18 @@ class DictionaryController extends Controller
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
      * @param int $dict
+     * @param string $type
      * @return Response
      */
-    public function addLike($appName, $dict)
+    public function addByType($appName, $dict, $type)
     {
-        return response([
-            'data' => DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::LIKE),
-        ]);
-    }
-
-    /**
-     * getShare
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param string $appName
-     * @param int $dict
-     * @return Response
-     */
-    public function getShare($appName, $dict)
-    {
-        return response([
-            'data' => DictionaryCounter::getDict($appName, $dict, DictionaryCountTypeEnum::SHARE),
-        ]);
-    }
-
-    /**
-     * addShare
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param string $appName
-     * @param int $dict
-     * @return Response
-     */
-    public function addShare($appName, $dict)
-    {
-        return response([
-            'data' => DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHARE),
-        ]);
-    }
-
-    /**
-     * getShow
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param string $appName
-     * @param int $dict
-     * @return Response
-     */
-    public function getShow($appName, $dict)
-    {
-        return response([
-            'data' => DictionaryCounter::getDict($appName, $dict, DictionaryCountTypeEnum::SHOW),
-        ]);
-    }
-
-    /**
-     * addShow
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param string $appName
-     * @param int $dict
-     * @return Response
-     */
-    public function addShow($appName, $dict)
-    {
-        return response([
-            'data' => DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHOW),
-        ]);
+        $type = strtolower($type);
+        if (DictionaryCountTypeEnum::isValid($type)) {
+            return response([
+                'data' => DictionaryCounter::incrementDict($appName, $dict, $type),
+            ]);
+        }
+        return response('', 400);
     }
 
     /**
