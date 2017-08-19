@@ -13,11 +13,13 @@ class RemoveUniqueFromProjectTechnicalStackTable extends Migration
      */
     public function up()
     {
-        Schema::table('project_technical_stacks', function (Blueprint $table) {
-            try {
-                $table->dropUnique(['project_id', 'tech_id']);
-            } catch (Exception $ex) {}
-        });
+        try {
+            Schema::table('project_technical_stacks', function (Blueprint $table) {
+                try {
+                    $table->dropUnique(['project_id', 'tech_id']);
+                } catch (Exception $ex) {}
+            });
+        } catch (Exception $ex) {}
     }
 
     /**
@@ -27,10 +29,12 @@ class RemoveUniqueFromProjectTechnicalStackTable extends Migration
      */
     public function down()
     {
-        Schema::table('project_technical_stacks', function (Blueprint $table) {
-            try {
-                $table->unique(['project_id', 'tech_id']);
-            } catch (Exception $ex) {}
-        });
+        try {
+            Schema::table('project_technical_stacks', function (Blueprint $table) {
+                try {
+                    $table->unique(['project_id', 'tech_id']);
+                } catch (Exception $ex) {}
+            });
+        } catch (Exception $ex) {}
     }
 }
