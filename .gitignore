@@ -11,8 +11,7 @@ node_modules/
 bootstrap/cache/
 .env.*.php
 .env.php
-.env
-composer.lock
+/composer.lock
 typings
 
 .rocketeer/
@@ -26,17 +25,12 @@ portfolio.local-access_log
 /tmp
 /out-tsc
 
-# dependencies
-/node_modules
-
-# IDEs and editors
-/.idea
 .project
 .classpath
 .c9/
 *.launch
 .settings/
-*.sublime-workspace
+/*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*
