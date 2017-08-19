@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * App\Models\DictionaryCounter
@@ -58,9 +59,12 @@ class DictionaryCounter extends Model
      */
     public static function incrementDict($appName, $dict, $type)
     {
+        DB::table((new static())->table)
+            ->increment('f_count', 1, [
+                'f_app_name' => $appName,
+                'f_type' => $type,
+                'e_dict' => $dict]);
         $d = static::getDict($appName, $dict, $type);
-        $d->increment('f_count', 1);
-        $d->save();
         return $d;
     }
 }
