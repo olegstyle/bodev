@@ -60,6 +60,7 @@ class DictionaryCounter extends Model
     {
         $d = static::getDict($appName, $dict, $type);
         $d->f_count += 1;
+        var_dump($d->f_count); die();
         $d->save();
         return $d;
     }
