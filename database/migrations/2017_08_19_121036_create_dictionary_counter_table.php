@@ -14,7 +14,7 @@ class CreateDictionaryCounterTable extends Migration
     public function up()
     {
         Schema::create('dictionary_counter', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->timestamps();
 
             $table->string('f_app_name', 64);
