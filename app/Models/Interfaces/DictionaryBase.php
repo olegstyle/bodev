@@ -26,7 +26,7 @@ abstract class DictionaryBase extends Model
      */
     public static function getDict($appName, $e_dict)
     {
-        return static::firstOrCreate(['f_app_name' => $appName, 'e_dict' => $e_dict]);
+        return static::firstOrCreate(['f_app_name' => $appName, 'e_dict' => $e_dict], ['f_count' => 0]);
     }
 
     /**
