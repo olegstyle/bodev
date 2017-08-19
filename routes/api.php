@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+Route::group(['prefix' => 'dictionary'], function () {
+    Route::get('{appName}/{e_dict}/like', 'DictionaryController@getLike');
+    Route::post('{appName}/{e_dict}/like', 'DictionaryController@addLike');
+
+    Route::get('{appName}/{e_dict}/share', 'DictionaryController@getShare');
+    Route::post('{appName}/{e_dict}/share', 'DictionaryController@addShare');
+});
