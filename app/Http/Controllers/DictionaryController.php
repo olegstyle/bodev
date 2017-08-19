@@ -8,9 +8,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DictionaryLike;
-use App\Models\DictionaryShare;
-use App\Models\DictionaryShareRedirect;
+use App\Enums\DictionaryCountTypeEnum;
+use App\Models\DictionaryCounter;
 use Illuminate\Http\Response;
 
 /**
@@ -26,13 +25,13 @@ class DictionaryController extends Controller
      * getLike
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
-     * @param int $e_dict
+     * @param int $dict
      * @return Response
      */
-    public function getLike($appName, $e_dict)
+    public function getLike($appName, $dict)
     {
         return response([
-            'data' => DictionaryLike::getDict($appName, $e_dict),
+            'data' => DictionaryCounter::getDict($appName, $dict, DictionaryCountTypeEnum::LIKE),
         ]);
     }
 
@@ -40,13 +39,13 @@ class DictionaryController extends Controller
      * addLike
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
-     * @param int $e_dict
+     * @param int $dict
      * @return Response
      */
-    public function addLike($appName, $e_dict)
+    public function addLike($appName, $dict)
     {
         return response([
-            'data' => DictionaryLike::incrementDict($appName, $e_dict),
+            'data' => DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::LIKE),
         ]);
     }
 
@@ -54,13 +53,13 @@ class DictionaryController extends Controller
      * getShare
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
-     * @param int $e_dict
+     * @param int $dict
      * @return Response
      */
-    public function getShare($appName, $e_dict)
+    public function getShare($appName, $dict)
     {
         return response([
-            'data' => DictionaryShare::getDict($appName, $e_dict),
+            'data' => DictionaryCounter::getDict($appName, $dict, DictionaryCountTypeEnum::SHARE),
         ]);
     }
 
@@ -68,13 +67,41 @@ class DictionaryController extends Controller
      * addShare
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
-     * @param int $e_dict
+     * @param int $dict
      * @return Response
      */
-    public function addShare($appName, $e_dict)
+    public function addShare($appName, $dict)
     {
         return response([
-            'data' => DictionaryShare::incrementDict($appName, $e_dict),
+            'data' => DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHARE),
+        ]);
+    }
+
+    /**
+     * getShow
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @param string $appName
+     * @param int $dict
+     * @return Response
+     */
+    public function getShow($appName, $dict)
+    {
+        return response([
+            'data' => DictionaryCounter::getDict($appName, $dict, DictionaryCountTypeEnum::SHOW),
+        ]);
+    }
+
+    /**
+     * addShow
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @param string $appName
+     * @param int $dict
+     * @return Response
+     */
+    public function addShow($appName, $dict)
+    {
+        return response([
+            'data' => DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHOW),
         ]);
     }
 
@@ -82,12 +109,12 @@ class DictionaryController extends Controller
      * show
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
-     * @param int $e_dict
+     * @param int $dict
      * @return Response
      */
-    public function show($appName, $e_dict)
+    public function show($appName, $dict)
     {
-        DictionaryShareRedirect::incrementDict($appName, $e_dict);
+        DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHARE_REDIRECT);
         return redirect('https://play.google.com/store/apps/details?id=' . $appName);
     }
 }
