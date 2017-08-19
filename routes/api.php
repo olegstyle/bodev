@@ -19,5 +19,5 @@ Route::get('/user', function (Request $request) {
 
 Route::group(['prefix' => 'dictionary'], function () {
     Route::get('{appName}/{dict}/{type}', 'DictionaryController@getByType');
-    Route::post('{appName}/{dict}/{type}', 'DictionaryController@addByType');
+    Route::post('{appName}/{dict}/{type}/increment', 'DictionaryController@addByType');
 });
