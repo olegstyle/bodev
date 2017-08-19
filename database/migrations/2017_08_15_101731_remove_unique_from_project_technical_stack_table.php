@@ -14,7 +14,9 @@ class RemoveUniqueFromProjectTechnicalStackTable extends Migration
     public function up()
     {
         Schema::table('project_technical_stacks', function (Blueprint $table) {
-            $table->dropUnique(['project_id', 'tech_id']);
+            try {
+                $table->dropUnique(['project_id', 'tech_id']);
+            } catch (Exception $ex) {}
         });
     }
 
@@ -26,7 +28,9 @@ class RemoveUniqueFromProjectTechnicalStackTable extends Migration
     public function down()
     {
         Schema::table('project_technical_stacks', function (Blueprint $table) {
-            $table->unique(['project_id', 'tech_id']);
+            try {
+                $table->unique(['project_id', 'tech_id']);
+            } catch (Exception $ex) {}
         });
     }
 }
