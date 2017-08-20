@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
-
 Route::group(['prefix' => 'dictionary', 'middleware' => []], function () {
     Route::get('{appName}/{dict}/{type}', 'DictionaryController@getByType');
     Route::post('{appName}/{dict}/{type}', 'DictionaryController@addByType');
