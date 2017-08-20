@@ -15,5 +15,5 @@ use Illuminate\Http\Request;
 
 Route::group(['prefix' => 'dictionary', 'middleware' => []], function () {
     Route::get('{appName}/{dict}/{type}', 'DictionaryController@getByType');
-    Route::post('{appName}/{dict}/{type}', 'DictionaryController@addByType');
+    Route::get('{appName}/{dict}/{type}/add', 'DictionaryController@addByType');
 });
