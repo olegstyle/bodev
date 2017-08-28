@@ -1,4 +1,4 @@
-
+X-CSRF-TOKEN
 window._ = require('lodash');
 
 /**
