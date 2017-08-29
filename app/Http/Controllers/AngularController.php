@@ -21,6 +21,11 @@ use TCG\Voyager\Voyager;
 class AngularController extends Controller {
     public function index()
     {
-      return view('angular.main');
+    	$data = [];
+    	$data['seo_title'] = Voyager::setting('title', '');
+        $data['seo_keywords'] = Voyager::setting('seo_keywords', '');
+        $data['seo_description'] = Voyager::setting('seo_description', '');
+        $data['seo_image'] = '/images/me.jpg';
+      	return view('angular.main', $data);
     }
 }

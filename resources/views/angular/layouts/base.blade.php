@@ -1,5 +1,5 @@
-@import('angular.layouts.header')
+@include('angular.layouts.header')
 
 @yield('content')
 
-@import('angular.layouts.footer')
+@include('angular.layouts.footer')
