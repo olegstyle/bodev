@@ -1,5 +1,5 @@
 @extends('angular.layouts.base')
 
 @section('content')
-	<app>Loading...</app>
+	<app-root>Loading...</app-root>
 @endsection
