@@ -1,9 +1,5 @@
 const elixir = require('laravel-elixir');
 
-//require('laravel-elixir-vue-2');
-
-require('laravel-elixir-typescript');
-
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
