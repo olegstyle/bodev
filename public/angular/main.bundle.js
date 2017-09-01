@@ -131,7 +131,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "footer {\n  background: #191919;\n  padding: 15px 0;\n  text-align: center;\n  font-size: 14px;\n}\nfooter p {\n  padding: 0;\n  margin: 0;\n}", ""]);
+exports.push([module.i, ".footer {\n    background: #191919;\n    color: #fff;\n    padding: 15px 0;\n    text-align: center;\n    font-size: 14px;\n}\n.footer p {\n    padding: 0;\n    margin: 0;\n}", ""]);
 
 // exports
 
@@ -144,7 +144,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  <span>Made by Borysenko Oleh&nbsp;&nbsp;&nbsp;?&nbsp;&nbsp;&nbsp;</span>\n  Copyright ? {{date}}\n  &nbsp;&nbsp;&nbsp;?&nbsp;&nbsp;&nbsp;\n  All rights reserved\n</p>"
+module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by Borysenko Oleh&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;</span>\n        Copyright &copy; {{date}}\n        &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;\n        All rights reserved\n    </p>\n</div>"
 
 /***/ }),
 
@@ -175,11 +175,6 @@ FooterComponent = __decorate([
     })
 ], FooterComponent);
 
-/*
-Copyright 2017 Google Inc. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
-*/ 
 //# sourceMappingURL=footer.component.js.map
 
 /***/ }),
