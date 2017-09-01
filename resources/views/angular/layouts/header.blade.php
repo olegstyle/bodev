@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <base href="/">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="icon" type="img/ico" href="/favicon.ico">
@@ -30,5 +31,7 @@
         <link rel="image_src" href="{{ $seo_image }}" />
         <meta property="og:image" content="{{ $seo_image }}" />
         <meta itemprop="image" content="{{ $seo_image }}">
+
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
