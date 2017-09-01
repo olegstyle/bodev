@@ -1,0 +1,10 @@
+footer {
+  background: #191919;
+  padding: 15px 0;
+  text-align: center;
+  font-size: 14px;
+}
+footer p {
+  padding: 0;
+  margin: 0;
+}

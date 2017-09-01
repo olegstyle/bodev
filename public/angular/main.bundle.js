@@ -31,6 +31,13 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
+/***/ "../../../../../resources/assets/src/app/app.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<footer></footer>"
+
+/***/ }),
+
 /***/ "../../../../../resources/assets/src/app/app.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -46,14 +53,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Laravel 5 Angular 4';
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
         selector: 'app-root',
-        template: "\n    <h1>{{title}}</h1>\n  ",
+        template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
     })
 ], AppComponent);
@@ -75,6 +81,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../resources/assets/src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__footer_footer_component__ = __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -82,6 +89,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -98,7 +106,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
+            __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_4__footer_footer_component__["a" /* FooterComponent */]
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
@@ -111,6 +120,67 @@ Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 */ 
 //# sourceMappingURL=app.module.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/footer/footer.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "footer {\n  background: #191919;\n  padding: 15px 0;\n  text-align: center;\n  font-size: 14px;\n}\nfooter p {\n  padding: 0;\n  margin: 0;\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/footer/footer.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  <span>Made by Borysenko Oleh&nbsp;&nbsp;&nbsp;?&nbsp;&nbsp;&nbsp;</span>\n  Copyright ? {{date}}\n  &nbsp;&nbsp;&nbsp;?&nbsp;&nbsp;&nbsp;\n  All rights reserved\n</p>"
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/footer/footer.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var FooterComponent = (function () {
+    function FooterComponent() {
+        this.date = new Date().getFullYear();
+    }
+    return FooterComponent;
+}());
+FooterComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+        selector: 'footer',
+        template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
+        styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
+    })
+], FooterComponent);
+
+/*
+Copyright 2017 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/ 
+//# sourceMappingURL=footer.component.js.map
 
 /***/ }),
 
