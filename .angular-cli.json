@@ -7,7 +7,7 @@
     {
       "root": "resources/assets/src/",
       "outDir": "public/angular",
-      "deployUrl": "js/",
+      "deployUrl": "angular/",
       "assets": [
         "assets",
         "favicon.ico"

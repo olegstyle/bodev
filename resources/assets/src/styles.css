@@ -1,1 +1,197 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+body {
+    background-color: #f9f9f9;
+}
+
+.hamburger {
+    display: inline-block;
+    width: 30px;
+    height:20px;
+    background:linear-gradient(to bottom, #fff 0%, #fff 20%, transparent 20%, transparent 40%, #fff 40%, #fff 60%, transparent 60%, transparent 80%, #fff 80%, #fff 100%);
+    cursor: pointer;
+}
+
+/** MARK - btn */
+
+.btn-bo-wrapper {
+    text-align: center;
+}
+
+.btn-bo {
+    display: inline-block;
+    width: 50%;
+    padding: 10px 0;
+    border: 1px solid #06a598;
+    color: #06a598;
+    font-size: 21px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: transparent;
+    -webkit-transition: background-color 250ms linear;
+    -ms-transition: background-color 250ms linear;
+    transition: background-color 250ms linear;
+}
+@media (min-width: 768px) {
+    .btn-bo:hover {
+        background-color: #06a598;
+        color: white;
+    }
+}
+.btn-bo > a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn-bo-white {
+    border: 1px solid white;
+    color: white;
+}
+
+@media (min-width: 768px) {
+    .btn-bo-white:hover {
+        background-color: white;
+        color: #2c3e50;
+    }
+}
+
+@media (max-width: 991px) {
+    .btn-bo {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    .btn-bo {
+        font-size: 14px;
+    }
+}
+
+
+
+/** MARK - TITLE */
+
+.title-wrapper {
+    text-align: center;
+    margin: 40px 0;
+}
+.title-wrapper .title {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-weight: bold;
+    color: #2c3e50;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.title-wrapper .title:after, .title-wrapper .title:before {
+    content: "";
+    display: block;
+    width: 150px;
+    height: 5px;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    background-color: #2c3e50;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.title-wrapper .title:after {
+    left: 100%;
+    margin-left: 15px;
+}
+.title-wrapper .title:before {
+    margin-right: 15px;
+}
+
+.title-wrapper .title-white {
+    color: white;
+}
+.title-wrapper .title-white:after, .title-wrapper .title-white:before {
+    background-color: white;
+}
+
+@media (max-width: 1199px) {}
+
+@media (max-width: 991px) {
+    .title-wrapper {
+        margin: 30px 0;
+    }
+    .title-wrapper .title {
+        font-size: 30px;
+    }
+    .title-wrapper .title:after, .title-wrapper .title:before {
+        width: 75px;
+    }
+}
+
+@media (max-width: 767px) {
+    .title-wrapper {
+        margin: 20px 0;
+    }
+    .title-wrapper .title {
+        font-size: 20px;
+    }
+    .title-wrapper .title:after, .title-wrapper .title:before {
+        width: 30px;
+    }
+}
+
+/** MARK - tabs */
+
+.tabs {
+    padding: 0;
+    margin: 0 0 40px;
+    position: relative;
+}
+.tabs .tab {
+    display: inline;
+    text-align: left;
+    color: #7b7b7b;
+    font-size: 20px;
+    padding: 5px 0 5px 0;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.tabs .tab:last-of-type {
+    margin-right: 0;
+}
+.tabs .tab.active, .tabs .tab:hover {
+    color: #06a598;
+}
+.tabs hr {
+    height: 2px;
+    width: 0;
+    margin: 0;
+    background: #06a598;
+    border: none;
+    transition: .3s ease-in-out;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@media (max-width: 991px) {
+    .tabs {
+        margin: 0 0 30px;
+    }
+    .tabs .tab {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .tabs {
+        margin: 0 0 20px;
+    }
+    .tabs .tab {
+        font-size: 14px;
+    }
+    .tabs hr {
+        height: 1px;
+    }
+}

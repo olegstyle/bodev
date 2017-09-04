@@ -1,22 +1,30 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
+import { MdFormFieldModule } from '@angular/material';
 
 import { AppComponent }         from './app.component';
 import { FooterComponent } from './footer/footer.component';
+import { ContactComponent } from './contact/contact.component';
+import { ContactSocialComponent } from './contact/social/social.component';
+import { ContactFormComponent } from './contact/form/form.component';
 
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  declarations: [
-    AppComponent,
-    FooterComponent
-  ],
-  providers: [ ],
-  bootstrap: [ AppComponent ]
+    imports: [
+        BrowserModule,
+        FormsModule,
+        MdFormFieldModule
+    ],
+    declarations: [
+        AppComponent,
+        FooterComponent,
+        ContactComponent,
+        ContactSocialComponent,
+        ContactFormComponent
+    ],
+    providers: [ ],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }
 
