@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<contact></contact>\n<footer></footer>"
+module.exports = "<header></header>\n<contact></contact>\n<footer></footer>"
 
 /***/ }),
 
@@ -86,6 +86,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__contact_contact_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_social_social_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -93,6 +94,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -119,7 +121,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__["a" /* FooterComponent */],
             __WEBPACK_IMPORTED_MODULE_6__contact_contact_component__["a" /* ContactComponent */],
             __WEBPACK_IMPORTED_MODULE_7__contact_social_social_component__["a" /* ContactSocialComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__["a" /* ContactFormComponent */]
+            __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__["a" /* ContactFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__header_header_component__["a" /* HeaderComponent */]
         ],
         providers: [],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
@@ -423,6 +426,96 @@ FooterComponent = __decorate([
 ], FooterComponent);
 
 //# sourceMappingURL=footer.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/header.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.header {\n    background: url(" + __webpack_require__("../../../../../resources/assets/src/app/header/images/header_bg.jpg") + ") no-repeat center top #4cc3bf;\n    background-size: cover;\n    padding: 40px 0;\n}\n\n.icon-wrapper {\n    position: relative;\n}\n\n.icon-wrapper .header-menu-wrapper .hamburger {\n    display: none;\n}\n\n.icon-wrapper .header-menu-wrapper, .header .lang-wrapper {\n    position: absolute;\n    top: 50%;\n    right: 0;\n    -webkit-transform: translateY(-50%);\n    transform: translateY(-50%);\n}\n\n.icon-wrapper .header-menu {\n    padding: 0;\n    list-style-type: none;\n    overflow: hidden;\n}\n\n.icon-wrapper .header-menu li {\n    display: block;\n    float: left;\n    padding: 0;\n}\n\n.icon-wrapper .header-menu li a {\n    display: block;\n    padding: 5px 10px 5px 10px;\n    font-size: 23px;\n    color: white;\n}\n\n.header .lang-wrapper {\n    right: auto;\n    left: 150px;\n}\n\n.header .lang-wrapper .lang {\n    color: white;\n    font-size: 20px;\n    cursor: pointer;\n    text-decoration: underline;\n}\n\n.header .lang-wrapper .lang:hover {\n    text-decoration: none;\n}\n\n.header .lang-wrapper .lang.active {\n    font-weight: bold;\n    font-size: 24px;\n    text-decoration: none;\n    cursor: default;\n}\n\n.header h1 {\n    text-align: center;\n    font-size: 61px;\n    font-weight: bold;\n    color: white;\n    padding: 10px 0 5px 0;\n    margin: 0;\n    text-transform: uppercase;\n}\n\n.header h2 {\n    text-align: center;\n    font-size: 16px;\n    font-weight: normal;\n    color: white;\n    padding: 0;\n    margin: 0;\n}\n\n\n.bodev {\n    height: 340px;\n    margin-top: 15px;\n    position: relative;\n}\n\n.bodev .photo {\n    width: 330px;\n    height: 330px;\n    border-radius: 50%;\n    background: white;\n    position: absolute;\n    left: 50%;\n    top: 0;\n    -webkit-transform: translateX(-50%);\n    transform: translateX(-50%);\n    z-index: 2;\n}\n\n.bodev .photo:after {\n    content: \"\";\n    width: 320px;\n    height: 320px;\n    position: absolute;\n    left: 5px;\n    top: 5px;\n    border-radius: 50%;\n    background: white url(\"/angular/assets/images/me.jpg\") no-repeat left -15px;\n    background-size: 100% auto;\n}\n\n.bodev .info-wrapper {\n    width: 90%;\n    height: 260px;\n    border-top: 3px solid white;\n    border-bottom: 3px solid white;\n    position: absolute;\n    left: 50%;\n    top: 50%;\n    -webkit-transform: translateY(-50%) translateX(-50%);\n    transform: translateY(-50%) translateX(-50%);\n    z-index: 1;\n}\n\n.bodev .info-wrapper .info {\n    margin-top: 37px;\n    position: relative;\n}\n\n.bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {\n    font-size: 21px;\n    color: white;\n    padding: 0;\n    margin: 0 0 0 90px;\n}\n\n.bodev .info-wrapper .info h3 {\n    font-weight: normal;\n    text-transform: uppercase;\n    padding-top: 10px;\n\n}\n\n.bodev .info-wrapper .info p {\n    font-weight: bold;\n    padding-top: 7px;\n    padding-bottom: 10px;\n}\n\n.bodev .info-wrapper .info .ico {\n    width: 75px;\n    height: 75px;\n    background-color: white;\n    background-repeat: no-repeat;\n    background-position: center;\n    background-size: auto;\n    border-radius: 50%;\n    position: absolute;\n    left: 0;\n    top: 0;\n}\n\n@media (min-width: 768px) {\n    .bodev .info-wrapper .info-right-align h3, .bodev .info-wrapper .info-right-align p {\n        text-align: right;\n        margin: 0 90px 0 0;\n    }\n\n    .bodev .info-wrapper .info-right-align .ico {\n        left: auto;\n        right: 0;\n    }\n}\n\n\n@media (max-width: 1199px) {\n    .icon-wrapper .header-menu li a {\n        font-size: 20px;\n    }\n    .header h1 {\n        font-size: 51px;\n    }\n    .header h2 {\n        font-size: 14px;\n    }\n    .bodev {\n        height: 275px;\n    }\n    .bodev .photo {\n        width: 275px;\n        height: 275px;\n    }\n    .bodev .photo:after {\n        width: 265px;\n        height: 265px;\n    }\n    .bodev .info-wrapper {\n        height: 200px;\n    }\n    .bodev .info-wrapper .info {\n        margin-top: 33px;\n    }\n    .bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {\n        margin-left: 60px;\n    }\n    .bodev .info-wrapper .info-right-align h3, .bodev .info-wrapper .info-right-align p {\n        margin-left: 0;\n        margin-right: 60px;\n    }\n    .bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {\n        font-size: 18px;\n    }\n    .bodev .info-wrapper .info h3 {\n        padding-top: 1px;\n    }\n    .bodev .info-wrapper .info p {\n        padding-top: 3px;\n    }\n    .bodev .info-wrapper .info .ico {\n        width: 45px;\n        height: 45px;\n        background-size: 50% auto;\n    }\n    .bodev .info-wrapper .info .ico.ico-place {\n        background-size: auto 50%;\n    }\n}\n\n@media (max-width: 991px) {\n    .icon-wrapper .header-menu li a {\n        font-size: 16px;\n    }\n    .header h1 {\n        font-size: 41px;\n    }\n    .header h2 {\n        font-size: 12px;\n    }\n    .bodev {\n        height: 225px;\n    }\n    .bodev .info-wrapper {\n        width: 100%;\n    }\n    .bodev .photo {\n        width: 225px;\n        height: 225px;\n    }\n    .bodev .photo:after {\n        width: 215px;\n        height: 215px;\n    }\n    .bodev .info-wrapper {\n        height: 200px;\n    }\n    .bodev .info-wrapper .info {\n        margin-top: 35px;\n    }\n    .bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {\n        font-size: 15px;\n    }\n}\n\n@media (max-width: 800px) {\n    .header {\n        background-size: cover;\n    }\n}\n\n@media (max-width: 767px) {\n    .header {\n        padding: 20px 0;\n    }\n    .icon-wrapper > img {\n        width: 106px !important;\n        height: 50px !important;\n    }\n    .icon-wrapper .header-menu-wrapper {\n        z-index: 10;\n    }\n    .icon-wrapper .header-menu-wrapper .hamburger {\n        display: inline-block;\n    }\n    .icon-wrapper .header-menu {\n        display: none;\n        position: absolute;\n        top: 100%;\n        right: 0;\n        background: white;\n        border: 1px solid #f1f1f1;\n    }\n    .icon-wrapper .header-menu li {\n        display: block;\n        float: none;\n        text-align: right;\n        margin: 0;\n        border-bottom: 1px solid #f1f1f1;\n    }\n    .icon-wrapper .header-menu li:last-of-type {\n        border-bottom: none;\n    }\n    .icon-wrapper .header-menu li a {\n        display: block;\n        padding: 10px 20px 10px 50px;\n        color: #2c3e50;\n    }\n    .icon-wrapper .header-menu li a:hover {\n        background-color: #4cc3bf;\n        text-decoration: none;\n        color: white;\n    }\n    .icon-wrapper .header-menu-wrapper:hover .header-menu {\n        display: block;\n    }\n    .bodev .photo {\n        top: 0;\n    }\n    .bodev .info-wrapper {\n        display: none;\n    }\n}\n.ico-profile {\n    background-image: url(" + __webpack_require__("../../../../../resources/assets/src/app/header/images/hProfile.png") + ");\n}\n.ico-mail {\n    background-image: url(" + __webpack_require__("../../../../../resources/assets/src/app/header/images/hMail.png") + ");\n}\n.ico-birthday {\n    background-image: url(" + __webpack_require__("../../../../../resources/assets/src/app/header/images/hBDay.png") + ");\n}\n.ico-place {\n    background-image: url(" + __webpack_require__("../../../../../resources/assets/src/app/header/images/hPlace.png") + ");\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/header.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang active\" data-lang=\"en\">EN</span>\n                <span class=\"lang\" data-lang=\"ru\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a href=\"#skills\">Skills</a></li>\n                    <li><a href=\"#about_me\">About me</a></li>\n                    <li><a href=\"#portfolio\">Projects</a></li>\n                    <li><a href=\"#contacts\">Contact me</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>Borysenko Oleh</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>olegstyle1@gmail.com</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>22.10.1994</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>Dnipro, Ukraine</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">Software Developer</h1>\n        <h2 class=\"animated bounceInRight\">Full stack developer</h2>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/header.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+var HeaderComponent = (function () {
+    function HeaderComponent() {
+    }
+    return HeaderComponent;
+}());
+HeaderComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+        selector: 'header',
+        template: __webpack_require__("../../../../../resources/assets/src/app/header/header.component.html"),
+        styles: [__webpack_require__("../../../../../resources/assets/src/app/header/header.component.css")],
+    })
+], HeaderComponent);
+
+//# sourceMappingURL=header.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/images/hBDay.png":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAfCAYAAAAfrhY5AAACVElEQVRIie2Xz0tUURTHZ5ubNkGj0g9QpIWrlFZC3EIZoY0oEgmVSCKaWVoJtkndhthekf6EaGGKORCICKYyFmK6UEqiKBOFVuX0/fLOi8P13TczjOMQuPjgzHnnnM+8++599xox8VcRxWnwAIyDeTABHoPzVt4/ksnkARAvBX3gDVgEk6AHRHWeblQDVkEygM+gPh05YjfAN0efjyBmy6+CP44Czb0wudxdqh779PnyKPikLv4Go+AOGAY/reKHQXJ87rXyvoNnoAWMSF89klH71/7isFh3Vw7WXSMg4vvW9TVwwRqVmPT3c3oYfK0CI46JVQTeW4IuuWaLE6DQMRFHVd44Awsq0OqQkzK5I/14XlpzhRO2NEgs8jaVu8BAXAWGQ+TkXMAI+CyBsy6xyJ+r/GkGBlXgB7iY4gcMOuRPUogrwbbKH2CwBOyp4BfQIROk2njrv0Y+N4IVh3zZeO8Cu4Z9OsFXlbtLr383txwNc8Vt+w3H9biZY+kGaLbfcMXGW04c1rj1bGz4WLicVhUJibtqOJemQYN4in05N4AtSeC7lxvBTkgjLpeT4JSC3ztCanak75p46HsUEWEmQ1enHpWezQ0Z9llh0VKGRU0O+c0M+7xj0Yc8yRMsmsuTfIZFl8CQ8U4d+zmWs/+U+Cr0Or9i0jtQZCPnZnQ56BiVV3nsiOTVx/L/Tt7okF8/Cnm7Q343G/m1NIoJd6SnxtvFuuVvvwnfUn14c7VBcpOmPFuqguQFYCbH4rfgRJDcPxq/MN5/qNxwZg+BOek3Bs7oE+1fbuhNC5+vPVQAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/images/hMail.png":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAWCAYAAABKbiVHAAACCElEQVRIicXWzUsbQRgG8KA9hGqJYAsV/Kp6ESwUoQUPQt+D6EUUbxKUWhFR8NRbKRI0FDzpQTxUAp7UQ6lC/oAQCHj0oNhS1CJq/SJGtF8kFH0eZhaWNQm7+Tz8QtiZzDy7O+9MXBIKPoAqqIPaIuC8NeB24eMRvIcNiEC4gCJ63lmGYpiH8BbO4bYI/sEHeMwwI/AJvPAOvhYoxAFMwxAswDDDfIS4TjgGjTAFV3kK8R/moAUGIQYJ5mAYH1yaOn+Gp1APSzkOsgYvoRwCpuuc32eEiVl+FNWp2d4OwSxDcKF26fG64dDSHksXxnwnlaLKvxM2HYbYg34o02MEUvSzFYbORFUb+5bCqKjFly7Ehajtwq1/1wv7afrbDmP4As168CeiFrk1FIPPQ4Pu9wwWbYztOAyFoERPRNxBWY0roirkhamN7BaA4zAn8FxP8gZeWyY2tIraIvi9Gr7lOkzU9Ipm9LVf4Bd1rvF6hahN81S3L+vrbP+RqzDXosqbfVeTtHNhssq+J2nj+eOBJrlfzo7DcGfs03cXtvn+rXb0U23TN5ZxmHF4BVsZBjEcQ4eoEv+dSRiuhx74mWUQwx9RhyJv8MZJmHWYSPNYszEpau+J2w2zDX/zEMTAvymJZGH8Kd5jIXF+P8PwILOzMeXTLngZhifqgKgSPBJ13hQK5+PJzh3bcwf9foAXaZKp9wAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/images/hPlace.png":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAmCAYAAADX7PtfAAACsUlEQVRYha2XW4hNURjHzwwzchTTMK7JzAviZUQhL7OKZkQmZJ5MUVNqmhRPJOWBF7lMIS+IXGqUF/OC0kgNnjTxRBi3UO7J/XL8/+29p2md71t7rzX74VczZ+3v+5111rfXt1bB9PUWUpgMVoK94Cp4Ar6An+AzeAAug53AgPGlUqmg4RKNA6vjZN9AKQMfwSmwDFT7CKeDQ/EMsohsXoCt0mwlWT24EiiyOQBqXMI6cC0nWcIeMFYTnkwJfgWugx5wDlwCt+MicsWtl4SbwBtHMVwwUbUWrS85BXSAmyaqXCn+FphrC28oD78FW/izCOs9tDb4exo4A34oeTqGCzeC18qD7aBCkg0XxtIxoFfJw3e4IQnsUR46DGo0mS2MpYvBQyXf0iTwjvLAEpdMEsbSi0q+Ng7OM9H2ZA+yGmcFCrvAeyHnLg42gWfC4DFQGyhsMdFuU7ZEHFyuDB4EEwKFzPlSysnBReC5MMgXuy5QuBm8E3LuKMQ/2yNhkF+iPlB4FvwWcq5NAu8pVbUGVPoI8dkkMKjkm5MEsodJ29J9MNNTeFrJNQCmJoGtRi5jwu1qRhYh/t9m9B66GxSTwFFGfjUS2BVWmPKNm3Dbmw/2g6+OHI325s2Z/HIEsGOcMFEFrjJR52gD++I1++eI7Qe1trARfHAEjYR1YLTUgNm3/uYs4+s1dMywhS0p6xBCezI77RB1N2U9fHgKimmntmajHxVC1q4yy7m0L4dZsseWHYY14YIcZrkQVPgc9Y+PYJZHJVmakL1Q6mlpDNqFklXILWuDp+wPaA69PZEqcN5D1u2SZRGSieBxioy7U3+aLKuQDbgJfHcIeSaanZeQVIPtioz9rzWLzEdIeLfotmS8GXdmlfkKCa/hR8AnE5V/l48sRMhXpcFE90g2XvEe7+I/zIQFhYfRMCcAAAAASUVORK5CYII="
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/images/hProfile.png":
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAjCAYAAAD17ghaAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMDY3IDc5LjE1Nzc0NywgMjAxNS8wMy8zMC0yMzo0MDo0MiAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjIxMzMyNUZBRUVFRTExRTZBMjBEQTE4QUIzQUY5NDhDIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjIxMzMyNUZCRUVFRTExRTZBMjBEQTE4QUIzQUY5NDhDIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjEzMzI1RjhFRUVFMTFFNkEyMERBMThBQjNBRjk0OEMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjEzMzI1RjlFRUVFMTFFNkEyMERBMThBQjNBRjk0OEMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4YX+m1AAACT0lEQVR42sSXX0hTURzHr7cRDKcPEUm0ZhFJkRJoLUWizUaNEOpJiEjUB30IhB7sOR+KHgoSH/XVh96iPw8FbW4lUgrrD/SiIEaNxAcVXZsyXd8DvyuHy912ztm57Acfdrj33N/vu9/O73d/qwnHXxuSdhp0gACoAznwGXwA27LOPBJ7m8EEaC9yfwukwHswDjZ0CmgAcXC4xB4fuEzcAUGwWc6xKShgoExwu50B/SIbRQW0GfIW1CnApyCgXqeAguGSiQrIKfjO6RLwGFxXENANHuoQwMrKqyCAPdOpQ0Cqgp84pUPAM/BVIfg3MKZDwDK4pSBgEPzRVQVMxIxE8BUwr7MMmT2R2DsJ9nQLeANeCez7C57qbkSW9YGfJe6zeeA2WHdLwBoIgZjDvd/UsKbdGkgsWwURcJNgPpJgCvxzcyKqBRnu5fSScLIDYLdSAcfom14FV0AenBLwyYKnwRJI0Kz4qVh2PA5zXy+4Ac457GeD6C9aD4NHtL5PpWcNIkeIS+AB2AGzdHZi1FMK/CE8BF6AH2CkSHBmYVu5+Yg0d93pzXmQsjgKPoI5cMIS4CVVPQLp5QUkuXWCW0cFR7x3LLZJtX1e8CB2cWu/w5pl8qKgryZwlwlolaiE49xBDHDXG+kzItlbLpii5cJZqISAqKSvPBOQlXwobAvKr69J+sqYXHMxJM+BPQMt1DtcF3AUnHXIgGz69wVkFR68Z8vASaomaQEehQwwG7J1Ub/i0Kr0E6i+RR3/0jMBi0b17DsT8AW8rULw52DhvwADABjsaZMez3vIAAAAAElFTkSuQmCC"
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/header/images/header_bg.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "header_bg.359d225d1a5a55c37b4f.jpg";
 
 /***/ }),
 

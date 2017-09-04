@@ -1,0 +1,341 @@
+
+.header {
+    background: url("images/header_bg.jpg") no-repeat center top #4cc3bf;
+    background-size: cover;
+    padding: 40px 0;
+}
+
+.icon-wrapper {
+    position: relative;
+}
+
+.icon-wrapper .header-menu-wrapper .hamburger {
+    display: none;
+}
+
+.icon-wrapper .header-menu-wrapper, .header .lang-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.icon-wrapper .header-menu {
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+.icon-wrapper .header-menu li {
+    display: block;
+    float: left;
+    padding: 0;
+}
+
+.icon-wrapper .header-menu li a {
+    display: block;
+    padding: 5px 10px 5px 10px;
+    font-size: 23px;
+    color: white;
+}
+
+.header .lang-wrapper {
+    right: auto;
+    left: 150px;
+}
+
+.header .lang-wrapper .lang {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.header .lang-wrapper .lang:hover {
+    text-decoration: none;
+}
+
+.header .lang-wrapper .lang.active {
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+    cursor: default;
+}
+
+.header h1 {
+    text-align: center;
+    font-size: 61px;
+    font-weight: bold;
+    color: white;
+    padding: 10px 0 5px 0;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.header h2 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+
+.bodev {
+    height: 340px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.bodev .photo {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 2;
+}
+
+.bodev .photo:after {
+    content: "";
+    width: 320px;
+    height: 320px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    border-radius: 50%;
+    background: white url("/assets/images/me.jpg") no-repeat left -15px;
+    background-size: 100% auto;
+}
+
+.bodev .info-wrapper {
+    width: 90%;
+    height: 260px;
+    border-top: 3px solid white;
+    border-bottom: 3px solid white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    -ms-transform: translateY(-50%) translateX(-50%);
+    transform: translateY(-50%) translateX(-50%);
+    z-index: 1;
+}
+
+.bodev .info-wrapper .info {
+    margin-top: 37px;
+    position: relative;
+}
+
+.bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {
+    font-size: 21px;
+    color: white;
+    padding: 0;
+    margin: 0 0 0 90px;
+}
+
+.bodev .info-wrapper .info h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 10px;
+
+}
+
+.bodev .info-wrapper .info p {
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+
+.bodev .info-wrapper .info .ico {
+    width: 75px;
+    height: 75px;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+@media (min-width: 768px) {
+    .bodev .info-wrapper .info-right-align h3, .bodev .info-wrapper .info-right-align p {
+        text-align: right;
+        margin: 0 90px 0 0;
+    }
+
+    .bodev .info-wrapper .info-right-align .ico {
+        left: auto;
+        right: 0;
+    }
+}
+
+
+@media (max-width: 1199px) {
+    .icon-wrapper .header-menu li a {
+        font-size: 20px;
+    }
+    .header h1 {
+        font-size: 51px;
+    }
+    .header h2 {
+        font-size: 14px;
+    }
+    .bodev {
+        height: 275px;
+    }
+    .bodev .photo {
+        width: 275px;
+        height: 275px;
+    }
+    .bodev .photo:after {
+        width: 265px;
+        height: 265px;
+    }
+    .bodev .info-wrapper {
+        height: 200px;
+    }
+    .bodev .info-wrapper .info {
+        margin-top: 33px;
+    }
+    .bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {
+        margin-left: 60px;
+    }
+    .bodev .info-wrapper .info-right-align h3, .bodev .info-wrapper .info-right-align p {
+        margin-left: 0;
+        margin-right: 60px;
+    }
+    .bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {
+        font-size: 18px;
+    }
+    .bodev .info-wrapper .info h3 {
+        padding-top: 1px;
+    }
+    .bodev .info-wrapper .info p {
+        padding-top: 3px;
+    }
+    .bodev .info-wrapper .info .ico {
+        width: 45px;
+        height: 45px;
+        background-size: 50% auto;
+    }
+    .bodev .info-wrapper .info .ico.ico-place {
+        background-size: auto 50%;
+    }
+}
+
+@media (max-width: 991px) {
+    .icon-wrapper .header-menu li a {
+        font-size: 16px;
+    }
+    .header h1 {
+        font-size: 41px;
+    }
+    .header h2 {
+        font-size: 12px;
+    }
+    .bodev {
+        height: 225px;
+    }
+    .bodev .info-wrapper {
+        width: 100%;
+    }
+    .bodev .photo {
+        width: 225px;
+        height: 225px;
+    }
+    .bodev .photo:after {
+        width: 215px;
+        height: 215px;
+    }
+    .bodev .info-wrapper {
+        height: 200px;
+    }
+    .bodev .info-wrapper .info {
+        margin-top: 35px;
+    }
+    .bodev .info-wrapper .info h3, .bodev .info-wrapper .info p {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 800px) {
+    .header {
+        background-size: cover;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        padding: 20px 0;
+    }
+    .icon-wrapper > img {
+        width: 106px !important;
+        height: 50px !important;
+    }
+    .icon-wrapper .header-menu-wrapper {
+        z-index: 10;
+    }
+    .icon-wrapper .header-menu-wrapper .hamburger {
+        display: inline-block;
+    }
+    .icon-wrapper .header-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: white;
+        border: 1px solid #f1f1f1;
+    }
+    .icon-wrapper .header-menu li {
+        display: block;
+        float: none;
+        text-align: right;
+        margin: 0;
+        border-bottom: 1px solid #f1f1f1;
+    }
+    .icon-wrapper .header-menu li:last-of-type {
+        border-bottom: none;
+    }
+    .icon-wrapper .header-menu li a {
+        display: block;
+        padding: 10px 20px 10px 50px;
+        color: #2c3e50;
+    }
+    .icon-wrapper .header-menu li a:hover {
+        background-color: #4cc3bf;
+        text-decoration: none;
+        color: white;
+    }
+    .icon-wrapper .header-menu-wrapper:hover .header-menu {
+        display: block;
+    }
+    .bodev .photo {
+        top: 0;
+    }
+    .bodev .info-wrapper {
+        display: none;
+    }
+}
+.ico-profile {
+    background-image: url("images/hProfile.png");
+}
+.ico-mail {
+    background-image: url("images/hMail.png");
+}
+.ico-birthday {
+    background-image: url("images/hBDay.png");
+}
+.ico-place {
+    background-image: url("images/hPlace.png");
+}

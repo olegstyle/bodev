@@ -8,7 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactSocialComponent } from './contact/social/social.component';
 import { ContactFormComponent } from './contact/form/form.component';
-
+import { HeaderComponent } from "./header/header.component";
 
 @NgModule({
     imports: [
@@ -21,7 +21,8 @@ import { ContactFormComponent } from './contact/form/form.component';
         FooterComponent,
         ContactComponent,
         ContactSocialComponent,
-        ContactFormComponent
+        ContactFormComponent,
+        HeaderComponent
     ],
     providers: [ ],
     bootstrap: [ AppComponent ]
