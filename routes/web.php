@@ -12,6 +12,7 @@
 */
 Route::get('/', "MainController");
 Route::get('/angi', "AngularController@index");
+Route::get('/angi/getData', "AngularController@getData");
 Route::post('/sendmail', "MainController@sendMail");
 
 

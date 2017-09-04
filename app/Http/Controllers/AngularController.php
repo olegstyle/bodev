@@ -40,8 +40,8 @@ class AngularController extends Controller {
             'skype' => Voyager::setting('skype', 'olehstail'),
             'position' => Voyager::setting('header_title', 'Software Developer'),
             'subposition' => Voyager::setting('header_subtitle', ''),
-            'about_me_long' => Voyager::setting('about_me_long_' . $locale, ''),
-            'about_me_short' => Voyager::setting('about_me_short_' . $locale, ''),
+            'aboutMeLong' => Voyager::setting('about_me_long_' . $locale, ''),
+            'aboutMeShort' => Voyager::setting('about_me_short_' . $locale, ''),
 
         ]);
     }
