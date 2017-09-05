@@ -1,22 +1,22 @@
  <div>
     <a class="contact animated bounceInLeft" href="mailto:olegstyle1@gmail.com">
         <h3>Email</h3>
-        <p>olegstyle1@gmail.com</p>
+        <p>{{serverData.email}}</p>
         <div class="ico ico-s-mail"></div>
     </a>
 </div>
 <div>
     <a class="contact animated bounceInLeft" href="skype:olehstail">
         <h3>Skype</h3>
-        <p>olehstail</p>
+        <p>{{serverData.skype}}</p>
         <div class="ico ico-s-skype"></div>
     </a>
 </div>
 <div>
     <div class="social">
-        <a class="contact animated bounceInLeft" href="https://vk.com/bodev_pro" rel="nofollow" target="_blank"><div class="ico ico-s-vk"></div></a>
-        <a class="contact animated bounceInLeft" href="https://www.facebook.com/bodev.pro" rel="nofollow" target="_blank"><div class="ico ico-s-fb"></div></a>
-        <a class="contact animated bounceInLeft" href="https://www.instagram.com/olehstail/" rel="nofollow" target="_blank"><div class="ico ico-s-insta"></div></a>
-        <a class="contact animated bounceInLeft" href="https://www.linkedin.com/in/bodev/" rel="nofollow" target="_blank"><div class="ico ico-s-in"></div></a>
+        <a class="contact animated bounceInLeft" href="{{serverData.socialLinks.vk}}" rel="nofollow" target="_blank"><div class="ico ico-s-vk"></div></a>
+        <a class="contact animated bounceInLeft" href="{{serverData.socialLinks.fb}}" rel="nofollow" target="_blank"><div class="ico ico-s-fb"></div></a>
+        <a class="contact animated bounceInLeft" href="{{serverData.socialLinks.instagram}}" rel="nofollow" target="_blank"><div class="ico ico-s-insta"></div></a>
+        <a class="contact animated bounceInLeft" href="{{serverData.socialLinks.linkedin}}" rel="nofollow" target="_blank"><div class="ico ico-s-in"></div></a>
     </div>
 </div>

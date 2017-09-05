@@ -347,7 +347,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/social/social.component.html":
 /***/ (function(module, exports) {
 
-module.exports = " <div>\n    <a class=\"contact animated bounceInLeft\" href=\"mailto:olegstyle1@gmail.com\">\n        <h3>Email</h3>\n        <p>olegstyle1@gmail.com</p>\n        <div class=\"ico ico-s-mail\"></div>\n    </a>\n</div>\n<div>\n    <a class=\"contact animated bounceInLeft\" href=\"skype:olehstail\">\n        <h3>Skype</h3>\n        <p>olehstail</p>\n        <div class=\"ico ico-s-skype\"></div>\n    </a>\n</div>\n<div>\n    <div class=\"social\">\n        <a class=\"contact animated bounceInLeft\" href=\"https://vk.com/bodev_pro\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-vk\"></div></a>\n        <a class=\"contact animated bounceInLeft\" href=\"https://www.facebook.com/bodev.pro\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-fb\"></div></a>\n        <a class=\"contact animated bounceInLeft\" href=\"https://www.instagram.com/olehstail/\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-insta\"></div></a>\n        <a class=\"contact animated bounceInLeft\" href=\"https://www.linkedin.com/in/bodev/\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-in\"></div></a>\n    </div>\n</div>\n"
+module.exports = " <div>\n    <a class=\"contact animated bounceInLeft\" href=\"mailto:olegstyle1@gmail.com\">\n        <h3>Email</h3>\n        <p>{{serverData.email}}</p>\n        <div class=\"ico ico-s-mail\"></div>\n    </a>\n</div>\n<div>\n    <a class=\"contact animated bounceInLeft\" href=\"skype:olehstail\">\n        <h3>Skype</h3>\n        <p>{{serverData.skype}}</p>\n        <div class=\"ico ico-s-skype\"></div>\n    </a>\n</div>\n<div>\n    <div class=\"social\">\n        <a class=\"contact animated bounceInLeft\" href=\"{{serverData.socialLinks.vk}}\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-vk\"></div></a>\n        <a class=\"contact animated bounceInLeft\" href=\"{{serverData.socialLinks.fb}}\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-fb\"></div></a>\n        <a class=\"contact animated bounceInLeft\" href=\"{{serverData.socialLinks.instagram}}\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-insta\"></div></a>\n        <a class=\"contact animated bounceInLeft\" href=\"{{serverData.socialLinks.linkedin}}\" rel=\"nofollow\" target=\"_blank\"><div class=\"ico ico-s-in\"></div></a>\n    </div>\n</div>\n"
 
 /***/ }),
 
@@ -357,16 +357,32 @@ module.exports = " <div>\n    <a class=\"contact animated bounceInLeft\" href=\"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactSocialComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var ContactSocialComponent = (function () {
-    function ContactSocialComponent() {
+    function ContactSocialComponent(serverDataService) {
+        this.serverDataService = serverDataService;
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
     }
+    ContactSocialComponent.prototype.loadData = function () {
+        var _this = this;
+        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+    };
+    ContactSocialComponent.prototype.ngOnInit = function () {
+        this.loadData();
+    };
     return ContactSocialComponent;
 }());
 ContactSocialComponent = __decorate([
@@ -374,9 +390,11 @@ ContactSocialComponent = __decorate([
         selector: 'contact-social',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.css")],
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
 ], ContactSocialComponent);
 
+var _a;
 //# sourceMappingURL=social.component.js.map
 
 /***/ }),
@@ -402,7 +420,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by Borysenko Oleh&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;</span>\n        Copyright &copy; {{date}}\n        &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;\n        All rights reserved\n    </p>\n</div>"
+module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by {{serverData != null ? serverData.fullName : 'Oleh Borysenko'}}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;</span>\n        Copyright &copy; {{date}}\n        &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;\n        All rights reserved\n    </p>\n</div>"
 
 /***/ }),
 
@@ -412,17 +430,36 @@ module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by Borysen
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
 
 var FooterComponent = (function () {
-    function FooterComponent() {
-        this.date = new Date().getFullYear();
+    function FooterComponent(serverDataService) {
+        this.serverDataService = serverDataService;
+        this.dateStart = 2017;
+        this.dateNow = new Date().getFullYear();
+        this.date = '2017';
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
     }
+    FooterComponent.prototype.loadData = function () {
+        var _this = this;
+        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+    };
+    FooterComponent.prototype.ngOnInit = function () {
+        this.loadData();
+        this.date = this.dateStart + (this.dateNow > this.dateStart ? ' - ' + this.dateNow : '');
+    };
     return FooterComponent;
 }());
 FooterComponent = __decorate([
@@ -430,9 +467,11 @@ FooterComponent = __decorate([
         selector: 'footer',
         template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
 ], FooterComponent);
 
+var _a;
 //# sourceMappingURL=footer.component.js.map
 
 /***/ }),
@@ -469,6 +508,7 @@ module.exports = "<div class=\"header\">\n    <div class=\"container\">\n       
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -480,10 +520,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var HeaderComponent = (function () {
     function HeaderComponent(serverDataService) {
         this.serverDataService = serverDataService;
-        this.serverData = null;
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
     }
     HeaderComponent.prototype.loadData = function () {
         var _this = this;
@@ -540,6 +581,37 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAjCAYAAAD1
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "header_bg.359d225d1a5a55c37b4f.jpg";
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/model/server-data.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerData; });
+var ServerData = (function () {
+    function ServerData() {
+        this.locale = '';
+        this.fullName = '';
+        this.email = '';
+        this.birthday = '';
+        this.birthplace = '';
+        this.skype = '';
+        this.position = '';
+        this.subposition = '';
+        this.aboutMeLong = '';
+        this.aboutMeShort = '';
+        this.socialLinks = {
+            vk: '',
+            fb: '',
+            instagram: '',
+            linkedin: ''
+        };
+    }
+    return ServerData;
+}());
+
+//# sourceMappingURL=server-data.js.map
 
 /***/ }),
 

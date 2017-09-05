@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
     constructor(
         private serverDataService: ServerDataService
     ){}
-    serverData: ServerData = null;
+    serverData: ServerData = new ServerData();
 
     loadData() {
         this.serverDataService.getData().subscribe(serverData => this.serverData = serverData);

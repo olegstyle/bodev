@@ -42,6 +42,12 @@ class AngularController extends Controller {
             'subposition' => Voyager::setting('header_subtitle', ''),
             'aboutMeLong' => Voyager::setting('about_me_long_' . $locale, ''),
             'aboutMeShort' => Voyager::setting('about_me_short_' . $locale, ''),
+            'socialLinks' => [
+                'vk' => 'https://vk.com/bodev_pro',
+                'fb' => 'https://www.facebook.com/bodev.pro',
+                'instagram' => 'https://www.instagram.com/olehstail/',
+                'linkedin' => 'https://www.linkedin.com/in/bodev/'
+            ]
 
         ]);
     }
