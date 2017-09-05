@@ -1,15 +1,15 @@
-webpackJsonp([1],{
+webpackJsonp(["main"],{
 
-/***/ "../../../../../resources/assets/src async recursive":
+/***/ "../../../../../resources/assets/src/$$_gendir lazy recursive":
 /***/ (function(module, exports) {
 
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
+function webpackEmptyAsyncContext(req) {
+	return new Promise(function(resolve, reject) { reject(new Error("Cannot find module '" + req + "'.")); });
 }
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = "../../../../../resources/assets/src async recursive";
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = "../../../../../resources/assets/src/$$_gendir lazy recursive";
 
 /***/ }),
 
@@ -42,8 +42,8 @@ module.exports = "<header></header>\n<contact></contact>\n<footer></footer>"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -57,7 +57,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
@@ -77,17 +77,18 @@ can be found in the LICENSE file at http://angular.io/license
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../resources/assets/src/app/app.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__ = __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__contact_contact_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_social_social_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -96,6 +97,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
+
+//import { MdFormFieldModule } from '@angular/material';
 
 
 
@@ -110,11 +113,16 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MdFormFieldModule */]
+            //MdFormFieldModule,
+            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpClientXsrfModule */].withOptions({
+                cookieName: 'XSRF-TOKEN',
+                headerName: 'X-CSRF-TOKEN'
+            })
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
@@ -124,7 +132,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__["a" /* ContactFormComponent */],
             __WEBPACK_IMPORTED_MODULE_9__header_header_component__["a" /* HeaderComponent */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_10__services_server_data__["a" /* ServerDataService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -167,8 +175,8 @@ module.exports = "<section id=\"contacts\">\n    <div class=\"container\">\n    
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -182,7 +190,7 @@ var ContactComponent = (function () {
     return ContactComponent;
 }());
 ContactComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'contact',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.css")],
@@ -222,8 +230,8 @@ module.exports = "\n<form id=\"contact-me\" method=\"POST\">\n    <div class=\"f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactFormComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -237,7 +245,7 @@ var ContactFormComponent = (function () {
     return ContactFormComponent;
 }());
 ContactFormComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'contact-form',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.css")],
@@ -347,8 +355,8 @@ module.exports = " <div>\n    <a class=\"contact animated bounceInLeft\" href=\"
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactSocialComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -362,7 +370,7 @@ var ContactSocialComponent = (function () {
     return ContactSocialComponent;
 }());
 ContactSocialComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'contact-social',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.css")],
@@ -402,8 +410,8 @@ module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by Borysen
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -418,7 +426,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'footer',
         template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
@@ -450,7 +458,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang active\" data-lang=\"en\">EN</span>\n                <span class=\"lang\" data-lang=\"ru\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a href=\"#skills\">Skills</a></li>\n                    <li><a href=\"#about_me\">About me</a></li>\n                    <li><a href=\"#portfolio\">Projects</a></li>\n                    <li><a href=\"#contacts\">Contact me</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>Borysenko Oleh</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>olegstyle1@gmail.com</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>22.10.1994</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>Dnipro, Ukraine</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">Software Developer</h1>\n        <h2 class=\"animated bounceInRight\">Full stack developer</h2>\n    </div>\n</div>"
+module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang active\" data-lang=\"en\">EN</span>\n                <span class=\"lang\" data-lang=\"ru\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a href=\"#skills\">Skills</a></li>\n                    <li><a href=\"#about_me\">About me</a></li>\n                    <li><a href=\"#portfolio\">Projects</a></li>\n                    <li><a href=\"#contacts\">Contact me</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -458,28 +466,44 @@ module.exports = "<div class=\"header\">\n    <div class=\"container\">\n       
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(serverDataService) {
+        this.serverDataService = serverDataService;
+        this.serverData = null;
     }
+    HeaderComponent.prototype.loadData = function () {
+        var _this = this;
+        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+    };
+    HeaderComponent.prototype.ngOnInit = function () {
+        this.loadData();
+    };
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'header',
         template: __webpack_require__("../../../../../resources/assets/src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/header/header.component.css")],
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
 ], HeaderComponent);
 
+var _a;
 //# sourceMappingURL=header.component.js.map
 
 /***/ }),
@@ -519,6 +543,72 @@ module.exports = __webpack_require__.p + "header_bg.359d225d1a5a55c37b4f.jpg";
 
 /***/ }),
 
+/***/ "../../../../../resources/assets/src/app/services/server-data.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerDataService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_utils__ = __webpack_require__("../../../../../resources/assets/src/app/utils/utils.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ServerDataService = (function () {
+    function ServerDataService(http) {
+        this.http = http;
+        this.serverData = null;
+        this.url = __WEBPACK_IMPORTED_MODULE_2__utils_utils__["a" /* Utils */].BASE_URL + 'getData';
+    }
+    ServerDataService.prototype.getDataFromServer = function () {
+        return this.http.get(this.url);
+    };
+    ServerDataService.prototype.getData = function () {
+        if (this.serverData == null) {
+            this.serverData = this.getDataFromServer();
+        }
+        return this.serverData;
+    };
+    return ServerDataService;
+}());
+ServerDataService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+], ServerDataService);
+
+var _a;
+//# sourceMappingURL=server-data.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/utils/utils.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Utils; });
+var Utils = (function () {
+    function Utils() {
+    }
+    return Utils;
+}());
+
+Utils.BASE_URL = '/angi/';
+//# sourceMappingURL=utils.js.map
+
+/***/ }),
+
 /***/ "../../../../../resources/assets/src/environments/environment.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -550,9 +640,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* enableProdMode */])();
 }
-__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),

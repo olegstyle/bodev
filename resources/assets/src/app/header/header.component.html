@@ -22,12 +22,12 @@
                 <div class="col-sm-4">
                     <div class="info info-right-align animated bounceInLeft">
                         <h3>Full Name</h3>
-                        <p>Borysenko Oleh</p>
+                        <p>{{serverData.fullName}}</p>
                         <div class="ico ico-profile"></div>
                     </div>
                     <div class="info info-right-align animated bounceInLeft">
                         <h3>Email</h3>
-                        <p>olegstyle1@gmail.com</p>
+                        <p>{{serverData.email}}</p>
                         <div class="ico ico-mail"></div>
                     </div>
                 </div>
@@ -35,18 +35,18 @@
                 <div class="col-sm-4">
                     <div class="info animated bounceInRight">
                         <h3>Birthday</h3>
-                        <p>22.10.1994</p>
+                        <p>{{serverData.birthday}}</p>
                         <div class="ico ico-birthday"></div>
                     </div>
                     <div class="info animated bounceInRight">
                         <h3>Birth Place</h3>
-                        <p>Dnipro, Ukraine</p>
+                        <p>{{serverData.birthplace}}</p>
                         <div class="ico ico-place"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <h1 class="animated bounceInLeft">Software Developer</h1>
-        <h2 class="animated bounceInRight">Full stack developer</h2>
+        <h1 class="animated bounceInLeft">{{serverData.position}}</h1>
+        <h2 class="animated bounceInRight">{{serverData.subposition}}</h2>
     </div>
 </div>
