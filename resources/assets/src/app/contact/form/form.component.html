@@ -1,16 +1,21 @@
 
 <form id="contact-me" method="POST">
-    <div class="form-group float-label-control">
+    <!--<div class="form-group float-label-control">
         <input id="contact-name" name="name" class="form-control empty" placeholder="Name">
         <label for="contact-name">Name</label>
-    </div>
-    <div class="form-group float-label-control">
-        <input id="contact-email" name="email" type="email" class="form-control empty" placeholder="Email">
-        <label for="contact-email">Email</label>
-    </div>
-    <div class="form-group float-label-control has-error">
+    </div>-->
+    <md-form-field class="example-full-width">
+            <input mdInput placeholder="Email" [formControl]="emailFormControl">
+        <md-error *ngIf="emailFormControl.hasError('pattern')">
+            Please enter a valid email address
+        </md-error>
+        <md-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+        </md-error>
+    </md-form-field>
+    <!--<div class="form-group float-label-control has-error">
         <textarea id="contact-message" name="message" class="form-control empty" rows="3"></textarea>
         <label for="contact-message">Message</label>
-    </div>
-    <div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">Send</button></div>
+    </div>-->
+    <!--<div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">Send</button></div>-->
 </form>

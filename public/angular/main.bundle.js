@@ -81,24 +81,30 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../resources/assets/src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__ = __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__contact_contact_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__contact_social_social_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_cdk_table__ = __webpack_require__("../../../cdk/@angular/cdk/table.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../resources/assets/src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__ = __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__contact_social_social_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+///<reference path="../../../../node_modules/@angular/material/typings/chips/index.d.ts"/>
 
 
 
-//import { MdFormFieldModule } from '@angular/material';
+
+
+
 
 
 
@@ -116,24 +122,61 @@ AppModule = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-            //MdFormFieldModule,
-            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["c" /* HttpClientXsrfModule */].withOptions({
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["c" /* HttpClientXsrfModule */].withOptions({
                 cookieName: 'XSRF-TOKEN',
                 headerName: 'X-CSRF-TOKEN'
-            })
+            }),
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* ReactiveFormsModule */],
+            // form
+            __WEBPACK_IMPORTED_MODULE_4__angular_cdk_table__["m" /* CdkTableModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdAutocompleteModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["c" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MdButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["f" /* MdCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdChipsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MdCoreModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MdDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["j" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["k" /* MdExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["l" /* MdGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["n" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["o" /* MdListModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MdMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["q" /* MdNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["r" /* MdPaginatorModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["s" /* MdProgressBarModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["t" /* MdProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["u" /* MdRadioModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["v" /* MdRippleModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["w" /* MdSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["x" /* MdSidenavModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MdSliderModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["y" /* MdSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["A" /* MdSnackBarModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["B" /* MdSortModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["C" /* MdTableModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["D" /* MdTabsModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["F" /* MdTooltipModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_5__footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_6__contact_contact_component__["a" /* ContactComponent */],
-            __WEBPACK_IMPORTED_MODULE_7__contact_social_social_component__["a" /* ContactSocialComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__contact_form_form_component__["a" /* ContactFormComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__header_header_component__["a" /* HeaderComponent */]
+            __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__["a" /* ContactComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__contact_social_social_component__["a" /* ContactSocialComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__contact_form_form_component__["a" /* ContactFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_12__header_header_component__["a" /* HeaderComponent */]
         ],
-        providers: [__WEBPACK_IMPORTED_MODULE_10__services_server_data__["a" /* ServerDataService */]],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+        providers: [
+            __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
+            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MD_PLACEHOLDER_GLOBAL_OPTIONS */], useValue: { float: 'always' } }
+        ],
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -222,7 +265,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<form id=\"contact-me\" method=\"POST\">\n    <div class=\"form-group float-label-control\">\n        <input id=\"contact-name\" name=\"name\" class=\"form-control empty\" placeholder=\"Name\">\n        <label for=\"contact-name\">Name</label>\n    </div>\n    <div class=\"form-group float-label-control\">\n        <input id=\"contact-email\" name=\"email\" type=\"email\" class=\"form-control empty\" placeholder=\"Email\">\n        <label for=\"contact-email\">Email</label>\n    </div>\n    <div class=\"form-group float-label-control has-error\">\n        <textarea id=\"contact-message\" name=\"message\" class=\"form-control empty\" rows=\"3\"></textarea>\n        <label for=\"contact-message\">Message</label>\n    </div>\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
+module.exports = "\n<form id=\"contact-me\" method=\"POST\">\n    <!--<div class=\"form-group float-label-control\">\n        <input id=\"contact-name\" name=\"name\" class=\"form-control empty\" placeholder=\"Name\">\n        <label for=\"contact-name\">Name</label>\n    </div>-->\n    <md-form-field class=\"example-full-width\">\n        <input mdInput placeholder=\"Email\" [formControl]=\"emailFormControl\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <!--<div class=\"form-group float-label-control has-error\">\n        <textarea id=\"contact-message\" name=\"message\" class=\"form-control empty\" rows=\"3\"></textarea>\n        <label for=\"contact-message\">Message</label>\n    </div>-->\n    <!--<div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>-->\n</form>\n"
 
 /***/ }),
 
@@ -232,6 +275,7 @@ module.exports = "\n<form id=\"contact-me\" method=\"POST\">\n    <div class=\"f
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactFormComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -239,8 +283,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 
+
+var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 var ContactFormComponent = (function () {
     function ContactFormComponent() {
+        this.emailFormControl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].required,
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].pattern(EMAIL_REGEX)
+        ]);
     }
     return ContactFormComponent;
 }());
@@ -703,18 +753,21 @@ var environment = {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../resources/assets/src/app/app.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../resources/assets/src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hammerjs__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/@angular/platform-browser-dynamic.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_app_module__ = __webpack_require__("../../../../../resources/assets/src/app/app.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__environments_environment__ = __webpack_require__("../../../../../resources/assets/src/environments/environment.ts");
 
 
 
 
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_20" /* enableProdMode */])();
+
+if (__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].production) {
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_20" /* enableProdMode */])();
 }
-Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
+Object(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
 
 /***/ }),
