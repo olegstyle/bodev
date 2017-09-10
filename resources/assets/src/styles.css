@@ -196,3 +196,7 @@ body {
         height: 1px;
     }
 }
+
+.mat-form-field {
+    width: 100%;
+}

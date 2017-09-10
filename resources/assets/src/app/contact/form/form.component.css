@@ -1,34 +1,33 @@
-.float-label-control input, .float-label-control textarea {
-    border-bottom: 2px solid white;
+input, textarea {
+    padding: 15px 10px 15px 45px;
+    background: left top no-repeat transparent;
     color: white;
-    z-index: 1;
-    padding-left: 40px;
-    background-repeat: no-repeat;
-    background-position: 5px 2px;
-    background-size: auto 30px;
 }
-.float-label-control textarea {
-    max-width: 100%;
-}
-.float-label-control label {
-    color: #f9f9f9;
-}
-.float-label-control input:focus, .float-label-control textarea:focus {
-    border-bottom: 2px solid #4cc3bf;
-}
-.float-label-control input.empty + label, .float-label-control textarea.empty + label {
-    margin-left: 40px;
-}
-
-form .btn-bo-wrapper {
-    text-align: right;
-}
-.float-label-control input[name="name"] {
+input[name="name"] {
     background-image: url("images/cName.png");
 }
-.float-label-control input[name="email"] {
+input[name="email"] {
     background-image: url("images/cMail.png");
 }
-.float-label-control textarea[name="message"] {
+textarea[name="message"] {
     background-image: url("images/cMessage.png");
+}
+
+:host >>> .mat-form-field-placeholder {
+    color: #ffffff;
+}
+:host >>> .mat-form-field-underline {
+    background-color: #ffffff;
+}
+:host >>> .mat-form-field-ripple {
+    background-color: #4cc3bf;
+}
+:host >>> .mat-form-field-invalid .mat-form-field-ripple {
+    background-color: #f44336;
+}
+:host >>> .mat-form-field-placeholder {
+    font-size: 20px;
+}
+:host >>> .mat-error {
+    margin-bottom: 10px;
 }
