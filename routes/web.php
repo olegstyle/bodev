@@ -11,8 +11,12 @@
 |
 */
 Route::get('/', "MainController");
-Route::get('/angi', "AngularController@index");
-Route::get('/angi/getData', "AngularController@getData");
+Route::group(['prefix' => 'angi'] , function() {
+    Route::get('/', "AngularController@index");
+    Route::get('getData', "AngularController@getData");
+    Route::post('contact/send', "AngularController@sendMail");
+});
+
 Route::post('/sendmail', "MainController@sendMail");
 
 

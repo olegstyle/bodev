@@ -8,11 +8,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactSendRequest;
+use App\Mail\ContactMail;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Mail;
 use TCG\Voyager\Voyager;
 
+/**
+ * Class AngularController
+ * @package App\Http\Controllers
+ *
+ * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+ */
 class AngularController extends Controller {
+
+    /**
+     * index
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @return Response
+     */
     public function index()
     {
     	$data = [];
@@ -50,5 +65,17 @@ class AngularController extends Controller {
             ]
 
         ]);
+    }
+
+    /**
+     * sendMail
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @param ContactSendRequest $request
+     * @return Response
+     */
+    public function sendMail(ContactSendRequest $request)
+    {
+        Mail::send(new ContactMail($request->input('name'), $request->input('email'), $request->input('message')));
+        return response(['success' => true]);
     }
 }

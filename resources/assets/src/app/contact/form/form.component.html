@@ -1,10 +1,10 @@
 
-<form id="contact-me" method="POST">
+<form id="contact-me" method="POST" (ngSubmit)="onSubmit()">
     <md-form-field>
-        <input mdInput name="name" placeholder="Name">
+        <input mdInput name="name" placeholder="Name" [(ngModel)]="nameValue">
     </md-form-field>
     <md-form-field>
-            <input mdInput name="email" placeholder="Email" [formControl]="emailFormControl">
+            <input mdInput name="email" placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="emailValue">
         <md-error *ngIf="emailFormControl.hasError('pattern')">
             Please enter a valid email address
         </md-error>
@@ -13,7 +13,8 @@
         </md-error>
     </md-form-field>
     <md-form-field>
-        <textarea mdInput name="message" placeholder="Message"></textarea>
+        <textarea mdInput name="message" placeholder="Message" [(ngModel)]="messageValue"></textarea>
     </md-form-field>
+    <re-captcha [(ngModel)]="captcha" name="captcha" required></re-captcha>
     <div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">Send</button></div>
 </form>

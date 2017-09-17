@@ -47,6 +47,9 @@ import { ContactSocialComponent } from './contact/social/social.component';
 import { ContactFormComponent } from './contact/form/form.component';
 import { HeaderComponent } from "./header/header.component";
 import { ServerDataService } from "./services/server-data";
+import { RECAPTCHA_SETTINGS, RecaptchaSettings } from 'ng-recaptcha';
+import { RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule } from 'ng-recaptcha/forms';
 
 @NgModule({
     imports: [
@@ -91,7 +94,9 @@ import { ServerDataService } from "./services/server-data";
         MdTableModule,
         MdTabsModule,
         MdToolbarModule,
-        MdTooltipModule
+        MdTooltipModule,
+        RecaptchaModule.forRoot(),
+        RecaptchaFormsModule
     ],
     declarations: [
         AppComponent,
@@ -103,7 +108,8 @@ import { ServerDataService } from "./services/server-data";
     ],
     providers: [
         ServerDataService,
-        {provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: {float: 'always'}}
+        {provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: {float: 'always'}},
+        { provide: RECAPTCHA_SETTINGS, useValue: { siteKey: '6Ldc9jAUAAAAAIM4BlQIHl4r5Hu7XqS6rkZkduL5' } as RecaptchaSettings },
     ],
     bootstrap: [ AppComponent ]
 })

@@ -57,7 +57,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
@@ -92,6 +92,10 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng_recaptcha__ = __webpack_require__("../../../../ng-recaptcha/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14_ng_recaptcha___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_14_ng_recaptcha__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_recaptcha_forms__ = __webpack_require__("../../../../ng-recaptcha/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15_ng_recaptcha_forms___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_15_ng_recaptcha_forms__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -113,23 +117,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormsModule"],
             __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["c" /* HttpClientXsrfModule */].withOptions({
                 cookieName: 'XSRF-TOKEN',
                 headerName: 'X-CSRF-TOKEN'
             }),
-            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_forms__["ReactiveFormsModule"],
             // form
             __WEBPACK_IMPORTED_MODULE_4__angular_cdk_table__["m" /* CdkTableModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdAutocompleteModule */],
@@ -162,7 +169,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["C" /* MdTableModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["D" /* MdTabsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MdToolbarModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["F" /* MdTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["F" /* MdTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_14_ng_recaptcha__["RecaptchaModule"].forRoot(),
+            __WEBPACK_IMPORTED_MODULE_15_ng_recaptcha_forms__["RecaptchaFormsModule"]
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
@@ -174,7 +183,8 @@ AppModule = __decorate([
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
-            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MD_PLACEHOLDER_GLOBAL_OPTIONS */], useValue: { float: 'always' } }
+            { provide: __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MD_PLACEHOLDER_GLOBAL_OPTIONS */], useValue: { float: 'always' } },
+            { provide: __WEBPACK_IMPORTED_MODULE_14_ng_recaptcha__["RECAPTCHA_SETTINGS"], useValue: { siteKey: '6Ldc9jAUAAAAAIM4BlQIHl4r5Hu7XqS6rkZkduL5' } },
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
     })
@@ -233,7 +243,7 @@ var ContactComponent = (function () {
     return ContactComponent;
 }());
 ContactComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.css")],
@@ -265,7 +275,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<form id=\"contact-me\" method=\"POST\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\"></textarea>\n    </md-form-field>\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
+module.exports = "\n<form id=\"contact-me\" method=\"POST\" (ngSubmit)=\"onSubmit()\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\" [(ngModel)]=\"nameValue\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"emailValue\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\" [(ngModel)]=\"messageValue\"></textarea>\n    </md-form-field>\n    <re-captcha [(ngModel)]=\"captcha\" name=\"captcha\" required></re-captcha>\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
 
 /***/ }),
 
@@ -282,24 +292,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
 
 var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 var ContactFormComponent = (function () {
     function ContactFormComponent() {
-        this.emailFormControl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [
-            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].required,
-            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].pattern(EMAIL_REGEX)
+        this.emailFormControl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required,
+            __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern(EMAIL_REGEX)
         ]);
+        this.nameValue = '';
+        this.emailValue = '';
+        this.messageValue = '';
+        this.captcha = '';
     }
+    ContactFormComponent.prototype.onSubmit = function () {
+        console.log(this.captcha);
+        //this.http.post(Utils.BASE_URL, + 'contact/send', {})
+        //    .subscribe();
+    };
     return ContactFormComponent;
 }());
 ContactFormComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact-form',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.css")],
-    })
+    }),
+    __metadata("design:paramtypes", [])
 ], ContactFormComponent);
 
 //# sourceMappingURL=form.component.js.map
@@ -436,7 +459,7 @@ var ContactSocialComponent = (function () {
     return ContactSocialComponent;
 }());
 ContactSocialComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact-social',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.css")],
@@ -513,7 +536,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'footer',
         template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
@@ -586,7 +609,7 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'header',
         template: __webpack_require__("../../../../../resources/assets/src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/header/header.component.css")],
@@ -706,7 +729,7 @@ var ServerDataService = (function () {
     return ServerDataService;
 }());
 ServerDataService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
 ], ServerDataService);
 
@@ -765,7 +788,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_20" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map
