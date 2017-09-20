@@ -13,13 +13,5 @@
          <script type="text/javascript" src="angular/styles.bundle.js"></script>
          <script type="text/javascript" src="angular/vendor.bundle.js"></script>
          <script type="text/javascript" src="angular/main.bundle.js"></script>
-
-         <!-- TODO: удалить jquery. Заменнить весь jquery функционал на angular -->
-         <script type="text/javascript" src="/js/jquery.js"></script>
-         <script type="text/javascript" src="/js/perfect-scrollbar.jquery.min.js"></script>
-         <script type="text/javascript" src="/js/jquery.mixitup.js"></script>
-         <script type="text/javascript" src="/js/jquery.mixitup.pagination.js"></script>
-         <script type="text/javascript" src="/js/toastr.min.js"></script>
-         <script type="text/javascript" src="/js/script.js"></script>
     </body>
 </html>

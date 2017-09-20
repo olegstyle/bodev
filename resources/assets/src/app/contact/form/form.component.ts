@@ -1,9 +1,14 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
-import {Http} from "@angular/http";
-import {Utils} from "../../utils/utils";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+export interface FormModel {
+    nameValue?: string;
+    emailValue?: string;
+    messageValue?: string;
+    captcha?: string;
+}
 
 @Component({
     selector: 'contact-form',
@@ -16,14 +21,11 @@ export class ContactFormComponent {
     emailFormControl = new FormControl('', [
         Validators.required,
         Validators.pattern(EMAIL_REGEX)]);
-    nameValue: string = '';
-    emailValue: string = '';
-    messageValue: string = '';
-    captcha: string = '';
+    public formModel: FormModel = {};
 
 
     onSubmit() {
-        console.log(this.captcha);
+        console.log(this.formModel);
         //this.http.post(Utils.BASE_URL, + 'contact/send', {})
         //    .subscribe();
     }
