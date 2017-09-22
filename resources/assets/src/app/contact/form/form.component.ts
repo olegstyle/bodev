@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ContactFormModel} from "../../model/contact-form";
 import {ContactFormService} from "../../services/contact-form.service";
 import {MyRecaptchaComponent} from "../../utils/compnents/recaptcha/myrecaptcha.component";
+import {MdSnackBar} from "@angular/material";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -13,7 +14,8 @@ const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA
 })
 export class ContactFormComponent {
     constructor(
-        private service: ContactFormService
+        private service: ContactFormService,
+        private snackBar: MdSnackBar
     ) {}
 
     @ViewChild(MyRecaptchaComponent)
@@ -30,6 +32,9 @@ export class ContactFormComponent {
                 if (data.success) {
                     form.reset();
                     this.recaptchaComponent.reset();
+                    this.snackBar.open('Successfully sent', 'OK', {duration: 2000});
+                } else {
+                    this.snackBar.open('Wasn\'t sent', 'OK', {duration: 2000});
                 }
             });
         }

@@ -15,7 +15,8 @@ import {
     MdIconModule,
     MdInputModule,
     MdToolbarModule,
-    MdTooltipModule
+    MdTooltipModule,
+    MdSnackBarModule
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -50,7 +51,8 @@ import {TokenInterceptor} from "./utils/token.interceptor";
         MdIconModule,
         MdInputModule,
         MdToolbarModule,
-        MdTooltipModule
+        MdTooltipModule,
+        MdSnackBarModule
     ],
     declarations: [
         AppComponent,

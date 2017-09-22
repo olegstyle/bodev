@@ -141,8 +141,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MdGridListModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["j" /* MdIconModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["k" /* MdInputModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["l" /* MdToolbarModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["n" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["o" /* MdTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdSnackBarModule */]
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
@@ -261,6 +262,7 @@ module.exports = "<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactFor
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -274,10 +276,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 var ContactFormComponent = (function () {
-    function ContactFormComponent(service) {
+    function ContactFormComponent(service, snackBar) {
         this.service = service;
+        this.snackBar = snackBar;
         this.emailFormControl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].required,
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].pattern(EMAIL_REGEX)
@@ -291,6 +295,10 @@ var ContactFormComponent = (function () {
                 if (data.success) {
                     form.reset();
                     _this.recaptchaComponent.reset();
+                    _this.snackBar.open('Successfully sent', 'OK', { duration: 2000 });
+                }
+                else {
+                    _this.snackBar.open('Wasn\'t sent', 'OK', { duration: 2000 });
                 }
             });
         }
@@ -310,10 +318,10 @@ ContactFormComponent = __decorate([
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__["a" /* ContactFormService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__["a" /* ContactFormService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__["a" /* ContactFormService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__["a" /* ContactFormService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_material__["l" /* MdSnackBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_material__["l" /* MdSnackBar */]) === "function" && _c || Object])
 ], ContactFormComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=form.component.js.map
 
 /***/ }),
