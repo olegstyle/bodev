@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ReCAPTCHA} from "./recaptcha.interface";
 import {ReCAPTCHAListener} from "./recaptcha.listener";
 
@@ -13,6 +13,7 @@ declare var window: any;
 export class MyRecaptchaComponent implements OnInit {
     constructor() {}
 
+    @Output() response = new EventEmitter();
     protected listener: ReCAPTCHAListener|null = null;
     protected sitekey: string = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
     protected currentId: string = 'recaptcha_' + Math.random().toString(36).substring(2);
@@ -37,9 +38,8 @@ export class MyRecaptchaComponent implements OnInit {
     public reCAPTCHACallback(token: string) {
         if (token == null || token.length === 0) {
             this.reset();
-        } else {
-            this.setToken(token);
         }
+        this.setToken(token);
     }
 
     protected setToken(token: string) {
@@ -47,6 +47,7 @@ export class MyRecaptchaComponent implements OnInit {
         if (this.listener != null) {
             this.listener.onValidToken(this.token);
         }
+        this.response.emit(token);
     }
 
     public getToken(): string|null {

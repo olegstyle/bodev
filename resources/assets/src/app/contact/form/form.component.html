@@ -1,5 +1,5 @@
 
-<form (ngSubmit)="onSubmit()">
+<form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
     <md-form-field>
         <input mdInput name="name" placeholder="Name" [(ngModel)]="formModel.nameValue">
     </md-form-field>
@@ -16,7 +16,7 @@
         <textarea mdInput name="message" placeholder="Message" [(ngModel)]="formModel.messageValue"></textarea>
     </md-form-field>
 
-    <my-recaptcha></my-recaptcha>
+    <my-recaptcha #recaptcha="" (response)="onTokenChanged($event)"></my-recaptcha>
 
     <div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">Send</button></div>
 </form>

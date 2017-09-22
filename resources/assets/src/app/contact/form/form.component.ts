@@ -1,14 +1,10 @@
-import {Component} from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
+import {Component, ViewChild} from '@angular/core';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ContactFormModel} from "../../model/contact-form";
+import {ContactFormService} from "../../services/contact-form.service";
+import {MyRecaptchaComponent} from "../../utils/compnents/recaptcha/myrecaptcha.component";
 
 const EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-export interface FormModel {
-    nameValue?: string;
-    emailValue?: string;
-    messageValue?: string;
-    captcha?: string;
-}
 
 @Component({
     selector: 'contact-form',
@@ -16,17 +12,32 @@ export interface FormModel {
     styleUrls: ['form.component.css'],
 })
 export class ContactFormComponent {
-    constructor() {}
+    constructor(
+        private service: ContactFormService
+    ) {}
+
+    @ViewChild(MyRecaptchaComponent)
+    private recaptchaComponent: MyRecaptchaComponent;
+
 
     emailFormControl = new FormControl('', [
         Validators.required,
         Validators.pattern(EMAIL_REGEX)]);
-    public formModel: FormModel = {};
+    public formModel: ContactFormModel = {};
 
 
-    onSubmit() {
-        console.log(this.formModel);
-        //this.http.post(Utils.BASE_URL, + 'contact/send', {})
-        //    .subscribe();
+    onSubmit(form: FormGroup) {
+        if (form.valid) {
+            this.service.send(this.service).subscribe(data => {
+                if (data.success) {
+                    form.reset();
+                    this.recaptchaComponent.reset();
+                }
+            });
+        }
+    }
+
+    onTokenChanged(token: string) {
+        this.formModel.captcha = token;
     }
 }

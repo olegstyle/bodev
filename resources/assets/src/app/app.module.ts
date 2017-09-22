@@ -48,6 +48,7 @@ import { ContactFormComponent } from './contact/form/form.component';
 import { HeaderComponent } from "./header/header.component";
 import { ServerDataService } from "./services/server-data";
 import { MyRecaptchaComponent } from "./utils/compnents/recaptcha/myrecaptcha.component";
+import {ContactFormService} from "./services/contact-form.service";
 
 @NgModule({
     imports: [
@@ -105,6 +106,7 @@ import { MyRecaptchaComponent } from "./utils/compnents/recaptcha/myrecaptcha.co
     ],
     providers: [
         ServerDataService,
+        ContactFormService,
         { provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } },
     ],
     bootstrap: [ AppComponent ]

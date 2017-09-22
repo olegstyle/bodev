@@ -33,7 +33,7 @@ class ContactSendRequest extends FormRequest
             'name' => 'required|string|max:64',
             'email' => 'required|email',
             'message' => 'required|string|min:5|max:255',
-            'g-recaptcha-response' => 'required|recaptcha',
+            'captcha' => 'required|recaptcha',
 
         ];
     }

@@ -93,6 +93,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -100,6 +101,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 ///<reference path="../../../../node_modules/@angular/material/typings/chips/index.d.ts"/>
+
 
 
 
@@ -177,6 +179,7 @@ AppModule = __decorate([
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
+            __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__["a" /* ContactFormService */],
             { provide: __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MD_PLACEHOLDER_GLOBAL_OPTIONS */], useValue: { float: 'always' } },
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
@@ -268,7 +271,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<form (ngSubmit)=\"onSubmit()\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\" [(ngModel)]=\"formModel.nameValue\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"formModel.emailValue\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\" [(ngModel)]=\"formModel.messageValue\"></textarea>\n    </md-form-field>\n\n    <my-recaptcha></my-recaptcha>\n\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
+module.exports = "\n<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactForm)\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\" [(ngModel)]=\"formModel.nameValue\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"formModel.emailValue\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\" [(ngModel)]=\"formModel.messageValue\"></textarea>\n    </md-form-field>\n\n    <my-recaptcha #recaptcha=\"\" (response)=\"onTokenChanged($event)\"></my-recaptcha>\n\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
 
 /***/ }),
 
@@ -279,6 +282,8 @@ module.exports = "\n<form (ngSubmit)=\"onSubmit()\">\n    <md-form-field>\n     
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactFormComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -290,31 +295,48 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 var ContactFormComponent = (function () {
-    function ContactFormComponent() {
+    function ContactFormComponent(service) {
+        this.service = service;
         this.emailFormControl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */]('', [
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].required,
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["j" /* Validators */].pattern(EMAIL_REGEX)
         ]);
         this.formModel = {};
     }
-    ContactFormComponent.prototype.onSubmit = function () {
-        console.log(this.formModel);
-        //this.http.post(Utils.BASE_URL, + 'contact/send', {})
-        //    .subscribe();
+    ContactFormComponent.prototype.onSubmit = function (form) {
+        var _this = this;
+        if (form.valid) {
+            this.service.send(this.service).subscribe(function (data) {
+                if (data.success) {
+                    form.reset();
+                    _this.recaptchaComponent.reset();
+                }
+            });
+        }
+    };
+    ContactFormComponent.prototype.onTokenChanged = function (token) {
+        this.formModel.captcha = token;
     };
     return ContactFormComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]),
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]) === "function" && _a || Object)
+], ContactFormComponent.prototype, "recaptchaComponent", void 0);
 ContactFormComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'contact-form',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.css")],
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__["a" /* ContactFormService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__["a" /* ContactFormService */]) === "function" && _b || Object])
 ], ContactFormComponent);
 
+var _a, _b;
 //# sourceMappingURL=form.component.js.map
 
 /***/ }),
@@ -678,6 +700,49 @@ var ServerData = (function () {
 
 /***/ }),
 
+/***/ "../../../../../resources/assets/src/app/services/contact-form.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactFormService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_utils__ = __webpack_require__("../../../../../resources/assets/src/app/utils/utils.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ContactFormService = (function () {
+    function ContactFormService(http) {
+        this.http = http;
+        this.url = __WEBPACK_IMPORTED_MODULE_2__utils_utils__["a" /* Utils */].BASE_URL + 'contact/send';
+    }
+    ContactFormService.prototype.send = function (model) {
+        return this.http.post(this.url, model);
+    };
+    return ContactFormService;
+}());
+ContactFormService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+], ContactFormService);
+
+var _a;
+//# sourceMappingURL=contact-form.service.js.map
+
+/***/ }),
+
 /***/ "../../../../../resources/assets/src/app/services/server-data.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -771,6 +836,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyRecaptchaComponent = (function () {
     function MyRecaptchaComponent() {
+        this.response = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.listener = null;
         this.sitekey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
         this.currentId = 'recaptcha_' + Math.random().toString(36).substring(2);
@@ -794,15 +860,14 @@ var MyRecaptchaComponent = (function () {
         if (token == null || token.length === 0) {
             this.reset();
         }
-        else {
-            this.setToken(token);
-        }
+        this.setToken(token);
     };
     MyRecaptchaComponent.prototype.setToken = function (token) {
         this.token = token;
         if (this.listener != null) {
             this.listener.onValidToken(this.token);
         }
+        this.response.emit(token);
     };
     MyRecaptchaComponent.prototype.getToken = function () {
         return this.token;
@@ -813,6 +878,10 @@ var MyRecaptchaComponent = (function () {
     };
     return MyRecaptchaComponent;
 }());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
+    __metadata("design:type", Object)
+], MyRecaptchaComponent.prototype, "response", void 0);
 MyRecaptchaComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'my-recaptcha',
