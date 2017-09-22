@@ -7,11 +7,12 @@
             ga('create', 'UA-92535217-1', 'auto');
             ga('send', 'pageview');
 
-        </script>
+         </script>
          <script type="text/javascript" src="angular/inline.bundle.js"></script>
          <script type="text/javascript" src="angular/polyfills.bundle.js"></script>
          <script type="text/javascript" src="angular/styles.bundle.js"></script>
          <script type="text/javascript" src="angular/vendor.bundle.js"></script>
          <script type="text/javascript" src="angular/main.bundle.js"></script>
+         <script src='https://www.google.com/recaptcha/api.js?onload=reCAPTCHAOnLoad&render=explicit' async defer></script>
     </body>
 </html>

@@ -47,7 +47,7 @@ import { ContactSocialComponent } from './contact/social/social.component';
 import { ContactFormComponent } from './contact/form/form.component';
 import { HeaderComponent } from "./header/header.component";
 import { ServerDataService } from "./services/server-data";
-import { RecaptchaComponent } from "./utils/compnents/recaptcha/recaptcha.component";
+import { MyRecaptchaComponent } from "./utils/compnents/recaptcha/myrecaptcha.component";
 
 @NgModule({
     imports: [
@@ -92,8 +92,7 @@ import { RecaptchaComponent } from "./utils/compnents/recaptcha/recaptcha.compon
         MdTableModule,
         MdTabsModule,
         MdToolbarModule,
-        MdTooltipModule,
-        RecaptchaComponent
+        MdTooltipModule
     ],
     declarations: [
         AppComponent,
@@ -101,7 +100,8 @@ import { RecaptchaComponent } from "./utils/compnents/recaptcha/recaptcha.compon
         ContactComponent,
         ContactSocialComponent,
         ContactFormComponent,
-        HeaderComponent
+        HeaderComponent,
+        MyRecaptchaComponent
     ],
     providers: [
         ServerDataService,
