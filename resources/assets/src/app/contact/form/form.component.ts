@@ -19,16 +19,14 @@ export class ContactFormComponent {
     @ViewChild(MyRecaptchaComponent)
     private recaptchaComponent: MyRecaptchaComponent;
 
-
     emailFormControl = new FormControl('', [
         Validators.required,
         Validators.pattern(EMAIL_REGEX)]);
     public formModel: ContactFormModel = {};
 
-
     onSubmit(form: FormGroup) {
         if (form.valid) {
-            this.service.send(this.service).subscribe(data => {
+            this.service.send(this.formModel).subscribe(data => {
                 if (data.success) {
                     form.reset();
                     this.recaptchaComponent.reset();

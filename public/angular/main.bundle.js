@@ -82,18 +82,18 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_cdk_table__ = __webpack_require__("../../../cdk/@angular/cdk/table.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__app_component__ = __webpack_require__("../../../../../resources/assets/src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__ = __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__contact_social_social_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__app_component__ = __webpack_require__("../../../../../resources/assets/src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__footer_footer_component__ = __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__contact_contact_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__contact_social_social_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__contact_form_form_component__ = __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__header_header_component__ = __webpack_require__("../../../../../resources/assets/src/app/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__utils_token_interceptor__ = __webpack_require__("../../../../../resources/assets/src/app/utils/token.interceptor.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -127,62 +127,39 @@ AppModule = __decorate([
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["b" /* HttpClientModule */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["c" /* HttpClientXsrfModule */].withOptions({
-                cookieName: 'XSRF-TOKEN',
-                headerName: 'X-CSRF-TOKEN'
-            }),
+            __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpClientModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* ReactiveFormsModule */],
             // form
-            __WEBPACK_IMPORTED_MODULE_4__angular_cdk_table__["m" /* CdkTableModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdAutocompleteModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["c" /* MdButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MdButtonToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdCardModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["f" /* MdCheckboxModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdChipsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MdCoreModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MdDatepickerModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["j" /* MdDialogModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["k" /* MdExpansionModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["l" /* MdGridListModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdIconModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["n" /* MdInputModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["o" /* MdListModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["p" /* MdMenuModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["q" /* MdNativeDateModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["r" /* MdPaginatorModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["s" /* MdProgressBarModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["t" /* MdProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["u" /* MdRadioModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["v" /* MdRippleModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["w" /* MdSelectModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["x" /* MdSidenavModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["z" /* MdSliderModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["y" /* MdSlideToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["A" /* MdSnackBarModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["B" /* MdSortModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["C" /* MdTableModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["D" /* MdTabsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["E" /* MdToolbarModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["F" /* MdTooltipModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["b" /* MdButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["c" /* MdButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MdCardModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MdCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["f" /* MdDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MdDialogModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MdExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["i" /* MdGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["j" /* MdIconModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["k" /* MdInputModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["l" /* MdToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdTooltipModule */]
         ],
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
-            __WEBPACK_IMPORTED_MODULE_8__footer_footer_component__["a" /* FooterComponent */],
-            __WEBPACK_IMPORTED_MODULE_9__contact_contact_component__["a" /* ContactComponent */],
-            __WEBPACK_IMPORTED_MODULE_10__contact_social_social_component__["a" /* ContactSocialComponent */],
-            __WEBPACK_IMPORTED_MODULE_11__contact_form_form_component__["a" /* ContactFormComponent */],
-            __WEBPACK_IMPORTED_MODULE_12__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]
+            __WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */],
+            __WEBPACK_IMPORTED_MODULE_7__footer_footer_component__["a" /* FooterComponent */],
+            __WEBPACK_IMPORTED_MODULE_8__contact_contact_component__["a" /* ContactComponent */],
+            __WEBPACK_IMPORTED_MODULE_9__contact_social_social_component__["a" /* ContactSocialComponent */],
+            __WEBPACK_IMPORTED_MODULE_10__contact_form_form_component__["a" /* ContactFormComponent */],
+            __WEBPACK_IMPORTED_MODULE_11__header_header_component__["a" /* HeaderComponent */],
+            __WEBPACK_IMPORTED_MODULE_13__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
-            __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__["a" /* ContactFormService */],
+            __WEBPACK_IMPORTED_MODULE_12__services_server_data__["a" /* ServerDataService */],
+            __WEBPACK_IMPORTED_MODULE_14__services_contact_form_service__["a" /* ContactFormService */],
             { provide: __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MD_PLACEHOLDER_GLOBAL_OPTIONS */], useValue: { float: 'always' } },
+            { provide: __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HTTP_INTERCEPTORS */], useClass: __WEBPACK_IMPORTED_MODULE_15__utils_token_interceptor__["a" /* TokenInterceptor */], multi: true }
         ],
-        bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
+        bootstrap: [__WEBPACK_IMPORTED_MODULE_6__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
 
@@ -271,7 +248,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactForm)\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\" [(ngModel)]=\"formModel.nameValue\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"formModel.emailValue\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\" [(ngModel)]=\"formModel.messageValue\"></textarea>\n    </md-form-field>\n\n    <my-recaptcha #recaptcha=\"\" (response)=\"onTokenChanged($event)\"></my-recaptcha>\n\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
+module.exports = "<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactForm)\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\" [(ngModel)]=\"formModel.name\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"formModel.email\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\" [(ngModel)]=\"formModel.message\"></textarea>\n    </md-form-field>\n\n    <my-recaptcha #recaptcha=\"\" (response)=\"onTokenChanged($event)\"></my-recaptcha>\n\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
 
 /***/ }),
 
@@ -310,7 +287,7 @@ var ContactFormComponent = (function () {
     ContactFormComponent.prototype.onSubmit = function (form) {
         var _this = this;
         if (form.valid) {
-            this.service.send(this.service).subscribe(function (data) {
+            this.service.send(this.formModel).subscribe(function (data) {
                 if (data.success) {
                     form.reset();
                     _this.recaptchaComponent.reset();
@@ -735,7 +712,7 @@ var ContactFormService = (function () {
 }());
 ContactFormService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ContactFormService);
 
 var _a;
@@ -785,7 +762,7 @@ var ServerDataService = (function () {
 }());
 ServerDataService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ServerDataService);
 
 var _a;
@@ -838,7 +815,7 @@ var MyRecaptchaComponent = (function () {
     function MyRecaptchaComponent() {
         this.response = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
         this.listener = null;
-        this.sitekey = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+        this.sitekey = '6Ldc9jAUAAAAAIM4BlQIHl4r5Hu7XqS6rkZkduL5';
         this.currentId = 'recaptcha_' + Math.random().toString(36).substring(2);
         this.token = '';
     }
@@ -892,6 +869,48 @@ MyRecaptchaComponent = __decorate([
 ], MyRecaptchaComponent);
 
 //# sourceMappingURL=myrecaptcha.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/utils/token.interceptor.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TokenInterceptor; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TokenInterceptor = (function () {
+    function TokenInterceptor(meta) {
+        this.meta = meta;
+    }
+    TokenInterceptor.prototype.intercept = function (request, next) {
+        request = request.clone({
+            setHeaders: {
+                'X-CSRF-TOKEN': this.meta.getTag('name="csrf-token"').content
+            }
+        });
+        return next.handle(request);
+    };
+    return TokenInterceptor;
+}());
+TokenInterceptor = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */]) === "function" && _a || Object])
+], TokenInterceptor);
+
+var _a;
+//# sourceMappingURL=token.interceptor.js.map
 
 /***/ }),
 

@@ -15,7 +15,7 @@ export class MyRecaptchaComponent implements OnInit {
 
     @Output() response = new EventEmitter();
     protected listener: ReCAPTCHAListener|null = null;
-    protected sitekey: string = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
+    protected sitekey: string = '6Ldc9jAUAAAAAIM4BlQIHl4r5Hu7XqS6rkZkduL5';
     protected currentId: string = 'recaptcha_' + Math.random().toString(36).substring(2);
     protected token = '';
 

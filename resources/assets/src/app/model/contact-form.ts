@@ -1,6 +1,6 @@
 export class ContactFormModel {
-    nameValue?: string;
-    emailValue?: string;
-    messageValue?: string;
+    name?: string;
+    email?: string;
+    message?: string;
     captcha?: string;
 }

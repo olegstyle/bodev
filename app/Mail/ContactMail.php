@@ -22,7 +22,7 @@ class ContactMail extends Mailable
     /** @var string */
     public $email;
     /** @var string */
-    public $message;
+    public $bodyMessage;
 
     /**
      * ContactMail constructor.
@@ -34,7 +34,7 @@ class ContactMail extends Mailable
     {
         $this->name = $name;
         $this->email = $email;
-        $this->message = $message;
+        $this->bodyMessage = $message;
     }
 
     /**
@@ -44,8 +44,8 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->from('oleh@bodev.pro')
-            ->to('oleh@bodev.pro')
+        return $this->from('olegstyle1@gmail.com')
+            ->to('olegstyle1@gmail.com')
             ->replyTo($this->email)
             ->subject('New message from BODev.pro')
             ->view('mail.contact');

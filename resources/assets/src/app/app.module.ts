@@ -4,40 +4,20 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import {
     MD_PLACEHOLDER_GLOBAL_OPTIONS,
-    MdAutocompleteModule,
     MdButtonModule,
     MdButtonToggleModule,
     MdCardModule,
     MdCheckboxModule,
-    MdChipsModule,
-    MdCoreModule,
     MdDatepickerModule,
     MdDialogModule,
     MdExpansionModule,
     MdGridListModule,
     MdIconModule,
     MdInputModule,
-    MdListModule,
-    MdMenuModule,
-    MdNativeDateModule,
-    MdPaginatorModule,
-    MdProgressBarModule,
-    MdProgressSpinnerModule,
-    MdRadioModule,
-    MdRippleModule,
-    MdSelectModule,
-    MdSidenavModule,
-    MdSliderModule,
-    MdSlideToggleModule,
-    MdSnackBarModule,
-    MdSortModule,
-    MdTableModule,
-    MdTabsModule,
     MdToolbarModule,
     MdTooltipModule
 } from '@angular/material';
-import {CdkTableModule} from '@angular/cdk/table';
-import { HttpClientModule, HttpClientXsrfModule } from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent }         from './app.component';
@@ -49,6 +29,7 @@ import { HeaderComponent } from "./header/header.component";
 import { ServerDataService } from "./services/server-data";
 import { MyRecaptchaComponent } from "./utils/compnents/recaptcha/myrecaptcha.component";
 import {ContactFormService} from "./services/contact-form.service";
+import {TokenInterceptor} from "./utils/token.interceptor";
 
 @NgModule({
     imports: [
@@ -56,42 +37,18 @@ import {ContactFormService} from "./services/contact-form.service";
         FormsModule,
         BrowserAnimationsModule,
         HttpClientModule,
-        HttpClientXsrfModule.withOptions({
-            cookieName: 'XSRF-TOKEN',
-            headerName: 'X-CSRF-TOKEN'
-        }),
         ReactiveFormsModule,
         // form
-        CdkTableModule,
-        MdAutocompleteModule,
         MdButtonModule,
         MdButtonToggleModule,
         MdCardModule,
         MdCheckboxModule,
-        MdChipsModule,
-        MdCoreModule,
         MdDatepickerModule,
         MdDialogModule,
         MdExpansionModule,
         MdGridListModule,
         MdIconModule,
         MdInputModule,
-        MdListModule,
-        MdMenuModule,
-        MdNativeDateModule,
-        MdPaginatorModule,
-        MdProgressBarModule,
-        MdProgressSpinnerModule,
-        MdRadioModule,
-        MdRippleModule,
-        MdSelectModule,
-        MdSidenavModule,
-        MdSliderModule,
-        MdSlideToggleModule,
-        MdSnackBarModule,
-        MdSortModule,
-        MdTableModule,
-        MdTabsModule,
         MdToolbarModule,
         MdTooltipModule
     ],
@@ -108,6 +65,7 @@ import {ContactFormService} from "./services/contact-form.service";
         ServerDataService,
         ContactFormService,
         { provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } },
+        { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],
     bootstrap: [ AppComponent ]
 })
