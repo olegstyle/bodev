@@ -57,7 +57,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
@@ -95,6 +95,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__utils_token_interceptor__ = __webpack_require__("../../../../../resources/assets/src/app/utils/token.interceptor.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -119,13 +120,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = (function () {
     function AppModule() {
     }
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
@@ -145,7 +147,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["k" /* MdInputModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["n" /* MdToolbarModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["o" /* MdTooltipModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdSnackBarModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdSnackBarModule */],
+            __WEBPACK_IMPORTED_MODULE_17_ng2_page_scroll__["a" /* Ng2PageScrollModule */]
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
@@ -220,7 +223,7 @@ var ContactComponent = (function () {
     return ContactComponent;
 }());
 ContactComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'contact',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.css")],
@@ -319,11 +322,11 @@ var ContactFormComponent = (function () {
     return ContactFormComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]) === "function" && _a || Object)
 ], ContactFormComponent.prototype, "recaptchaComponent", void 0);
 ContactFormComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'contact-form',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.css")],
@@ -466,7 +469,7 @@ var ContactSocialComponent = (function () {
     return ContactSocialComponent;
 }());
 ContactSocialComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'contact-social',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.css")],
@@ -543,7 +546,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'footer',
         template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
@@ -577,7 +580,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == '' || serverData.locale == 'en'}\"\n                      (click)=\"changeLang('en')\">EN</span>\n\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == 'ru'}\"\n                      (click)=\"changeLang('ru')\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a href=\"#skills\">Skills</a></li>\n                    <li><a href=\"#about_me\">About me</a></li>\n                    <li><a href=\"#portfolio\">Projects</a></li>\n                    <li><a href=\"#contacts\">Contact me</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
+module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == '' || serverData.locale == 'en'}\"\n                      (click)=\"changeLang('en')\">EN</span>\n\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == 'ru'}\"\n                      (click)=\"changeLang('ru')\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a pageScroll href=\"#skills\">Skills</a></li>\n                    <li><a pageScroll href=\"#about_me\">About me</a></li>\n                    <li><a pageScroll href=\"#portfolio\">Projects</a></li>\n                    <li><a pageScroll href=\"#contacts\">Contact me</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -623,7 +626,7 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'header',
         template: __webpack_require__("../../../../../resources/assets/src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/header/header.component.css")],
@@ -736,7 +739,7 @@ var ContactFormService = (function () {
     return ContactFormService;
 }());
 ContactFormService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ContactFormService);
 
@@ -786,7 +789,7 @@ var ServerDataService = (function () {
     return ServerDataService;
 }());
 ServerDataService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ServerDataService);
 
@@ -838,7 +841,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyRecaptchaComponent = (function () {
     function MyRecaptchaComponent() {
-        this.response = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["w" /* EventEmitter */]();
+        this.response = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.listener = null;
         this.sitekey = '6Ldc9jAUAAAAAIM4BlQIHl4r5Hu7XqS6rkZkduL5';
         this.currentId = 'recaptcha_' + Math.random().toString(36).substring(2);
@@ -881,11 +884,11 @@ var MyRecaptchaComponent = (function () {
     return MyRecaptchaComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
     __metadata("design:type", Object)
 ], MyRecaptchaComponent.prototype, "response", void 0);
 MyRecaptchaComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'my-recaptcha',
         template: __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.css")],
@@ -930,7 +933,7 @@ var TokenInterceptor = (function () {
     return TokenInterceptor;
 }());
 TokenInterceptor = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */]) === "function" && _a || Object])
 ], TokenInterceptor);
 
@@ -989,7 +992,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_20" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_23" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map

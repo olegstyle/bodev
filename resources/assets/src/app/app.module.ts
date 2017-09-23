@@ -32,6 +32,7 @@ import { ServerDataService } from "./services/server-data";
 import { MyRecaptchaComponent } from "./utils/compnents/recaptcha/myrecaptcha.component";
 import {ContactFormService} from "./services/contact-form.service";
 import {TokenInterceptor} from "./utils/token.interceptor";
+import {Ng2PageScrollModule} from "ng2-page-scroll";
 
 @NgModule({
     imports: [
@@ -53,7 +54,8 @@ import {TokenInterceptor} from "./utils/token.interceptor";
         MdInputModule,
         MdToolbarModule,
         MdTooltipModule,
-        MdSnackBarModule
+        MdSnackBarModule,
+        Ng2PageScrollModule
     ],
     declarations: [
         AppComponent,
