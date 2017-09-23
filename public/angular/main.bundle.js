@@ -13,6 +13,86 @@ webpackEmptyAsyncContext.id = "../../../../../resources/assets/src/$$_gendir laz
 
 /***/ }),
 
+/***/ "../../../../../resources/assets/src/app/about_me/about_me.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".about-me {\n    padding-bottom: 40px;\n    margin-top: 40px;\n    background: url(" + __webpack_require__("../../../../../resources/assets/src/app/about_me/images/about_me_bg.jpg") + ") no-repeat right bottom #212121;\n    background-size: cover;\n    position: relative;\n}\n\n.about-me p.description {\n    font-size: 18px;\n    color: white;\n    padding: 0;\n    margin: 0 0 40px;\n}\n\n@media (max-width: 991px) {\n    .about-me {\n        padding-bottom: 30px;\n        margin-top: 30px;\n    }\n    .about-me p.description {\n        font-size: 16px;\n        margin-bottom: 30px;\n    }\n}\n\n@media (max-width: 767px) {\n    .about-me {\n        padding-bottom: 20px;\n        margin-top: 20px;\n    }\n    .about-me p.description {\n        font-size: 14px;\n        margin-bottom: 20px;\n    }\n}\n\n@media (max-width: 450px) {\n    .about-me {\n        background-size:contain;\n    }\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/about_me/about_me.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"about_me\">\n    <div class=\"about-me\">\n        <div class=\"container\">\n            <div class=\"title-wrapper\"><h3 class=\"title title-white animated fadeIn\">{{ 'about_me' | translate }}</h3></div>\n            <p class=\"description animated fadeIn\" [innerHtml]=\"serverData.aboutMeShort\"></p>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/about_me/about_me.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutMeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AboutMeComponent = (function () {
+    function AboutMeComponent(serverDataService) {
+        this.serverDataService = serverDataService;
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
+    }
+    AboutMeComponent.prototype.loadData = function () {
+        var _this = this;
+        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+    };
+    AboutMeComponent.prototype.ngOnInit = function () {
+        this.loadData();
+    };
+    return AboutMeComponent;
+}());
+AboutMeComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'about_me',
+        template: __webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.html"),
+        styles: [__webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.css")],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
+], AboutMeComponent);
+
+var _a;
+//# sourceMappingURL=about_me.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/about_me/images/about_me_bg.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "about_me_bg.1a4d08d94e948163e9e6.jpg";
+
+/***/ }),
+
 /***/ "../../../../../resources/assets/src/app/app.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -34,7 +114,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header></header>\n<contact></contact>\n<footer></footer>"
+module.exports = "<header></header>\n<about_me></about_me>\n<contact></contact>\n<footer></footer>"
 
 /***/ }),
 
@@ -118,6 +198,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__about_me_about_me_component__ = __webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -125,6 +206,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 ///<reference path="../../../../node_modules/@angular/material/typings/chips/index.d.ts"/>
+
 
 
 
@@ -192,7 +274,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_10__contact_social_social_component__["a" /* ContactSocialComponent */],
             __WEBPACK_IMPORTED_MODULE_11__contact_form_form_component__["a" /* ContactFormComponent */],
             __WEBPACK_IMPORTED_MODULE_12__header_header_component__["a" /* HeaderComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]
+            __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */],
+            __WEBPACK_IMPORTED_MODULE_20__about_me_about_me_component__["a" /* AboutMeComponent */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
@@ -806,29 +889,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ServerDataService = (function () {
+var ServerDataService = ServerDataService_1 = (function () {
     function ServerDataService(http) {
         this.http = http;
-        this.serverData = null;
         this.url = __WEBPACK_IMPORTED_MODULE_2__utils_utils__["a" /* Utils */].BASE_URL + 'getData';
     }
     ServerDataService.prototype.getDataFromServer = function () {
         return this.http.get(this.url);
     };
-    ServerDataService.prototype.getData = function () {
-        if (this.serverData == null) {
-            this.serverData = this.getDataFromServer();
+    ServerDataService.prototype.getData = function (refresh) {
+        if (refresh === void 0) { refresh = false; }
+        if (ServerDataService_1.serverData == null || refresh) {
+            ServerDataService_1.serverData = this.getDataFromServer();
         }
-        return this.serverData;
+        return ServerDataService_1.serverData;
     };
     return ServerDataService;
 }());
-ServerDataService = __decorate([
+ServerDataService.serverData = null;
+ServerDataService = ServerDataService_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ServerDataService);
 
-var _a;
+var ServerDataService_1, _a;
 //# sourceMappingURL=server-data.js.map
 
 /***/ }),

@@ -35,6 +35,7 @@ import {TokenInterceptor} from "./utils/token.interceptor";
 import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {AboutMeComponent} from "./about_me/about_me.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -78,7 +79,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         ContactSocialComponent,
         ContactFormComponent,
         HeaderComponent,
-        MyRecaptchaComponent
+        MyRecaptchaComponent,
+        AboutMeComponent
     ],
     providers: [
         ServerDataService,
