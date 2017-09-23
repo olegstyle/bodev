@@ -28,16 +28,24 @@ export class ContactFormComponent {
 
     onSubmit(form: FormGroup) {
         if (form.valid) {
+            this.showMessage('Successfully sent');
+            this.snackBar.open('Sending', 'OK', {duration: 2000});
             this.service.send(this.formModel).subscribe(data => {
                 if (data.success) {
                     form.reset();
                     this.recaptchaComponent.reset();
-                    this.snackBar.open('Successfully sent', 'OK', {duration: 2000});
+                    this.showMessage('Successfully sent');
                 } else {
-                    this.snackBar.open('Wasn\'t sent', 'OK', {duration: 2000});
+                    this.showMessage('Wasn\'t sent');
                 }
+            }, error => {
+                this.showMessage('Wasn\'t sent');
             });
         }
+    }
+
+    showMessage(message) {
+        this.snackBar.open(message, 'OK', {duration: 2000});
     }
 
     onTokenChanged(token: string) {

@@ -291,17 +291,24 @@ var ContactFormComponent = (function () {
     ContactFormComponent.prototype.onSubmit = function (form) {
         var _this = this;
         if (form.valid) {
+            this.showMessage('Successfully sent');
+            this.snackBar.open('Sending', 'OK', { duration: 2000 });
             this.service.send(this.formModel).subscribe(function (data) {
                 if (data.success) {
                     form.reset();
                     _this.recaptchaComponent.reset();
-                    _this.snackBar.open('Successfully sent', 'OK', { duration: 2000 });
+                    _this.showMessage('Successfully sent');
                 }
                 else {
-                    _this.snackBar.open('Wasn\'t sent', 'OK', { duration: 2000 });
+                    _this.showMessage('Wasn\'t sent');
                 }
+            }, function (error) {
+                _this.showMessage('Wasn\'t sent');
             });
         }
+    };
+    ContactFormComponent.prototype.showMessage = function (message) {
+        this.snackBar.open(message, 'OK', { duration: 2000 });
     };
     ContactFormComponent.prototype.onTokenChanged = function (token) {
         this.formModel.captcha = token;
