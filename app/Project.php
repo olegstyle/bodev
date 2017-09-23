@@ -34,8 +34,16 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereNameRu($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProjectTechnicalStack[] $stacks
  */
 class Project extends Model
 {
-
+    /**
+     * stacks
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function stacks() {
+        return $this->hasMany(ProjectTechnicalStack::class);
+    }
 }

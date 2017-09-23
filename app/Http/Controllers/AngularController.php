@@ -10,6 +10,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactSendRequest;
 use App\Mail\ContactMail;
+use App\Project;
+use App\TechnicalStack;
+use App\TechnicalStackGroup;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Mail;
@@ -64,6 +67,42 @@ class AngularController extends Controller {
                 'linkedin' => 'https://www.linkedin.com/in/bodev/'
             ]
 
+        ]);
+    }
+
+    /**
+     * getTechGroups
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @return Response
+     */
+    public function getTechGroups() {
+        return response([
+            'success' => true,
+            'data' => TechnicalStackGroup::orderBy('order', 'asc')->get()
+        ]);
+    }
+
+    /**
+     * getTechStacks
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @return Response
+     */
+    public function getTechStacks() {
+        return response([
+            'success' => true,
+            'data' => TechnicalStack::orderBy('date_start', 'desc')->orderBy('group_id', 'asc')->get()
+        ]);
+    }
+
+    /**
+     * getProjects
+     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
+     * @return Response
+     */
+    public function getProjects() {
+        return response([
+            'success' => true,
+            'data' => Project::with('stacks')->orderBy('date_start', 'desc')->get()
         ]);
     }
 
