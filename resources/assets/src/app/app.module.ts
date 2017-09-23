@@ -36,6 +36,7 @@ import {Ng2PageScrollModule} from "ng2-page-scroll";
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AboutMeComponent} from "./about_me/about_me.component";
+import {ServerDataManager} from "./utils/server.data.listener";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -86,6 +87,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         ServerDataService,
         ContactFormService,
         CookieService,
+        ServerDataManager,
         { provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],

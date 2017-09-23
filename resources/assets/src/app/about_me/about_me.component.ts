@@ -1,25 +1,29 @@
 import {Component, OnInit} from '@angular/core';
 import {ServerDataService} from "../services/server-data";
 import {ServerData} from "../model/server-data";
+import {ServerDataListener, ServerDataManager} from "../utils/server.data.listener";
 
 @Component({
     selector: 'about_me',
     templateUrl: 'about_me.component.html',
     styleUrls: ['about_me.component.css'],
 })
-export class AboutMeComponent implements OnInit {
+export class AboutMeComponent implements OnInit, ServerDataListener {
     constructor(
-        private serverDataService: ServerDataService
+        private serverDataManager: ServerDataManager
     ){}
 
     serverData: ServerData = new ServerData();
 
     loadData() {
-        this.serverDataService.getData().subscribe(serverData => this.serverData = serverData);
+        this.serverDataManager.subscribe(this);
     }
 
     ngOnInit() {
         this.loadData();
     }
 
+    onServerDataUpdate(serverData: ServerData) {
+        this.serverData = serverData;
+    }
 }

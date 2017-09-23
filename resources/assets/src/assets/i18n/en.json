@@ -8,8 +8,8 @@
     "birth_place": "Birth Place",
     "contacts": "Contacts",
     "your_name": "Your name",
-    "message": "Сообщение",
-    "send": "Отправить",
+    "message": "Message",
+    "send": "Send",
     "error_enter_valid_email": "Please enter a valid email address",
     "error_email_required": "Email is required"
 }

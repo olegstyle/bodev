@@ -11,16 +11,8 @@ export class ServerDataService {
         this.url = Utils.BASE_URL + 'getData';
     }
     private url;
-    private serverData: Observable<ServerData> = null;
-
-    private getDataFromServer(): Observable<ServerData> {
-        return this.http.get(this.url);
-    }
 
     public getData(): Observable<ServerData> {
-        if (this.serverData == null) {
-            this.serverData = this.getDataFromServer();
-        }
-        return this.serverData;
+        return this.http.get(this.url);
     }
 }

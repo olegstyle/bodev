@@ -10,7 +10,8 @@ import {Meta} from "@angular/platform-browser";
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-    public static BASE_URL = 'angular';
+    protected static BASE_URL = 'angular';
+
     constructor(private meta: Meta) {}
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

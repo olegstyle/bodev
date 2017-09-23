@@ -44,8 +44,8 @@ module.exports = "<div id=\"about_me\">\n    <div class=\"about-me\">\n        <
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AboutMeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__ = __webpack_require__("../../../../../resources/assets/src/app/utils/server.data.listener.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,16 +59,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var AboutMeComponent = (function () {
-    function AboutMeComponent(serverDataService) {
-        this.serverDataService = serverDataService;
-        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
+    function AboutMeComponent(serverDataManager) {
+        this.serverDataManager = serverDataManager;
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_1__model_server_data__["a" /* ServerData */]();
     }
     AboutMeComponent.prototype.loadData = function () {
-        var _this = this;
-        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+        this.serverDataManager.subscribe(this);
     };
     AboutMeComponent.prototype.ngOnInit = function () {
         this.loadData();
+    };
+    AboutMeComponent.prototype.onServerDataUpdate = function (serverData) {
+        this.serverData = serverData;
     };
     return AboutMeComponent;
 }());
@@ -78,7 +80,7 @@ AboutMeComponent = __decorate([
         template: __webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__["a" /* ServerDataManager */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__["a" /* ServerDataManager */]) === "function" && _a || Object])
 ], AboutMeComponent);
 
 var _a;
@@ -199,6 +201,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__about_me_about_me_component__ = __webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__utils_server_data_listener__ = __webpack_require__("../../../../../resources/assets/src/app/utils/server.data.listener.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -206,6 +209,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 ///<reference path="../../../../node_modules/@angular/material/typings/chips/index.d.ts"/>
+
 
 
 
@@ -281,6 +285,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
             __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__["a" /* ContactFormService */],
             __WEBPACK_IMPORTED_MODULE_6_ngx_cookie_service__["a" /* CookieService */],
+            __WEBPACK_IMPORTED_MODULE_21__utils_server_data_listener__["a" /* ServerDataManager */],
             { provide: __WEBPACK_IMPORTED_MODULE_3__angular_material__["a" /* MD_PLACEHOLDER_GLOBAL_OPTIONS */], useValue: { float: 'always' } },
             { provide: __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["a" /* HTTP_INTERCEPTORS */], useClass: __WEBPACK_IMPORTED_MODULE_16__utils_token_interceptor__["a" /* TokenInterceptor */], multi: true }
         ],
@@ -558,8 +563,8 @@ module.exports = " <div>\n    <a class=\"contact animated bounceInLeft\" href=\"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ContactSocialComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__ = __webpack_require__("../../../../../resources/assets/src/app/utils/server.data.listener.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -573,16 +578,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ContactSocialComponent = (function () {
-    function ContactSocialComponent(serverDataService) {
-        this.serverDataService = serverDataService;
-        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
+    function ContactSocialComponent(serverDataManager) {
+        this.serverDataManager = serverDataManager;
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_1__model_server_data__["a" /* ServerData */]();
     }
     ContactSocialComponent.prototype.loadData = function () {
-        var _this = this;
-        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+        this.serverDataManager.subscribe(this);
     };
     ContactSocialComponent.prototype.ngOnInit = function () {
         this.loadData();
+    };
+    ContactSocialComponent.prototype.onServerDataUpdate = function (serverData) {
+        this.serverData = serverData;
     };
     return ContactSocialComponent;
 }());
@@ -592,7 +599,7 @@ ContactSocialComponent = __decorate([
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__["a" /* ServerDataManager */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__["a" /* ServerDataManager */]) === "function" && _a || Object])
 ], ContactSocialComponent);
 
 var _a;
@@ -631,8 +638,8 @@ module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by {{serve
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FooterComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__ = __webpack_require__("../../../../../resources/assets/src/app/utils/server.data.listener.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -646,20 +653,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var FooterComponent = (function () {
-    function FooterComponent(serverDataService) {
-        this.serverDataService = serverDataService;
+    function FooterComponent(serverDataManager) {
+        this.serverDataManager = serverDataManager;
         this.dateStart = 2017;
         this.dateNow = new Date().getFullYear();
         this.date = '2017';
-        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_1__model_server_data__["a" /* ServerData */]();
     }
     FooterComponent.prototype.loadData = function () {
-        var _this = this;
-        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+        this.serverDataManager.subscribe(this);
     };
     FooterComponent.prototype.ngOnInit = function () {
         this.loadData();
         this.date = this.dateStart + (this.dateNow > this.dateStart ? ' - ' + this.dateNow : '');
+    };
+    FooterComponent.prototype.onServerDataUpdate = function (serverData) {
+        this.serverData = serverData;
     };
     return FooterComponent;
 }());
@@ -669,7 +678,7 @@ FooterComponent = __decorate([
         template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__["a" /* ServerDataManager */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__utils_server_data_listener__["a" /* ServerDataManager */]) === "function" && _a || Object])
 ], FooterComponent);
 
 var _a;
@@ -708,9 +717,9 @@ module.exports = "<div class=\"header\">\n    <div class=\"container\">\n       
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__ = __webpack_require__("../../../../ngx-cookie-service/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/model/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ngx_cookie_service__ = __webpack_require__("../../../../ngx-cookie-service/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_server_data_listener__ = __webpack_require__("../../../../../resources/assets/src/app/utils/server.data.listener.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -725,21 +734,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var HeaderComponent = (function () {
-    function HeaderComponent(serverDataService, cookieService) {
-        this.serverDataService = serverDataService;
+    function HeaderComponent(serverDataManager, cookieService) {
+        this.serverDataManager = serverDataManager;
         this.cookieService = cookieService;
-        this.serverData = new __WEBPACK_IMPORTED_MODULE_2__model_server_data__["a" /* ServerData */]();
+        this.serverData = new __WEBPACK_IMPORTED_MODULE_1__model_server_data__["a" /* ServerData */]();
     }
     HeaderComponent.prototype.loadData = function () {
-        var _this = this;
-        this.serverDataService.getData().subscribe(function (serverData) { return _this.serverData = serverData; });
+        this.serverDataManager.subscribe(this);
     };
     HeaderComponent.prototype.ngOnInit = function () {
         this.loadData();
     };
+    HeaderComponent.prototype.onServerDataUpdate = function (serverData) {
+        this.serverData = serverData;
+    };
     HeaderComponent.prototype.changeLang = function (lang) {
         this.cookieService.set('lang', lang, 1000 * 36000);
-        window.location.reload();
+        this.serverDataManager.changeLang(lang);
+        //window.location.reload();
     };
     return HeaderComponent;
 }());
@@ -749,7 +761,7 @@ HeaderComponent = __decorate([
         template: __webpack_require__("../../../../../resources/assets/src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/header/header.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ngx_cookie_service__["a" /* CookieService */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__utils_server_data_listener__["a" /* ServerDataManager */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__utils_server_data_listener__["a" /* ServerDataManager */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ngx_cookie_service__["a" /* CookieService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ngx_cookie_service__["a" /* CookieService */]) === "function" && _b || Object])
 ], HeaderComponent);
 
 var _a, _b;
@@ -889,30 +901,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ServerDataService = ServerDataService_1 = (function () {
+var ServerDataService = (function () {
     function ServerDataService(http) {
         this.http = http;
         this.url = __WEBPACK_IMPORTED_MODULE_2__utils_utils__["a" /* Utils */].BASE_URL + 'getData';
     }
-    ServerDataService.prototype.getDataFromServer = function () {
+    ServerDataService.prototype.getData = function () {
         return this.http.get(this.url);
-    };
-    ServerDataService.prototype.getData = function (refresh) {
-        if (refresh === void 0) { refresh = false; }
-        if (ServerDataService_1.serverData == null || refresh) {
-            ServerDataService_1.serverData = this.getDataFromServer();
-        }
-        return ServerDataService_1.serverData;
     };
     return ServerDataService;
 }());
-ServerDataService.serverData = null;
-ServerDataService = ServerDataService_1 = __decorate([
+ServerDataService = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ServerDataService);
 
-var ServerDataService_1, _a;
+var _a;
 //# sourceMappingURL=server-data.js.map
 
 /***/ }),
@@ -1016,6 +1020,71 @@ MyRecaptchaComponent = __decorate([
 ], MyRecaptchaComponent);
 
 //# sourceMappingURL=myrecaptcha.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/utils/server.data.listener.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ServerDataManager; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var ServerDataManager = ServerDataManager_1 = (function () {
+    function ServerDataManager(service, translateService) {
+        var _this = this;
+        this.service = service;
+        this.translateService = translateService;
+        this.listeners = [];
+        if (ServerDataManager_1.instance != null) {
+            this.update();
+            translateService.onLangChange.subscribe(function (event) {
+                _this.update();
+            });
+        }
+        return ServerDataManager_1.instance = ServerDataManager_1.instance || this;
+    }
+    ServerDataManager.prototype.subscribe = function (listener) {
+        this.listeners.push(listener);
+    };
+    ServerDataManager.prototype.changeLang = function (lang) {
+        this.translateService.use(lang);
+        this.update();
+    };
+    ServerDataManager.prototype.update = function () {
+        var _this = this;
+        this.service.getData().subscribe(function (serverData) {
+            _this.serverData = serverData;
+            _this.onUpdate();
+        });
+    };
+    ServerDataManager.prototype.onUpdate = function () {
+        for (var k in this.listeners) {
+            this.listeners[k].onServerDataUpdate(this.serverData);
+        }
+    };
+    return ServerDataManager;
+}());
+ServerDataManager = ServerDataManager_1 = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["C" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object])
+], ServerDataManager);
+
+var ServerDataManager_1, _a, _b;
+//# sourceMappingURL=server.data.listener.js.map
 
 /***/ }),
 
