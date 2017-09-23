@@ -18,7 +18,7 @@ import {
     MdTooltipModule,
     MdSnackBarModule
 } from '@angular/material';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -33,12 +33,26 @@ import { MyRecaptchaComponent } from "./utils/compnents/recaptcha/myrecaptcha.co
 import {ContactFormService} from "./services/contact-form.service";
 import {TokenInterceptor} from "./utils/token.interceptor";
 import {Ng2PageScrollModule} from "ng2-page-scroll";
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         BrowserAnimationsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
         HttpClientModule,
         ReactiveFormsModule,
         // form

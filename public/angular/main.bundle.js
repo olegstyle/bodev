@@ -44,16 +44,28 @@ module.exports = "<header></header>\n<contact></contact>\n<footer></footer>"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(translate) {
+        this.translate = translate;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        // this language will be used as a fallback when a translation isn't found in the current language
+        this.translate.setDefaultLang('en');
+        // the lang to use, if the lang isn't available, it will use the current loader to get them
+        this.translate.use('en');
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -61,9 +73,11 @@ AppComponent = __decorate([
         selector: 'app-root',
         template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
-    })
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object])
 ], AppComponent);
 
+var _a;
 /*
 Copyright 2017 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
@@ -77,6 +91,7 @@ can be found in the LICENSE file at http://angular.io/license
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* unused harmony export HttpLoaderFactory */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
@@ -96,6 +111,8 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__utils_token_interceptor__ = __webpack_require__("../../../../../resources/assets/src/app/utils/token.interceptor.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ng2_page_scroll__ = __webpack_require__("../../../../ng2-page-scroll/ng2-page-scroll.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ngx_translate_http_loader__ = __webpack_require__("../../../../@ngx-translate/http-loader/index.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -121,6 +138,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+// AoT requires an exported function for factories
+function HttpLoaderFactory(http) {
+    return new __WEBPACK_IMPORTED_MODULE_19__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
+}
 var AppModule = (function () {
     function AppModule() {
     }
@@ -132,6 +155,13 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+            __WEBPACK_IMPORTED_MODULE_18__ngx_translate_core__["b" /* TranslateModule */].forRoot({
+                loader: {
+                    provide: __WEBPACK_IMPORTED_MODULE_18__ngx_translate_core__["a" /* TranslateLoader */],
+                    useFactory: HttpLoaderFactory,
+                    deps: [__WEBPACK_IMPORTED_MODULE_4__angular_common_http__["b" /* HttpClient */]]
+                }
+            }),
             __WEBPACK_IMPORTED_MODULE_4__angular_common_http__["c" /* HttpClientModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["i" /* ReactiveFormsModule */],
             // form
@@ -580,7 +610,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == '' || serverData.locale == 'en'}\"\n                      (click)=\"changeLang('en')\">EN</span>\n\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == 'ru'}\"\n                      (click)=\"changeLang('ru')\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a pageScroll href=\"#skills\">Skills</a></li>\n                    <li><a pageScroll href=\"#about_me\">About me</a></li>\n                    <li><a pageScroll href=\"#portfolio\">Projects</a></li>\n                    <li><a pageScroll href=\"#contacts\">Contact me</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
+module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == '' || serverData.locale == 'en'}\"\n                      (click)=\"changeLang('en')\">EN</span>\n\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == 'ru'}\"\n                      (click)=\"changeLang('ru')\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a pageScroll href=\"#skills\">{{ 'skills' | translate }}</a></li>\n                    <li><a pageScroll href=\"#about_me\">{{ 'about_me' | translate }}</a></li>\n                    <li><a pageScroll href=\"#portfolio\">{{ 'projects' | translate }}</a></li>\n                    <li><a pageScroll href=\"#contacts\">{{ 'contact_me' | translate }}</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
 
 /***/ }),
 
