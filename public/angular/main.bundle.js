@@ -96,7 +96,7 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_common_http__ = __webpack_require__("../../../common/@angular/common/http.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ngx_cookie_service__ = __webpack_require__("../../../../ngx-cookie-service/index.js");
@@ -298,7 +298,7 @@ module.exports = "<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactFor
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_contact_form_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/contact-form.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__ = __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/@angular/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -948,7 +948,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var TokenInterceptor = (function () {
+var TokenInterceptor = TokenInterceptor_1 = (function () {
     function TokenInterceptor(meta) {
         this.meta = meta;
     }
@@ -958,16 +958,22 @@ var TokenInterceptor = (function () {
                 'X-CSRF-TOKEN': this.meta.getTag('name="csrf-token"').content
             }
         });
+        if (request.url.indexOf('i18n') >= 0) {
+            request = request.clone({
+                url: TokenInterceptor_1.BASE_URL + "/" + request.url.replace(new RegExp('\.?/'), '')
+            });
+        }
         return next.handle(request);
     };
     return TokenInterceptor;
 }());
-TokenInterceptor = __decorate([
+TokenInterceptor.BASE_URL = 'angular';
+TokenInterceptor = TokenInterceptor_1 = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */]) === "function" && _a || Object])
 ], TokenInterceptor);
 
-var _a;
+var TokenInterceptor_1, _a;
 //# sourceMappingURL=token.interceptor.js.map
 
 /***/ }),
