@@ -3,8 +3,13 @@
         <div class="icon-wrapper">
             <img [src]="'angular/assets/images/logo.png'" width="142" height="67" alt="bodev icon">
             <div class="lang-wrapper">
-                <span class="lang active" data-lang="en">EN</span>
-                <span class="lang" data-lang="ru">RU</span>
+                <span class="lang"
+                      [ngClass]="{' active': serverData.locale == '' || serverData.locale == 'en'}"
+                      (click)="changeLang('en')">EN</span>
+
+                <span class="lang"
+                      [ngClass]="{' active': serverData.locale == 'ru'}"
+                      (click)="changeLang('ru')">RU</span>
             </div>
             <div class="header-menu-wrapper">
                 <div class="hamburger"></div>

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ServerDataService} from "../services/server-data";
 import {ServerData} from "../model/server-data";
+import {CookieService} from "ngx-cookie-service";
+
 
 @Component({
     selector: 'header',
@@ -9,7 +11,8 @@ import {ServerData} from "../model/server-data";
 })
 export class HeaderComponent implements OnInit {
     constructor(
-        private serverDataService: ServerDataService
+        private serverDataService: ServerDataService,
+        private cookieService: CookieService
     ){}
     serverData: ServerData = new ServerData();
 
@@ -19,5 +22,10 @@ export class HeaderComponent implements OnInit {
 
     ngOnInit() {
         this.loadData();
+    }
+
+    changeLang(lang: string) {
+        this.cookieService.set('lang', lang, 1000*36000);
+        window.location.reload();
     }
 }

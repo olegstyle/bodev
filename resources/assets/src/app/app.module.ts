@@ -20,6 +20,7 @@ import {
 } from '@angular/material';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 import { AppComponent }         from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -66,6 +67,7 @@ import {TokenInterceptor} from "./utils/token.interceptor";
     providers: [
         ServerDataService,
         ContactFormService,
+        CookieService,
         { provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],
