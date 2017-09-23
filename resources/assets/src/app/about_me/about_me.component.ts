@@ -15,12 +15,8 @@ export class AboutMeComponent implements OnInit, ServerDataListener {
 
     serverData: ServerData = new ServerData();
 
-    loadData() {
-        this.serverDataManager.subscribe(this);
-    }
-
     ngOnInit() {
-        this.loadData();
+        this.serverDataManager.subscribe(this);
     }
 
     onServerDataUpdate(serverData: ServerData) {

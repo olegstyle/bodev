@@ -9,13 +9,13 @@ export interface ServerDataListener {
 
 @Injectable()
 export class ServerDataManager {
-    protected static instance: ServerDataManager;
+    protected static instance?: ServerDataManager = null;
 
     constructor(
         protected service: ServerDataService,
         protected translateService: TranslateService
     ) {
-        if (ServerDataManager.instance != null) {
+        if (ServerDataManager.instance == null) {
             this.update();
             translateService.onLangChange.subscribe((event: LangChangeEvent) => {
                 this.update();
@@ -24,11 +24,14 @@ export class ServerDataManager {
         return ServerDataManager.instance = ServerDataManager.instance || this;
     }
 
-    protected serverData: ServerData;
+    protected serverData?: ServerData = null;
     protected listeners: ServerDataListener[] = [];
 
     public subscribe(listener: ServerDataListener) {
         this.listeners.push(listener);
+        if (this.serverData != null) {
+            listener.onServerDataUpdate(this.serverData);
+        }
     }
 
     public getLang() {

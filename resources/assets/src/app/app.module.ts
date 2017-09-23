@@ -37,6 +37,10 @@ import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {AboutMeComponent} from "./about_me/about_me.component";
 import {ServerDataManager} from "./utils/server.data.listener";
+import {StacksComponent} from "./stacks/stacks.component";
+import {TechGroupService} from "./services/tech-group.service";
+import {TechStackService} from "./services/tech-stack.service";
+import {ProjectService} from "./services/project.service";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -81,13 +85,17 @@ export function HttpLoaderFactory(http: HttpClient) {
         ContactFormComponent,
         HeaderComponent,
         MyRecaptchaComponent,
-        AboutMeComponent
+        AboutMeComponent,
+        StacksComponent
     ],
     providers: [
         ServerDataService,
         ContactFormService,
         CookieService,
         ServerDataManager,
+        TechGroupService,
+        TechStackService,
+        ProjectService,
         { provide: MD_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } },
         { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
     ],

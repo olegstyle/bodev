@@ -106,36 +106,8 @@
             </div>
         </header>
 
-        <div id="skills">
-            <div class="container">
-            <div class="title-wrapper"><h3 class="title animated fadeIn">@lang('main.my_skills')</h3></div>
-            <div class="tabs-wrapper"><ul class="tabs">
-                <li class="tab active" data-group="0">@lang('main.all_skills')</li>
-                @foreach($tech_groups as $group)
-                    <li class="tab"
-                        data-group="{{  $group['id'] }}">
-                        {{ $group['name'] }}
-                    </li>
-                @endforeach
-                <hr />
-            </ul></div>
-
-            <div id="skills-grid" class="skills-wrapper row">
-                @foreach($tech_stacks as $stack)
-                    <div class="mix skill-group skill-group-{{ $stack['group_id'] }} col-lg-2 col-md-3 col-sm-3 col-xs-4 animated" @if($loop->index >= 6) style="display: none" @endif>
-                        <div class="skill" data-id="{{ $stack['id'] }}">
-                            <div class="image-wrapper"><img src="{{ $stack['image_url'] }}" alt="{{ $stack["name"] }}" /></div>
-                            <h4>{{ $stack['name'] }}</h4>
-                            <div class="lvl">{{ $stack['level'] }}</div>
-                            <div class="time">{!! $stack['start'] !!}</div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-
-            <div class="btn-bo-wrapper"><div class="btn-bo">@lang('main.show_all')</div></div>
-        </div>
-        </div>
+        $loop
+        <li class="tab"
 
         <div id="about_me">
             <div class="about-me">

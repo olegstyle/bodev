@@ -1,0 +1,26 @@
+<div id="skills">
+    <div class="container">
+        <div class="title-wrapper"><h3 class="title animated fadeIn">{{ 'my_skills' | translate }}</h3></div>
+        <div class="tabs-wrapper">
+            <ul class="tabs">
+                <li *ngFor="let group of groups"
+                    class="tab"
+                    (click)="onGroupClick(group)">{{group.name}}</li>
+            </ul>
+        </div>
+
+        <div id="skills-grid" class="skills-wrapper row">
+            <div *ngFor="let stack of stacks"
+                 [className]="'skill-group-' + stack.group_id + 'mix skill-group col-lg-2 col-md-3 col-sm-3 col-xs-4 animated'">
+                <div class="skill">
+                    <div class="image-wrapper"><img [src]="'/storage/' + stack.image_url" [alt]="stack.name" /></div>
+                    <h4>{{ stack.name }}</h4>
+                    <div class="lvl">{{ stack.level }}</div>
+                    <div class="time">{{ stack.date_start }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn-bo-wrapper"><div class="btn-bo">{{ 'show_all' | translate}}</div></div>
+    </div>
+</div>
