@@ -2,5 +2,14 @@
     "skills": "Навыки",
     "about_me": "Обо Мне",
     "projects": "Портфолио",
-    "contact_me": "Связаться со мной"
+    "contact_me": "Связаться со мной",
+    "full_name": "Полное имя",
+    "birthday": "День рождения",
+    "birth_place": "Место рождения",
+    "contacts": "Контакты",
+    "your_name": "Ваше имя",
+    "message": "Сообщение",
+    "send": "Отправить",
+    "error_enter_valid_email": "Пожалуйста введите корректный email",
+    "error_email_required": "Email является требуемым"
 }

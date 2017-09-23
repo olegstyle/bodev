@@ -2,5 +2,14 @@
     "skills": "Skills",
     "about_me": "About Me",
     "projects": "Projects",
-    "contact_me": "Contact Me"
+    "contact_me": "Contact Me",
+    "full_name": "Full Name",
+    "birthday": "Birthday",
+    "birth_place": "Birth Place",
+    "contacts": "Contacts",
+    "your_name": "Your name",
+    "message": "Сообщение",
+    "send": "Отправить",
+    "error_enter_valid_email": "Please enter a valid email address",
+    "error_email_required": "Email is required"
 }

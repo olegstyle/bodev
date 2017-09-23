@@ -45,6 +45,7 @@ module.exports = "<header></header>\n<contact></contact>\n<footer></footer>"
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__("../../../../@ngx-translate/core/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_server_data__ = __webpack_require__("../../../../../resources/assets/src/app/services/server-data.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,15 +57,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var AppComponent = (function () {
-    function AppComponent(translate) {
+    function AppComponent(translate, serverService) {
         this.translate = translate;
+        this.serverService = serverService;
     }
     AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
         // this language will be used as a fallback when a translation isn't found in the current language
         this.translate.setDefaultLang('en');
         // the lang to use, if the lang isn't available, it will use the current loader to get them
         this.translate.use('en');
+        this.serverService.getData().subscribe(function (serverData) { return _this.translate.use(serverData.locale); });
     };
     return AppComponent;
 }());
@@ -74,10 +79,10 @@ AppComponent = __decorate([
         template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_server_data__["a" /* ServerDataService */]) === "function" && _b || Object])
 ], AppComponent);
 
-var _a;
+var _a, _b;
 /*
 Copyright 2017 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
@@ -230,7 +235,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/contact.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section id=\"contacts\">\n    <div class=\"container\">\n        <div class=\"title-wrapper\"><h3 class=\"title title-white animated fadeIn\">Contacts</h3></div>\n        <div class=\"row\">\n            <div class=\"col-sm-6\">\n                <contact-social></contact-social>\n            </div>\n            <div class=\"col-sm-6\">\n                <contact-form></contact-form>\n            </div>\n        </div>\n    </div>\n</section>"
+module.exports = "<section id=\"contacts\">\n    <div class=\"container\">\n        <div class=\"title-wrapper\"><h3 class=\"title title-white animated fadeIn\">{{ 'contacts' | translate }}</h3></div>\n        <div class=\"row\">\n            <div class=\"col-sm-6\">\n                <contact-social></contact-social>\n            </div>\n            <div class=\"col-sm-6\">\n                <contact-form></contact-form>\n            </div>\n        </div>\n    </div>\n</section>"
 
 /***/ }),
 
@@ -285,7 +290,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/contact/form/form.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactForm)\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"Name\" [(ngModel)]=\"formModel.name\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"formModel.email\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            Please enter a valid email address\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            Email is <strong>required</strong>\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"Message\" [(ngModel)]=\"formModel.message\"></textarea>\n    </md-form-field>\n\n    <my-recaptcha #recaptcha=\"\" (response)=\"onTokenChanged($event)\"></my-recaptcha>\n\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">Send</button></div>\n</form>\n"
+module.exports = "<form #contactForm=\"ngForm\" (ngSubmit)=\"onSubmit(contactForm)\">\n    <md-form-field>\n        <input mdInput name=\"name\" placeholder=\"{{ 'your_name' | translate }}\" [(ngModel)]=\"formModel.name\">\n    </md-form-field>\n    <md-form-field>\n            <input mdInput name=\"email\" placeholder=\"Email\" [formControl]=\"emailFormControl\" [(ngModel)]=\"formModel.email\">\n        <md-error *ngIf=\"emailFormControl.hasError('pattern')\">\n            {{ 'error_enter_valid_email' | translate }}\n        </md-error>\n        <md-error *ngIf=\"emailFormControl.hasError('required')\">\n            {{ 'error_email_required' | translate }}\n        </md-error>\n    </md-form-field>\n    <md-form-field>\n        <textarea mdInput name=\"message\" placeholder=\"{{ 'message' | translate }}\" [(ngModel)]=\"formModel.message\"></textarea>\n    </md-form-field>\n\n    <my-recaptcha #recaptcha=\"\" (response)=\"onTokenChanged($event)\"></my-recaptcha>\n\n    <div class=\"btn-bo-wrapper\"><button class=\"btn-bo btn-bo-white\">{{ 'send' | translate }}</button></div>\n</form>\n"
 
 /***/ }),
 
@@ -533,7 +538,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/footer/footer.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by {{serverData != null ? serverData.fullName : 'Oleh Borysenko'}}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;</span>\n        Copyright &copy; {{date}}\n        &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;\n        All rights reserved\n    </p>\n</div>"
+module.exports = "<div class=\"footer\">\n    <p>\n        <span>Made by {{serverData != null ? serverData.fullName : 'Oleh Borysenko'}}&nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;</span>\n        Angular Version\n        &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;\n        Copyright &copy; {{date}}\n        &nbsp;&nbsp;&nbsp;&#8226;&nbsp;&nbsp;&nbsp;\n        All rights reserved\n    </p>\n</div>"
 
 /***/ }),
 
@@ -610,7 +615,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == '' || serverData.locale == 'en'}\"\n                      (click)=\"changeLang('en')\">EN</span>\n\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == 'ru'}\"\n                      (click)=\"changeLang('ru')\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a pageScroll href=\"#skills\">{{ 'skills' | translate }}</a></li>\n                    <li><a pageScroll href=\"#about_me\">{{ 'about_me' | translate }}</a></li>\n                    <li><a pageScroll href=\"#portfolio\">{{ 'projects' | translate }}</a></li>\n                    <li><a pageScroll href=\"#contacts\">{{ 'contact_me' | translate }}</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Full Name</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birthday</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>Birth Place</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
+module.exports = "<div class=\"header\">\n    <div class=\"container\">\n        <div class=\"icon-wrapper\">\n            <img [src]=\"'angular/assets/images/logo.png'\" width=\"142\" height=\"67\" alt=\"bodev icon\">\n            <div class=\"lang-wrapper\">\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == '' || serverData.locale == 'en'}\"\n                      (click)=\"changeLang('en')\">EN</span>\n\n                <span class=\"lang\"\n                      [ngClass]=\"{' active': serverData.locale == 'ru'}\"\n                      (click)=\"changeLang('ru')\">RU</span>\n            </div>\n            <div class=\"header-menu-wrapper\">\n                <div class=\"hamburger\"></div>\n                <ul class=\"header-menu\">\n                    <li><a pageScroll href=\"#skills\">{{ 'skills' | translate }}</a></li>\n                    <li><a pageScroll href=\"#about_me\">{{ 'about_me' | translate }}</a></li>\n                    <li><a pageScroll href=\"#portfolio\">{{ 'projects' | translate }}</a></li>\n                    <li><a pageScroll href=\"#contacts\">{{ 'contact_me' | translate }}</a></li>\n                </ul>\n            </div>\n        </div>\n        <div class=\"bodev\">\n            <div class=\"photo\"></div>\n            <div class=\"info-wrapper\">\n                <div class=\"col-sm-4\">\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>{{ 'full_name' | translate }}</h3>\n                        <p>{{serverData.fullName}}</p>\n                        <div class=\"ico ico-profile\"></div>\n                    </div>\n                    <div class=\"info info-right-align animated bounceInLeft\">\n                        <h3>Email</h3>\n                        <p>{{serverData.email}}</p>\n                        <div class=\"ico ico-mail\"></div>\n                    </div>\n                </div>\n                <div class=\"col-sm-4\"></div>\n                <div class=\"col-sm-4\">\n                    <div class=\"info animated bounceInRight\">\n                        <h3>{{ 'birthday' | translate }}</h3>\n                        <p>{{serverData.birthday}}</p>\n                        <div class=\"ico ico-birthday\"></div>\n                    </div>\n                    <div class=\"info animated bounceInRight\">\n                        <h3>{{ 'birth_place' | translate }}</h3>\n                        <p>{{serverData.birthplace}}</p>\n                        <div class=\"ico ico-place\"></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        <h1 class=\"animated bounceInLeft\">{{serverData.position}}</h1>\n        <h2 class=\"animated bounceInRight\">{{serverData.subposition}}</h2>\n    </div>\n</div>"
 
 /***/ }),
 

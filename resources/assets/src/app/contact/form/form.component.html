@@ -1,21 +1,21 @@
 <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
     <md-form-field>
-        <input mdInput name="name" placeholder="Name" [(ngModel)]="formModel.name">
+        <input mdInput name="name" placeholder="{{ 'your_name' | translate }}" [(ngModel)]="formModel.name">
     </md-form-field>
     <md-form-field>
             <input mdInput name="email" placeholder="Email" [formControl]="emailFormControl" [(ngModel)]="formModel.email">
         <md-error *ngIf="emailFormControl.hasError('pattern')">
-            Please enter a valid email address
+            {{ 'error_enter_valid_email' | translate }}
         </md-error>
         <md-error *ngIf="emailFormControl.hasError('required')">
-            Email is <strong>required</strong>
+            {{ 'error_email_required' | translate }}
         </md-error>
     </md-form-field>
     <md-form-field>
-        <textarea mdInput name="message" placeholder="Message" [(ngModel)]="formModel.message"></textarea>
+        <textarea mdInput name="message" placeholder="{{ 'message' | translate }}" [(ngModel)]="formModel.message"></textarea>
     </md-form-field>
 
     <my-recaptcha #recaptcha="" (response)="onTokenChanged($event)"></my-recaptcha>
 
-    <div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">Send</button></div>
+    <div class="btn-bo-wrapper"><button class="btn-bo btn-bo-white">{{ 'send' | translate }}</button></div>
 </form>
