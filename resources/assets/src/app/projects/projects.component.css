@@ -1,0 +1,99 @@
+.project {
+    height: 400px;
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+    position: relative;
+    box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
+    transition: all 0.5s ease-in-out;
+}
+.project:hover {
+    box-shadow: 0 6px 6px rgba(0,0,0,.12), 0 6px 6px rgba(0,0,0,.12);
+}
+.project-mini-info {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+.project-mini-info > .bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("images/header_bg.jpg") no-repeat center #4cc3bf;
+    background-size: cover;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+}
+@-webkit-keyframes projectFadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.95; }
+}
+@keyframes projectFadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.95; }
+}
+
+.project:hover .project-mini-info {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+}
+.project:hover .project-mini-info > .bg {
+    -webkit-animation-name: projectFadeIn;
+    animation-name: projectFadeIn;
+}
+
+.project-mini-info .project-content {
+    position: absolute;
+    width: 100%;
+    height: 400px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    overflow-y: scroll;
+}
+.project-mini-info .btn-bo-wrapper {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.project-mini-info .btn-bo-wrapper .btn-bo {
+    font-size: inherit;
+}
+.project-mini-info .project-name {
+    color: inherit;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 15px;
+    padding: 0;
+}
+
+.project-mini-info p {
+    margin: 0 15px 10px;
+}
+
+.project-tech-stack b {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.project-mini-info p.project-start {
+    margin-bottom: 3px;
+}
+
+.project-tech-stack img {
+    max-width: 50px;
+    max-height: 50px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

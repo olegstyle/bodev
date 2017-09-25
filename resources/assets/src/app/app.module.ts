@@ -41,6 +41,7 @@ import {StacksComponent} from "./stacks/stacks.component";
 import {TechGroupService} from "./services/tech-group.service";
 import {TechStackService} from "./services/tech-stack.service";
 import {ProjectService} from "./services/project.service";
+import {ProjectsComponent} from "./projects/projects.component";
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -86,7 +87,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         HeaderComponent,
         MyRecaptchaComponent,
         AboutMeComponent,
-        StacksComponent
+        StacksComponent,
+        ProjectsComponent
     ],
     providers: [
         ServerDataService,
