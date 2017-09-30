@@ -25,21 +25,7 @@ class MainController extends Controller {
      * @return Response
      */
     public function __invoke() {
-
-        $locale = strtolower(!empty($_COOKIE['lang']) ? $_COOKIE['lang'] : '');
-        if ($locale != 'ru' && $locale != 'en') {
-            if (!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-                $locale = (substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2));
-                if ($locale == 'ua' || $locale == 'ru') {
-                    $locale = 'ru';
-                } else {
-                    $locale = 'en';
-                }
-            } else {
-                $locale = 'en';
-            }
-        }
-        Lang::setLocale($locale);
+        $locale = Lang::getLocale();
         $imageStorage = '/storage/';
 
         $data = [];

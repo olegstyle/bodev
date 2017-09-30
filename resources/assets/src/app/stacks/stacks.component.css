@@ -1,0 +1,76 @@
+.skills-wrapper .skill {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: white;
+    text-align: center;
+    box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);
+}
+
+.skills-wrapper .skill:hover {
+    box-shadow: 0 3px 3px rgba(0,0,0,.12), 0 3px 12px rgba(0,0,0,.12);
+}
+
+.skills-wrapper .skill .image-wrapper {
+    height: 110px;
+    position: relative;
+}
+
+.skills-wrapper .skill img {
+    width: 75%;
+    max-height: 110px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.skills-wrapper .skill h4 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #f0652a;
+}
+
+.skills-wrapper .skill .lvl, .skills-wrapper .skill .time {
+    font-size: 16px;
+    color: #2c3e50;
+    text-align: left;
+    padding-left: 50px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    line-height: 100%;
+}
+
+.skills-wrapper .skill .lvl {
+    background-image: url("./images/lvl.png");
+    margin-bottom: 10px;
+}
+
+.skills-wrapper .skill .time {
+    background-image: url("./images/time.png");
+}
+
+@media (max-width: 550px) {
+    .skills-wrapper > div {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .skills-wrapper .skill {
+        padding: 10px 5px;
+    }
+    .skills-wrapper .skill h4 {
+        font-size: 18px;
+    }
+    .skills-wrapper .skill .lvl, .skills-wrapper .skill .time {
+        font-size: 14px;
+        background-size: 20px auto;
+        padding-left: 30px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .skills-wrapper .skill img {
+        width: 60%;
+    }
+}
+

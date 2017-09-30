@@ -1,0 +1,33 @@
+input, textarea {
+    padding: 15px 10px 15px 45px;
+    background: left top no-repeat transparent;
+    color: white;
+}
+input[name="name"] {
+    background-image: url("images/cName.png");
+}
+input[name="email"] {
+    background-image: url("images/cMail.png");
+}
+textarea[name="message"] {
+    background-image: url("images/cMessage.png");
+}
+
+:host >>> .mat-form-field-placeholder {
+    color: #ffffff;
+}
+:host >>> .mat-form-field-underline {
+    background-color: #ffffff;
+}
+:host >>> .mat-form-field-ripple {
+    background-color: #4cc3bf;
+}
+:host >>> .mat-form-field-invalid .mat-form-field-ripple {
+    background-color: #f44336;
+}
+:host >>> .mat-form-field-placeholder {
+    font-size: 20px;
+}
+:host >>> .mat-error {
+    margin-bottom: 10px;
+}

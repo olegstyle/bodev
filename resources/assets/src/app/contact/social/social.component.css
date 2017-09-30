@@ -1,0 +1,61 @@
+.contact {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.contact h3, .contact p {
+    font-size: 18px;
+    color: white;
+    padding: 0;
+    margin: 0 0 0 90px;
+}
+
+.contact h3 {
+    font-weight: normal;
+    text-transform: uppercase;
+    padding-top: 10px;
+
+}
+.contact p {
+    font-weight: bold;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+
+.contact .ico {
+    width: 66px;
+    height: 66px;
+    border: 2px solid white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    -webkit-transition: all 250ms linear;
+    -ms-transition: all 250ms linear;
+    transition: all 250ms linear;
+}
+.contact, .contact:hover, .contact:hover h3, .contact:hover p {
+    text-decoration: none;
+}
+.contact:hover .ico {
+    background-color: #4cc3bf;
+    border: 2px solid #4cc3bf;
+}
+.social .contact {
+    display: inline-block;
+    width: 66px;
+    height: 66px;
+    margin-right: 10px;
+}
+
+.ico-s-mail { background-image: url("images/sMail.png"); }
+.ico-s-skype { background-image: url("images/sSkype.png"); }
+.ico-s-vk { background-image: url("images/svk.png"); }
+.ico-s-fb { background-image: url("images/sfb.png"); }
+.ico-s-insta { background-image: url("images/sinsta.png"); }
+.ico-s-in { background-image: url("images/sin.png"); }

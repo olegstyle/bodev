@@ -78,6 +78,7 @@ return [
     */
 
     'locale' => 'en',
+    'locales' => ['ru', 'en'],
 
     /*
     |--------------------------------------------------------------------------
@@ -178,6 +179,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
 
     ],
 

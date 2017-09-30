@@ -1,0 +1,42 @@
+.about-me {
+    padding-bottom: 40px;
+    margin-top: 40px;
+    background: url("./images/about_me_bg.jpg") no-repeat right bottom #212121;
+    background-size: cover;
+    position: relative;
+}
+
+.about-me p.description {
+    font-size: 18px;
+    color: white;
+    padding: 0;
+    margin: 0 0 40px;
+}
+
+@media (max-width: 991px) {
+    .about-me {
+        padding-bottom: 30px;
+        margin-top: 30px;
+    }
+    .about-me p.description {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-me {
+        padding-bottom: 20px;
+        margin-top: 20px;
+    }
+    .about-me p.description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 450px) {
+    .about-me {
+        background-size:contain;
+    }
+}

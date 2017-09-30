@@ -1,0 +1,13 @@
+#contacts {
+    padding-bottom: 40px;
+    margin-top: 40px;
+    background: url("images/contact_me_bg.jpg") no-repeat right top #212121;
+    background-size: cover;
+    position: relative;
+}
+
+@media (max-width: 800px) {
+    #contacts {
+        background-size: cover;
+    }
+}

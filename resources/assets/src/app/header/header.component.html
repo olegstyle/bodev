@@ -1,0 +1,57 @@
+<div class="header">
+    <div class="container">
+        <div class="icon-wrapper">
+            <img [src]="'angular/assets/images/logo.png'" width="142" height="67" alt="bodev icon">
+            <div class="lang-wrapper">
+                <span class="lang"
+                      [ngClass]="{' active': serverData.locale == '' || serverData.locale == 'en'}"
+                      (click)="changeLang('en')">EN</span>
+
+                <span class="lang"
+                      [ngClass]="{' active': serverData.locale == 'ru'}"
+                      (click)="changeLang('ru')">RU</span>
+            </div>
+            <div class="header-menu-wrapper">
+                <div class="hamburger"></div>
+                <ul class="header-menu">
+                    <li><a pageScroll href="#skills">{{ 'skills' | translate }}</a></li>
+                    <li><a pageScroll href="#about_me">{{ 'about_me' | translate }}</a></li>
+                    <li><a pageScroll href="#portfolio">{{ 'projects' | translate }}</a></li>
+                    <li><a pageScroll href="#contacts">{{ 'contact_me' | translate }}</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bodev">
+            <div class="photo"></div>
+            <div class="info-wrapper">
+                <div class="col-sm-4">
+                    <div class="info info-right-align animated bounceInLeft">
+                        <h3>{{ 'full_name' | translate }}</h3>
+                        <p>{{serverData.fullName}}</p>
+                        <div class="ico ico-profile"></div>
+                    </div>
+                    <div class="info info-right-align animated bounceInLeft">
+                        <h3>Email</h3>
+                        <p>{{serverData.email}}</p>
+                        <div class="ico ico-mail"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="info animated bounceInRight">
+                        <h3>{{ 'birthday' | translate }}</h3>
+                        <p>{{serverData.birthday}}</p>
+                        <div class="ico ico-birthday"></div>
+                    </div>
+                    <div class="info animated bounceInRight">
+                        <h3>{{ 'birth_place' | translate }}</h3>
+                        <p>{{serverData.birthplace}}</p>
+                        <div class="ico ico-place"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h1 class="animated bounceInLeft">{{serverData.position}}</h1>
+        <h2 class="animated bounceInRight">{{serverData.subposition}}</h2>
+    </div>
+</div>

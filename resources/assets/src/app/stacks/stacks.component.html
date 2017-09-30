@@ -1,0 +1,29 @@
+<div id="skills">
+    <div class="container">
+        <div class="title-wrapper"><h3 class="title animated fadeIn">{{ 'my_skills' | translate }}</h3></div>
+        <div class="tabs-wrapper">
+            <ul class="tabs">
+                <li [ngClass]="{'tab': true, 'active': selectedGroup == null}" (click)="onGroupClick(null)">{{ 'all_skills' | translate }}</li>
+                <ng-container *ngFor="let group of groups">
+                    <li [ngClass]="{'tab': true, 'active': selectedGroup != null && selectedGroup.id == group.id}" (click)="onGroupClick(group)">{{group.name}}</li>
+                </ng-container>
+                <hr />
+            </ul>
+        </div>
+
+        <div id="skills-grid" class="skills-wrapper row">
+            <ng-container *ngFor="let stack of stacks">
+                <div
+                     *ngIf="selectedGroup == null || stack.group_id == selectedGroup.id"
+                     [className]="'skill-group-' + stack.group_id + 'mix skill-group col-lg-2 col-md-3 col-sm-3 col-xs-4 animated'">
+                    <div class="skill">
+                        <div class="image-wrapper"><img [src]="'/storage/' + stack.image_url" [alt]="stack.name" /></div>
+                        <h4>{{ stack.name }}</h4>
+                        <div class="lvl">{{ stack.level }}</div>
+                        <div class="time">{{ stack.date_start }}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

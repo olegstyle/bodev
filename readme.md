@@ -13,11 +13,12 @@ It is my Portfolio WEB-page.
 0. `php artisan migrate`
 0. `php artisan db:seed`
 0. `php artisan voyager:install`
+0. `ng build`
 
 ## To Do ##
 `composer dump-autoload && 
 php artisan cache:clear && 
-php artisan migrate` after each git pull
+php artisan migrate && ng build` after each git pull
 
 ## To Do on hosting ##
 `php-7.1 composer.phar dump-autoload && 
