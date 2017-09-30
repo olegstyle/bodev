@@ -32,6 +32,7 @@
         <meta property="og:image" content="{{ $seo_image }}" />
         <meta itemprop="image" content="{{ $seo_image }}">
 
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>

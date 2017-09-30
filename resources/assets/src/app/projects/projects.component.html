@@ -1,62 +1,65 @@
 <div id="portfolio">
     <div class="container">
         <div class="title-wrapper"><h3 class="title animated fadeIn">{{ 'projects' | translate }}</h3></div>
-        <div class="tabs-wrapper"><ul class="tabs">
-            <li class="tab active" (click)="onStackClick(null)">{{ 'all_projects' | translate }}</li>
-            <li *ngFor="let stack of stacks"
-                class="tab"
-                (click)="onStackClick(stack)">{{ stack.name }}</li>
-            <hr />
-        </ul></div>
+        <div class="tabs-wrapper">
+            <ul class="tabs">
+                <li [ngClass]="{'tab': true, 'active': selectedStack == null}" (click)="onStackClick(null)">{{ 'all_projects' | translate }}</li>
+                <ng-container *ngFor="let stack of stacks | values">
+                    <li [ngClass]="{tab: true, 'active': selectedStack != null && stack.id == selectedStack.id }" (click)="onStackClick(stack)">{{ stack.name }}</li>
+                </ng-container>
+                <hr />
+            </ul></div>
         <div class="projects-wrapper">
             <div id="portfolio-grid" class="row">
-                <div
-                    *ngFor="let project of projects"
-                    class="mix col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group">
-                    <div class="project animated-fast" [style]="'background-image: url(\'' + project.image_url + '\');'">
-                        <div class="project-mini-info animated-fast">
-                            <div class="bg animated-fast"></div>
-                            <div class="project-content">
-                                <h4 class="project-name">{{ project.name_en }}</h4>
-                                <p class="project-gist"><b>{{ 'gist' | translate }}:</b> {{ project.gist_en }}</p>
+                <ng-container *ngFor="let project of projects">
+                    <div
+                        *ngIf="haveSelectedStack(project)"
+                        class="mix col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group">
+                        <div class="project animated-fast" [style.backgroundImage]="'url(\'/storage/' + project.image_url + '\')'">
+                            <div class="project-mini-info animated-fast">
+                                <div class="bg animated-fast"></div>
+                                <perfect-scrollbar class="project-content">
+                                    <h4 class="project-name">{{ getName(project) }}</h4>
+                                    <p class="project-gist"><b>{{ 'gist' | translate }}:</b> {{ getGist(project) }}</p>
 
-                                <p *ngIf="project.description_en && project.description_en.trim().length"
-                                   class="project-description">
-                                    <b>{{ 'description' | translate }}:</b>
-                                    <span [innerHtml]="project.description_en"></span>
-                                </p>
+                                    <p *ngIf="getDescription(project) && getDescription(project).trim().length"
+                                       class="project-description">
+                                        <b>{{ 'description' | translate }}:</b>
+                                        <span [innerHtml]="getDescription(project)"></span>
+                                    </p>
 
-                                <p *ngIf="project.date_start && project.date_start != '0000-00-00'"
-                                   class="project-start">
-                                    <b>{{ 'date_start' | translate }}</b>
-                                    <span [innerHtml]="project.date_start"></span>
-                                </p>
+                                    <p *ngIf="project.date_start && project.date_start != '0000-00-00'"
+                                       class="project-start">
+                                        <b>{{ 'date_start' | translate }}</b>
+                                        <span [innerHtml]="project.date_start"></span>
+                                    </p>
 
-                                <p *ngIf="project.date_end && project.date_end != '0000-00-00'"
-                                   class="project-start">
-                                    <b>{{ 'date_end' | translate }}</b>
-                                    <span [innerHtml]="project.date_end"></span>
-                                </p>
-                                <p *ngIf="project.stacks.length" class="project-tech-stack">
-                                    <b>{{ 'technology_stack' | translate }}:</b>
+                                    <p *ngIf="project.date_end && project.date_end != '0000-00-00'"
+                                       class="project-start">
+                                        <b>{{ 'date_end' | translate }}</b>
+                                        <span [innerHtml]="project.date_end"></span>
+                                    </p>
+                                    <p *ngIf="project.stacks.length && stacks != null" class="project-tech-stack">
+                                        <b>{{ 'technology_stack' | translate }}:</b>
 
-                                    <img *ngFor="let stackRel of project.stacks"
-                                         [src]="stacks[stackRel.tech_id].image_url"
-                                         [title]="stacks[stackRel.tech_id].name"
-                                         [alt]="stacks[stackRel.tech_id].name" />
-                                </p>
-                                <div *ngIf="project.link && project.link.length"
-                                     class="btn-bo-wrapper">
-                                    <div class="btn-bo btn-bo-white">
-                                        <a [href]="project.link"
-                                           rel="nofollow"
-                                           target="_blank">{{ 'look' | translate }}</a>
+                                        <img *ngFor="let stackRel of project.stacks"
+                                             [src]="'/storage/' + stacks[stackRel.tech_id].image_url"
+                                             [title]="stacks[stackRel.tech_id].name"
+                                             [alt]="stacks[stackRel.tech_id].name" />
+                                    </p>
+                                    <div *ngIf="project.link && project.link.length"
+                                         class="btn-bo-wrapper">
+                                        <div class="btn-bo btn-bo-white">
+                                            <a [href]="project.link"
+                                               rel="nofollow"
+                                               target="_blank">{{ 'look' | translate }}</a>
+                                        </div>
                                     </div>
-                                </div>
+                                </perfect-scrollbar>
                             </div>
                         </div>
                     </div>
-                </div>
+                </ng-container>
             </div>
         </div>
     </div>

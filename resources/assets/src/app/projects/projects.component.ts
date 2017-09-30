@@ -7,6 +7,7 @@ import {TechGroupModel} from "../model/tech-group.model";
 import {ProjectService} from "../services/project.service";
 import {ProjectModel} from "../model/project.model";
 import {forEach} from "@angular/router/src/utils/collection";
+import {ServerDataManager} from "../utils/server.data.listener";
 
 @Component({
     selector: 'projects',
@@ -16,11 +17,13 @@ import {forEach} from "@angular/router/src/utils/collection";
 export class ProjectsComponent implements OnInit {
     constructor(
         private stackService: TechStackService,
-        private projectService: ProjectService
+        private projectService: ProjectService,
+        private serverDataManager: ServerDataManager
     ) {}
 
-    stacks: { [key: string]: TechStackModel };
+    stacks: { [key: string]: TechStackModel } = null;
     projects: ProjectModel[];
+    selectedStack: TechStackModel = null;
 
     loadData() {
         this.stackService.getData().subscribe(data => {
@@ -40,6 +43,22 @@ export class ProjectsComponent implements OnInit {
     }
 
     onStackClick(stack?: TechStackModel) {
+        this.selectedStack = stack;
+    }
 
+    haveSelectedStack(project: ProjectModel) {
+        return this.selectedStack == null || project.stacks.find(s => s.tech_id == this.selectedStack.id);
+    }
+
+    public getDescription(project) {
+        return project['description_' + this.serverDataManager.getLang()];
+    }
+
+    public getName(project) {
+        return project['name_' + this.serverDataManager.getLang()];
+    }
+
+    public getGist(project) {
+        return project['gist_' + this.serverDataManager.getLang()];
     }
 }

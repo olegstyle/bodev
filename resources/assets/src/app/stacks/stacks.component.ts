@@ -15,7 +15,7 @@ export class StacksComponent implements OnInit {
         private stackService: TechStackService,
         private groupService: TechGroupService
     ) {}
-
+    selectedGroup: TechGroupModel = null;
     groups: TechGroupModel[];
     stacks: TechStackModel[];
 
@@ -24,7 +24,7 @@ export class StacksComponent implements OnInit {
             this.stacks = data.data;
         });
         this.groupService.getData().subscribe(data => {
-            this.groups = [new TechGroupModel(0, 'All skills')].concat(data.data);
+            this.groups = data.data;
         });
     }
 
@@ -33,6 +33,6 @@ export class StacksComponent implements OnInit {
     }
 
     onGroupClick(group) {
-
+        this.selectedGroup = group;
     }
 }

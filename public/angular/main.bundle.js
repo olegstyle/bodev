@@ -72,7 +72,7 @@ var AboutMeComponent = (function () {
     return AboutMeComponent;
 }());
 AboutMeComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'about_me',
         template: __webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/about_me/about_me.component.css")],
@@ -113,7 +113,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<header></header>\n<stacks></stacks>\n<about_me></about_me>\n<contact></contact>\n<footer></footer>"
+module.exports = "<header></header>\n<stacks></stacks>\n<about_me></about_me>\n<projects></projects>\n<contact></contact>\n<footer></footer>"
 
 /***/ }),
 
@@ -153,7 +153,7 @@ var AppComponent = (function () {
     return AppComponent;
 }());
 AppComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'app-root',
         template: __webpack_require__("../../../../../resources/assets/src/app/app.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/app.component.css")],
@@ -203,6 +203,10 @@ can be found in the LICENSE file at http://angular.io/license
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_tech_group_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/tech-group.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__services_tech_stack_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/tech-stack.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__services_project_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__projects_projects_component__ = __webpack_require__("../../../../../resources/assets/src/app/projects/projects.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27_ngx_pipes_src_app_pipes_object__ = __webpack_require__("../../../../ngx-pipes/src/app/pipes/object/index.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ngx_perfect_scrollbar__ = __webpack_require__("../../../../ngx-perfect-scrollbar/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_ngx_perfect_scrollbar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_ngx_perfect_scrollbar__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -236,6 +240,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
+var PERFECT_SCROLLBAR_CONFIG = {
+    suppressScrollX: true
+};
 // AoT requires an exported function for factories
 function HttpLoaderFactory(http) {
     return new __WEBPACK_IMPORTED_MODULE_19__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, './assets/i18n/', '.json');
@@ -246,7 +256,7 @@ var AppModule = (function () {
     return AppModule;
 }());
 AppModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["d" /* FormsModule */],
@@ -274,7 +284,9 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["n" /* MdToolbarModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["o" /* MdTooltipModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_material__["m" /* MdSnackBarModule */],
-            __WEBPACK_IMPORTED_MODULE_17_ng2_page_scroll__["a" /* Ng2PageScrollModule */]
+            __WEBPACK_IMPORTED_MODULE_17_ng2_page_scroll__["a" /* Ng2PageScrollModule */],
+            __WEBPACK_IMPORTED_MODULE_27_ngx_pipes_src_app_pipes_object__["a" /* NgObjectPipesModule */],
+            __WEBPACK_IMPORTED_MODULE_28_ngx_perfect_scrollbar__["PerfectScrollbarModule"].forRoot(PERFECT_SCROLLBAR_CONFIG)
         ],
         declarations: [
             __WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */],
@@ -285,7 +297,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__header_header_component__["a" /* HeaderComponent */],
             __WEBPACK_IMPORTED_MODULE_14__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */],
             __WEBPACK_IMPORTED_MODULE_20__about_me_about_me_component__["a" /* AboutMeComponent */],
-            __WEBPACK_IMPORTED_MODULE_22__stacks_stacks_component__["a" /* StacksComponent */]
+            __WEBPACK_IMPORTED_MODULE_22__stacks_stacks_component__["a" /* StacksComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__projects_projects_component__["a" /* ProjectsComponent */]
         ],
         providers: [
             __WEBPACK_IMPORTED_MODULE_13__services_server_data__["a" /* ServerDataService */],
@@ -355,7 +368,7 @@ var ContactComponent = (function () {
     return ContactComponent;
 }());
 ContactComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/contact.component.css")],
@@ -454,11 +467,11 @@ var ContactFormComponent = (function () {
     return ContactFormComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]),
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__utils_compnents_recaptcha_myrecaptcha_component__["a" /* MyRecaptchaComponent */]) === "function" && _a || Object)
 ], ContactFormComponent.prototype, "recaptchaComponent", void 0);
 ContactFormComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact-form',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/form/form.component.css")],
@@ -603,7 +616,7 @@ var ContactSocialComponent = (function () {
     return ContactSocialComponent;
 }());
 ContactSocialComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'contact-social',
         template: __webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/contact/social/social.component.css")],
@@ -682,7 +695,7 @@ var FooterComponent = (function () {
     return FooterComponent;
 }());
 FooterComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'footer',
         template: __webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/footer/footer.component.css")],
@@ -765,7 +778,7 @@ var HeaderComponent = (function () {
     return HeaderComponent;
 }());
 HeaderComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'header',
         template: __webpack_require__("../../../../../resources/assets/src/app/header/header.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/header/header.component.css")],
@@ -813,22 +826,6 @@ module.exports = __webpack_require__.p + "header_bg.359d225d1a5a55c37b4f.jpg";
 
 /***/ }),
 
-/***/ "../../../../../resources/assets/src/app/model/base-model.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BaseModel; });
-var BaseModel = (function () {
-    function BaseModel() {
-        this.success = false;
-    }
-    return BaseModel;
-}());
-
-//# sourceMappingURL=base-model.js.map
-
-/***/ }),
-
 /***/ "../../../../../resources/assets/src/app/model/server-data.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -860,41 +857,113 @@ var ServerData = (function () {
 
 /***/ }),
 
-/***/ "../../../../../resources/assets/src/app/model/tech-group.model.ts":
+/***/ "../../../../../resources/assets/src/app/projects/images/header_bg.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "header_bg.359d225d1a5a55c37b4f.jpg";
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/projects/projects.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".project {\n    height: 400px;\n    background-size: cover;\n    background-position: center top;\n    background-repeat: no-repeat;\n    margin-bottom: 15px;\n    position: relative;\n    box-shadow: 0 1px 1px rgba(0,0,0,.12), 0 1px 6px rgba(0,0,0,.12);\n    transition: all 0.5s ease-in-out;\n}\n.project:hover {\n    box-shadow: 0 6px 6px rgba(0,0,0,.12), 0 6px 6px rgba(0,0,0,.12);\n}\n.project-mini-info {\n    width: 100%;\n    height: 100%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    padding: 10px;\n    font-size: 14px;\n    color: white;\n    -webkit-animation-name: fadeOut;\n    animation-name: fadeOut;\n}\n.project-mini-info > .bg {\n    width: 100%;\n    height: 100%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    background: url(" + __webpack_require__("../../../../../resources/assets/src/app/projects/images/header_bg.jpg") + ") no-repeat center #4cc3bf;\n    background-size: cover;\n    -webkit-animation-name: fadeOut;\n    animation-name: fadeOut;\n}\n@-webkit-keyframes projectFadeIn {\n    from { opacity: 0; }\n    to { opacity: 0.95; }\n}\n@keyframes projectFadeIn {\n    from { opacity: 0; }\n    to { opacity: 0.95; }\n}\n\n.project:hover .project-mini-info {\n    -webkit-animation-name: fadeIn;\n    animation-name: fadeIn;\n}\n.project:hover .project-mini-info > .bg {\n    -webkit-animation-name: projectFadeIn;\n    animation-name: projectFadeIn;\n}\n\n.project-mini-info .project-content {\n    position: absolute;\n    width: 100%;\n    height: 400px;\n    top: 0;\n    left: 0;\n    z-index: 1;\n}\n.project-mini-info .btn-bo-wrapper {\n    width: 100%;\n    margin-top: 15px;\n    margin-bottom: 15px;\n}\n.project-mini-info .btn-bo-wrapper .btn-bo {\n    font-size: inherit;\n}\n.project-mini-info .project-name {\n    color: inherit;\n    text-align: center;\n    font-size: 18px;\n    font-weight: bold;\n    margin: 20px 0 15px;\n    padding: 0;\n}\n\n.project-mini-info p {\n    margin: 0 15px 10px;\n}\n\n.project-tech-stack b {\n    display: block;\n    margin-bottom: 5px;\n}\n\n.project-mini-info p.project-start {\n    margin-bottom: 3px;\n}\n\n.project-tech-stack img {\n    max-width: 50px;\n    max-height: 50px;\n    margin-right: 5px;\n    margin-bottom: 5px;\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/projects/projects.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"portfolio\">\n    <div class=\"container\">\n        <div class=\"title-wrapper\"><h3 class=\"title animated fadeIn\">{{ 'projects' | translate }}</h3></div>\n        <div class=\"tabs-wrapper\">\n            <ul class=\"tabs\">\n                <li [ngClass]=\"{'tab': true, 'active': selectedStack == null}\" (click)=\"onStackClick(null)\">{{ 'all_projects' | translate }}</li>\n                <ng-container *ngFor=\"let stack of stacks | values\">\n                    <li [ngClass]=\"{tab: true, 'active': selectedStack != null && stack.id == selectedStack.id }\" (click)=\"onStackClick(stack)\">{{ stack.name }}</li>\n                </ng-container>\n                <hr />\n            </ul></div>\n        <div class=\"projects-wrapper\">\n            <div id=\"portfolio-grid\" class=\"row\">\n                <ng-container *ngFor=\"let project of projects\">\n                    <div\n                        *ngIf=\"haveSelectedStack(project)\"\n                        class=\"mix col-lg-3 col-md-4 col-sm-6 col-xs-12 project-group\">\n                        <div class=\"project animated-fast\" [style.backgroundImage]=\"'url(\\'/storage/' + project.image_url + '\\')'\">\n                            <div class=\"project-mini-info animated-fast\">\n                                <div class=\"bg animated-fast\"></div>\n                                <perfect-scrollbar class=\"project-content\">\n                                    <h4 class=\"project-name\">{{ getName(project) }}</h4>\n                                    <p class=\"project-gist\"><b>{{ 'gist' | translate }}:</b> {{ getGist(project) }}</p>\n\n                                    <p *ngIf=\"getDescription(project) && getDescription(project).trim().length\"\n                                       class=\"project-description\">\n                                        <b>{{ 'description' | translate }}:</b>\n                                        <span [innerHtml]=\"getDescription(project)\"></span>\n                                    </p>\n\n                                    <p *ngIf=\"project.date_start && project.date_start != '0000-00-00'\"\n                                       class=\"project-start\">\n                                        <b>{{ 'date_start' | translate }}</b>\n                                        <span [innerHtml]=\"project.date_start\"></span>\n                                    </p>\n\n                                    <p *ngIf=\"project.date_end && project.date_end != '0000-00-00'\"\n                                       class=\"project-start\">\n                                        <b>{{ 'date_end' | translate }}</b>\n                                        <span [innerHtml]=\"project.date_end\"></span>\n                                    </p>\n                                    <p *ngIf=\"project.stacks.length && stacks != null\" class=\"project-tech-stack\">\n                                        <b>{{ 'technology_stack' | translate }}:</b>\n\n                                        <img *ngFor=\"let stackRel of project.stacks\"\n                                             [src]=\"'/storage/' + stacks[stackRel.tech_id].image_url\"\n                                             [title]=\"stacks[stackRel.tech_id].name\"\n                                             [alt]=\"stacks[stackRel.tech_id].name\" />\n                                    </p>\n                                    <div *ngIf=\"project.link && project.link.length\"\n                                         class=\"btn-bo-wrapper\">\n                                        <div class=\"btn-bo btn-bo-white\">\n                                            <a [href]=\"project.link\"\n                                               rel=\"nofollow\"\n                                               target=\"_blank\">{{ 'look' | translate }}</a>\n                                        </div>\n                                    </div>\n                                </perfect-scrollbar>\n                            </div>\n                        </div>\n                    </div>\n                </ng-container>\n            </div>\n        </div>\n    </div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../resources/assets/src/app/projects/projects.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TechGroupModel; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__base_model__ = __webpack_require__("../../../../../resources/assets/src/app/model/base-model.ts");
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProjectsComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_tech_stack_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/tech-stack.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_project_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_server_data_listener__ = __webpack_require__("../../../../../resources/assets/src/app/utils/server.data.listener.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 
-var TechGroupModel = (function (_super) {
-    __extends(TechGroupModel, _super);
-    function TechGroupModel(id, name, order, created_at, updated_at) {
-        if (order === void 0) { order = 0; }
-        if (created_at === void 0) { created_at = new Date(); }
-        if (updated_at === void 0) { updated_at = new Date(); }
-        var _this = _super.call(this) || this;
-        _this.id = id;
-        _this.name = name;
-        _this.order = order;
-        _this.created_at = created_at;
-        _this.updated_at = updated_at;
-        return _this;
+
+
+
+var ProjectsComponent = (function () {
+    function ProjectsComponent(stackService, projectService, serverDataManager) {
+        this.stackService = stackService;
+        this.projectService = projectService;
+        this.serverDataManager = serverDataManager;
+        this.stacks = null;
+        this.selectedStack = null;
     }
-    return TechGroupModel;
-}(__WEBPACK_IMPORTED_MODULE_0__base_model__["a" /* BaseModel */]));
+    ProjectsComponent.prototype.loadData = function () {
+        var _this = this;
+        this.stackService.getData().subscribe(function (data) {
+            var stacks = data.data;
+            _this.stacks = {};
+            for (var k in stacks) {
+                _this.stacks[stacks[k].id] = stacks[k];
+            }
+        });
+        this.projectService.getData().subscribe(function (data) {
+            _this.projects = data.data;
+        });
+    };
+    ProjectsComponent.prototype.ngOnInit = function () {
+        this.loadData();
+    };
+    ProjectsComponent.prototype.onStackClick = function (stack) {
+        this.selectedStack = stack;
+    };
+    ProjectsComponent.prototype.haveSelectedStack = function (project) {
+        var _this = this;
+        return this.selectedStack == null || project.stacks.find(function (s) { return s.tech_id == _this.selectedStack.id; });
+    };
+    ProjectsComponent.prototype.getDescription = function (project) {
+        return project['description_' + this.serverDataManager.getLang()];
+    };
+    ProjectsComponent.prototype.getName = function (project) {
+        return project['name_' + this.serverDataManager.getLang()];
+    };
+    ProjectsComponent.prototype.getGist = function (project) {
+        return project['gist_' + this.serverDataManager.getLang()];
+    };
+    return ProjectsComponent;
+}());
+ProjectsComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'projects',
+        template: __webpack_require__("../../../../../resources/assets/src/app/projects/projects.component.html"),
+        styles: [__webpack_require__("../../../../../resources/assets/src/app/projects/projects.component.css")],
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_tech_stack_service__["a" /* TechStackService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_tech_stack_service__["a" /* TechStackService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_project_service__["a" /* ProjectService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_project_service__["a" /* ProjectService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__utils_server_data_listener__["a" /* ServerDataManager */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__utils_server_data_listener__["a" /* ServerDataManager */]) === "function" && _c || Object])
+], ProjectsComponent);
 
-//# sourceMappingURL=tech-group.model.js.map
+var _a, _b, _c;
+//# sourceMappingURL=projects.component.js.map
 
 /***/ }),
 
@@ -932,7 +1001,7 @@ var ContactFormService = (function () {
     return ContactFormService;
 }());
 ContactFormService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ContactFormService);
 
@@ -975,7 +1044,7 @@ var ProjectService = (function () {
     return ProjectService;
 }());
 ProjectService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ProjectService);
 
@@ -1018,7 +1087,7 @@ var ServerDataService = (function () {
     return ServerDataService;
 }());
 ServerDataService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], ServerDataService);
 
@@ -1061,7 +1130,7 @@ var TechGroupService = (function () {
     return TechGroupService;
 }());
 TechGroupService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], TechGroupService);
 
@@ -1104,7 +1173,7 @@ var TechStackService = (function () {
     return TechStackService;
 }());
 TechStackService = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["b" /* HttpClient */]) === "function" && _a || Object])
 ], TechStackService);
 
@@ -1148,7 +1217,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../resources/assets/src/app/stacks/stacks.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"skills\">\n    <div class=\"container\">\n        <div class=\"title-wrapper\"><h3 class=\"title animated fadeIn\">{{ 'my_skills' | translate }}</h3></div>\n        <div class=\"tabs-wrapper\">\n            <ul class=\"tabs\">\n                <li *ngFor=\"let group of groups\"\n                    class=\"tab\"\n                    (click)=\"onGroupClick(group)\">{{group.name}}</li>\n            </ul>\n        </div>\n\n        <div id=\"skills-grid\" class=\"skills-wrapper row\">\n            <div *ngFor=\"let stack of stacks\"\n                 [className]=\"'skill-group-' + stack.group_id + 'mix skill-group col-lg-2 col-md-3 col-sm-3 col-xs-4 animated'\">\n                <div class=\"skill\">\n                    <div class=\"image-wrapper\"><img [src]=\"'/storage/' + stack.image_url\" [alt]=\"stack.name\" /></div>\n                    <h4>{{ stack.name }}</h4>\n                    <div class=\"lvl\">{{ stack.level }}</div>\n                    <div class=\"time\">{{ stack.date_start }}</div>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"btn-bo-wrapper\"><div class=\"btn-bo\">{{ 'show_all' | translate}}</div></div>\n    </div>\n</div>"
+module.exports = "<div id=\"skills\">\n    <div class=\"container\">\n        <div class=\"title-wrapper\"><h3 class=\"title animated fadeIn\">{{ 'my_skills' | translate }}</h3></div>\n        <div class=\"tabs-wrapper\">\n            <ul class=\"tabs\">\n                <li [ngClass]=\"{'tab': true, 'active': selectedGroup == null}\" (click)=\"onGroupClick(null)\">{{ 'all_skills' | translate }}</li>\n                <ng-container *ngFor=\"let group of groups\">\n                    <li [ngClass]=\"{'tab': true, 'active': selectedGroup != null && selectedGroup.id == group.id}\" (click)=\"onGroupClick(group)\">{{group.name}}</li>\n                </ng-container>\n                <hr />\n            </ul>\n        </div>\n\n        <div id=\"skills-grid\" class=\"skills-wrapper row\">\n            <ng-container *ngFor=\"let stack of stacks\">\n                <div\n                     *ngIf=\"selectedGroup == null || stack.group_id == selectedGroup.id\"\n                     [className]=\"'skill-group-' + stack.group_id + 'mix skill-group col-lg-2 col-md-3 col-sm-3 col-xs-4 animated'\">\n                    <div class=\"skill\">\n                        <div class=\"image-wrapper\"><img [src]=\"'/storage/' + stack.image_url\" [alt]=\"stack.name\" /></div>\n                        <h4>{{ stack.name }}</h4>\n                        <div class=\"lvl\">{{ stack.level }}</div>\n                        <div class=\"time\">{{ stack.date_start }}</div>\n                    </div>\n                </div>\n            </ng-container>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 
@@ -1160,7 +1229,6 @@ module.exports = "<div id=\"skills\">\n    <div class=\"container\">\n        <d
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_tech_stack_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/tech-stack.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_tech_group_service__ = __webpack_require__("../../../../../resources/assets/src/app/services/tech-group.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_tech_group_model__ = __webpack_require__("../../../../../resources/assets/src/app/model/tech-group.model.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1173,11 +1241,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var StacksComponent = (function () {
     function StacksComponent(stackService, groupService) {
         this.stackService = stackService;
         this.groupService = groupService;
+        this.selectedGroup = null;
     }
     StacksComponent.prototype.loadData = function () {
         var _this = this;
@@ -1185,18 +1253,19 @@ var StacksComponent = (function () {
             _this.stacks = data.data;
         });
         this.groupService.getData().subscribe(function (data) {
-            _this.groups = [new __WEBPACK_IMPORTED_MODULE_3__model_tech_group_model__["a" /* TechGroupModel */](0, 'All skills')].concat(data.data);
+            _this.groups = data.data;
         });
     };
     StacksComponent.prototype.ngOnInit = function () {
         this.loadData();
     };
     StacksComponent.prototype.onGroupClick = function (group) {
+        this.selectedGroup = group;
     };
     return StacksComponent;
 }());
 StacksComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'stacks',
         template: __webpack_require__("../../../../../resources/assets/src/app/stacks/stacks.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/stacks/stacks.component.css")],
@@ -1252,7 +1321,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyRecaptchaComponent = (function () {
     function MyRecaptchaComponent() {
-        this.response = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.response = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
         this.listener = null;
         this.sitekey = '6Ldc9jAUAAAAAIM4BlQIHl4r5Hu7XqS6rkZkduL5';
         this.currentId = 'recaptcha_' + Math.random().toString(36).substring(2);
@@ -1295,11 +1364,11 @@ var MyRecaptchaComponent = (function () {
     return MyRecaptchaComponent;
 }());
 __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["T" /* Output */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Output"])(),
     __metadata("design:type", Object)
 ], MyRecaptchaComponent.prototype, "response", void 0);
 MyRecaptchaComponent = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
         selector: 'my-recaptcha',
         template: __webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.html"),
         styles: [__webpack_require__("../../../../../resources/assets/src/app/utils/compnents/recaptcha/myrecaptcha.component.css")],
@@ -1375,7 +1444,7 @@ var ServerDataManager = ServerDataManager_1 = (function () {
 }());
 ServerDataManager.instance = null;
 ServerDataManager = ServerDataManager_1 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__services_server_data__["a" /* ServerDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__services_server_data__["a" /* ServerDataService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _b || Object])
 ], ServerDataManager);
 
@@ -1423,7 +1492,7 @@ var TokenInterceptor = TokenInterceptor_1 = (function () {
 }());
 TokenInterceptor.BASE_URL = 'angular';
 TokenInterceptor = TokenInterceptor_1 = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["f" /* Meta */]) === "function" && _a || Object])
 ], TokenInterceptor);
 
@@ -1482,7 +1551,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_4__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_23" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["enableProdMode"])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_3__app_app_module__["a" /* AppModule */]);
 //# sourceMappingURL=main.js.map

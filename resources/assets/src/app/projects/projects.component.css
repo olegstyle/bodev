@@ -59,7 +59,6 @@
     top: 0;
     left: 0;
     z-index: 1;
-    overflow-y: scroll;
 }
 .project-mini-info .btn-bo-wrapper {
     width: 100%;

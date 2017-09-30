@@ -22,7 +22,7 @@ import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/h
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 
-import { AppComponent }         from './app.component';
+import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactComponent } from './contact/contact.component';
 import { ContactSocialComponent } from './contact/social/social.component';
@@ -42,11 +42,21 @@ import {TechGroupService} from "./services/tech-group.service";
 import {TechStackService} from "./services/tech-stack.service";
 import {ProjectService} from "./services/project.service";
 import {ProjectsComponent} from "./projects/projects.component";
+import {NgObjectPipesModule} from "ngx-pipes/src/app/pipes/object";
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+
+const PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+    suppressScrollX: true
+};
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+
 
 @NgModule({
     imports: [
@@ -76,7 +86,9 @@ export function HttpLoaderFactory(http: HttpClient) {
         MdToolbarModule,
         MdTooltipModule,
         MdSnackBarModule,
-        Ng2PageScrollModule
+        Ng2PageScrollModule,
+        NgObjectPipesModule,
+        PerfectScrollbarModule.forRoot(PERFECT_SCROLLBAR_CONFIG)
     ],
     declarations: [
         AppComponent,

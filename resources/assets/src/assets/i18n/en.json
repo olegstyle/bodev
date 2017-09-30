@@ -11,5 +11,14 @@
     "message": "Message",
     "send": "Send",
     "error_enter_valid_email": "Please enter a valid email address",
-    "error_email_required": "Email is required"
+    "error_email_required": "Email is required",
+    "all_projects": "All projects",
+    "look": "Look",
+    "my_skills": "My skills",
+    "all_skills": " All skills",
+    "gist": "Gist",
+    "date_start": "Date start",
+    "date_end": "Date end",
+    "technology_stack": "Stack of technology",
+    "description": "Description"
 }

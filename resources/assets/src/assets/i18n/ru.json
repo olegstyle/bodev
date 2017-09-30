@@ -11,5 +11,14 @@
     "message": "Сообщение",
     "send": "Отправить",
     "error_enter_valid_email": "Пожалуйста введите корректный email",
-    "error_email_required": "Email является требуемым"
+    "error_email_required": "Email является требуемым",
+    "all_projects": "Все проекты",
+    "look": "Посмотреть",
+    "my_skills": "Мои навыки",
+    "all_skills": "Все навыки",
+    "gist": "Цель",
+    "date_start": "Дата начала",
+    "date_end": "Дата окончания",
+    "technology_stack": "Стек технологий",
+    "description": "Описание"
 }
