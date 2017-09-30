@@ -51,11 +51,11 @@ class AngularController extends Controller {
         $locale = Lang::getLocale();
         return response([
             'locale' => $locale,
-            'fullName' => 'Oleh Borysenko',
+            'fullName' => $locale == 'ru' ? 'Олег Борисенко' : 'Oleh Borysenko',
             'email' => Voyager::setting('email', 'oleh@bodev.pro'),
             'birthday' => '22.10.1994',
-            'birthplace' => 'Dnipro, Ukraine',
-            'skype' => Voyager::setting('skype', 'olehstail'),
+            'birthplace' => $locale == 'ru' ? 'Украина, г. Днипро' : 'Dnipro, Ukraine',
+            'skype' => Voyager::setting('skype', 'o lehstail'),
             'position' => Voyager::setting('header_title', 'Software Developer'),
             'subposition' => Voyager::setting('header_subtitle', ''),
             'aboutMeLong' => Voyager::setting('about_me_long_' . $locale, ''),
