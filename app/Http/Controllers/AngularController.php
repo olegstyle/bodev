@@ -34,7 +34,7 @@ class AngularController extends Controller {
     public function index()
     {
     	$data = [];
-    	$data['seo_title'] = setting('title.', '');
+    	$data['seo_title'] = setting('seo_title.', '');
         $data['seo_keywords'] = setting('seo_keywords.', '');
         $data['seo_description'] = setting('seo_description.', '');
         $data['seo_image'] = '/images/me.jpg';
