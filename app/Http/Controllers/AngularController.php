@@ -34,9 +34,9 @@ class AngularController extends Controller {
     public function index()
     {
     	$data = [];
-    	$data['seo_title'] = setting('title', '');
-        $data['seo_keywords'] = setting('seo_keywords', '');
-        $data['seo_description'] = setting('seo_description', '');
+    	$data['seo_title'] = setting('title.', '');
+        $data['seo_keywords'] = setting('seo_keywords.', '');
+        $data['seo_description'] = setting('seo_description.', '');
         $data['seo_image'] = '/images/me.jpg';
       	return view('angular.main', $data);
     }
@@ -52,14 +52,14 @@ class AngularController extends Controller {
         return response([
             'locale' => $locale,
             'fullName' => $locale == 'ru' ? 'Олег Борисенко' : 'Oleh Borysenko',
-            'email' => setting('email', 'oleh@bodev.pro'),
+            'email' => setting('email.', 'oleh@bodev.pro'),
             'birthday' => '22.10.1994',
             'birthplace' => $locale == 'ru' ? 'Украина, г. Днипро' : 'Dnipro, Ukraine',
-            'skype' => setting('skype', 'o lehstail'),
-            'position' => setting('header_title', 'Software Developer'),
-            'subposition' => setting('header_subtitle', ''),
-            'aboutMeLong' => setting('about_me_long_' . $locale, ''),
-            'aboutMeShort' => setting('about_me_short_' . $locale, ''),
+            'skype' => setting('skype.', 'olehstail'),
+            'position' => setting('header_title.', 'Software Developer'),
+            'subposition' => setting('header_subtitle.', ''),
+            'aboutMeLong' => setting('about_me_long_' . $locale . '.', ''),
+            'aboutMeShort' => setting('about_me_short_' . $locale . '.', ''),
             'socialLinks' => [
                 'vk' => 'https://vk.com/bodev_pro',
                 'fb' => 'https://www.facebook.com/bodev.pro',
