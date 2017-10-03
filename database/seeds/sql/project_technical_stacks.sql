@@ -23,19 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `project_technical_stacks`
---
-
-CREATE TABLE IF NOT EXISTS `project_technical_stacks` (
-  `project_id` int(10) unsigned NOT NULL,
-  `tech_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=185 ;
-
---
 -- Дамп данных таблицы `project_technical_stacks`
 --
 

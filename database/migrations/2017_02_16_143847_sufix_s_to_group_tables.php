@@ -13,7 +13,6 @@ class SufixSToGroupTables extends Migration
      */
     public function up()
     {
-        Schema::rename('project_group', 'project_groups');
         Schema::rename('technical_stack_group', 'technical_stack_groups');
         Schema::rename('content', 'contents');
     }
@@ -25,7 +24,6 @@ class SufixSToGroupTables extends Migration
      */
     public function down()
     {
-        Schema::rename('project_groups', 'project_group');
         Schema::rename('technical_stack_groups', 'technical_stack_group');
         Schema::rename('contents', 'content');
     }

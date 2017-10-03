@@ -16,10 +16,8 @@ class Technicalstackgroup extends Migration
         Schema::create('technical_stack_group', function (Blueprint $table) {
             $table->increments('id');
             $table->string("name", 25);
-            $table->smallInteger("order", false, false);
-        });
-        Schema::table('technical_stacks', function (Blueprint $table) {
-            $table->integer("group_id", false, true);
+            $table->smallInteger("order");
+            $table->timestamps();
         });
     }
 
@@ -31,9 +29,5 @@ class Technicalstackgroup extends Migration
     public function down()
     {
         Schema::dropIfExists('technical_stack_group');
-        Schema::table('technical_stacks', function (Blueprint $table) {
-            $table->dropColumn(['group_id']);
-        });
-
     }
 }

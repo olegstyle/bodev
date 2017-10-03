@@ -101,8 +101,8 @@
                         </div>
                     </div>
                 </div>
-                <h1 class="animated bounceInLeft">{{ \TCG\Voyager\Voyager::setting('header_title', '') }}</h1>
-                <h2 class="animated bounceInRight">{{ \TCG\Voyager\Voyager::setting('header_subtitle', '') }}</h2>
+                <h1 class="animated bounceInLeft">{{ setting('header_title', '') }}</h1>
+                <h2 class="animated bounceInRight">{{ setting('header_subtitle', '') }}</h2>
             </div>
         </header>
 

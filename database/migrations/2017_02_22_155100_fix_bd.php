@@ -14,9 +14,6 @@ class FixBd extends Migration
      */
     public function up()
     {
-        Schema::table('project_technical_stacks', function (Blueprint $table) {
-            $table->increments('id');
-        });
         DB::statement('ALTER TABLE projects MODIFY COLUMN description_ru TEXT');
         DB::statement('ALTER TABLE projects MODIFY COLUMN description_en TEXT');
     }
@@ -28,9 +25,6 @@ class FixBd extends Migration
      */
     public function down()
     {
-        Schema::table('project_technical_stacks', function (Blueprint $table) {
-            $table->dropColumn(['id']);
-        });
         DB::statement('ALTER TABLE projects MODIFY COLUMN description_ru VARCHAR(255)');
         DB::statement('ALTER TABLE projects MODIFY COLUMN description_en VARCHAR(255)');
     }
