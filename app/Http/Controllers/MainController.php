@@ -131,16 +131,15 @@ class MainController extends Controller {
         $data['tech_groups'] = $techGroupList;
         $data['tech_stacks'] = $techStackList;
         $data['projects'] = $projectsList;
-        $data['about_me_long'] = setting('site.about_me_long_' . $locale, '');
-        $data['about_me_short'] = setting('site.about_me_short_' . $locale, '');
-        $data['email'] = setting('site.email', '');
-        $data['skype'] = setting('site.skype', '');
+        $data['about_me_long'] = setting('about_me_long_' . $locale . '.');
+        $data['about_me_short'] = setting('about_me_short_' . $locale . '.');
+        $data['email'] = setting('email.');
+        $data['skype'] = setting('skype.');
         $data['locale'] = $locale;
-        $data['seo_title'] = setting('site.title', '');
-        $data['seo_keywords'] = setting('site.seo_keywords', '');
-        $data['seo_description'] = setting('site.seo_description', '');
+        $data['seo_title'] = setting('seo_title.');
+        $data['seo_keywords'] = setting('seo_keywords.');
+        $data['seo_description'] = setting('seo_description.');
         $data['seo_image'] = '/images/me.jpg';
-
 
         return view('main', $data);
     }
