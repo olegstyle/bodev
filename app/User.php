@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use TCG\Voyager\Models\User as Authenticatable;
 
 /**
  * App\User

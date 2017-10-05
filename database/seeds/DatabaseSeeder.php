@@ -12,10 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        //DB::unprepared(file_get_contents(__DIR__ . '/sql/technical_stack_groups.sql'));
-        //DB::unprepared(file_get_contents(__DIR__ . '/sql/technical_stacks.sql'));
-        //DB::unprepared(file_get_contents(__DIR__ . '/sql/projects.sql'));
-        //DB::unprepared(file_get_contents(__DIR__ . '/sql/project_technical_stacks.sql'));
+        DB::unprepared(file_get_contents(__DIR__ . '/sql/technical_stack_groups.sql'));
+        DB::unprepared(file_get_contents(__DIR__ . '/sql/technical_stacks.sql'));
+        DB::unprepared(file_get_contents(__DIR__ . '/sql/projects.sql'));
+        DB::unprepared(file_get_contents(__DIR__ . '/sql/project_technical_stacks.sql'));
         DB::unprepared(file_get_contents(__DIR__ . '/sql/settings.sql'));
     }
 }

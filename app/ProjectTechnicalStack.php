@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * App\ProjectTechnicalStack
  *
- * @property \Illuminate\Database\Eloquent\Collection|\App\Project[] $project_id
- * @property \Illuminate\Database\Eloquent\Collection|\App\TechnicalStack[] $tech_id
+ * @property \Illuminate\Database\Eloquent\Collection|\App\Project $projectId
+ * @property \Illuminate\Database\Eloquent\Collection|\App\TechnicalStack $techId
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
  * @property int $id
@@ -22,13 +22,15 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectTechnicalStack extends Model
 {
 
-    public function project_id() {
-        return $this->belongsToMany(Project::class);
+    public function projectId()
+    {
+        return $this->belongsTo(Project::class);
     }
 
 
-    public function tech_id() {
-        return $this->belongsToMany(TechnicalStack::class);
+    public function techId()
+    {
+        return $this->belongsTo(TechnicalStack::class);
     }
 
 }
