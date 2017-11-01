@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Technicalstackgroup extends Migration
+class UpdateTechnicalStacksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class Technicalstackgroup extends Migration
      */
     public function up()
     {
-        Schema::create('technical_stack_group', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string("name", 25);
-            $table->smallInteger("order", false, false);
-        });
         Schema::table('technical_stacks', function (Blueprint $table) {
-            $table->integer("group_id", false, true);
+            $table->string("image_url", 255)->nullable()->change();
         });
     }
 
@@ -30,10 +25,8 @@ class Technicalstackgroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('technical_stack_group');
         Schema::table('technical_stacks', function (Blueprint $table) {
-            $table->dropColumn(['group_id']);
+            $table->string("image_url", 255)->change();
         });
-
     }
 }

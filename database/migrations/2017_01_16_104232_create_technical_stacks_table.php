@@ -19,6 +19,7 @@ class CreateTechnicalStacksTable extends Migration
             $table->string("image_url", 255);
             $table->smallInteger("level", false, true);
             $table->date("date_start");
+            $table->unsignedInteger("group_id");
             $table->timestamps();
         });
     }

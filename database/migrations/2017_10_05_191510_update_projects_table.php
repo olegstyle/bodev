@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ProjectGroup extends Migration
+class UpdateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class ProjectGroup extends Migration
      */
     public function up()
     {
-        Schema::create('project_group', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string("name", 25);
-            $table->smallInteger("order", false, false);
-        });
         Schema::table('projects', function (Blueprint $table) {
-            $table->integer("group_id", false, true);
+            $table->string("image_url", 255)->nullable()->change();
+            $table->date("date_end")->nullable()->change();
         });
     }
 
@@ -30,10 +26,9 @@ class ProjectGroup extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('project_group');
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropColumn(['group_id']);
+            $table->string("image_url", 255)->change();
+            $table->date("date_end")->change();
         });
-
     }
 }

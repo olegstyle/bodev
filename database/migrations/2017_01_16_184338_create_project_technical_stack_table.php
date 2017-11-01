@@ -14,11 +14,14 @@ class CreateProjectTechnicalStackTable extends Migration
     public function up()
     {
         Schema::create('project_technical_stacks', function (Blueprint $table) {
-            $table->integer("project_id", false, true);
-            $table->integer("tech_id", false, true);
+            $table->increments("id");
+            $table->unsignedInteger("project_id");
+            $table->unsignedInteger("tech_id");
             $table->timestamps();
 
             $table->unique(['project_id', 'tech_id']);
+            $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('tech_id')->references('id')->on('technical_stacks')->onDelete('cascade');
         });
     }
 

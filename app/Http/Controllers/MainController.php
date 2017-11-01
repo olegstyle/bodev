@@ -22,9 +22,9 @@ class MainController extends Controller {
     /**
      * Show the profile for the given user.
      *
-     * @return Response
+     * @return \Response
      */
-    public function __invoke() {
+    public function index() {
         $locale = Lang::getLocale();
         $imageStorage = '/storage/';
 
@@ -131,16 +131,15 @@ class MainController extends Controller {
         $data['tech_groups'] = $techGroupList;
         $data['tech_stacks'] = $techStackList;
         $data['projects'] = $projectsList;
-        $data['about_me_long'] = Voyager::setting('about_me_long_' . $locale, '');
-        $data['about_me_short'] = Voyager::setting('about_me_short_' . $locale, '');
-        $data['email'] = Voyager::setting('email', '');
-        $data['skype'] = Voyager::setting('skype', '');
+        $data['about_me_long'] = setting('about_me_long_' . $locale . '.');
+        $data['about_me_short'] = setting('about_me_short_' . $locale . '.');
+        $data['email'] = setting('email.');
+        $data['skype'] = setting('skype.');
         $data['locale'] = $locale;
-        $data['seo_title'] = Voyager::setting('title', '');
-        $data['seo_keywords'] = Voyager::setting('seo_keywords', '');
-        $data['seo_description'] = Voyager::setting('seo_description', '');
+        $data['seo_title'] = setting('seo_title.');
+        $data['seo_keywords'] = setting('seo_keywords.');
+        $data['seo_description'] = setting('seo_description.');
         $data['seo_image'] = '/images/me.jpg';
-
 
         return view('main', $data);
     }

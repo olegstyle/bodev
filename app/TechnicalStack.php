@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $date_start
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
- * @property \Illuminate\Database\Eloquent\Collection|\App\TechnicalStackGroup[] $group_id
+ * @property_read \App\TechnicalStackGroup|null $group
  * @method static \Illuminate\Database\Eloquent\Builder|\App\TechnicalStack whereCreatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\TechnicalStack whereDateStart($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\TechnicalStack whereGroupId($value)
@@ -27,7 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class TechnicalStack extends Model
 {
-    public function group_id() {
-        return $this->belongsToMany(TechnicalStackGroup::class);
+    public function groupId()
+    {
+        return $this->belongsTo(TechnicalStackGroup::class);
     }
 }

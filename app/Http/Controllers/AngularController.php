@@ -34,9 +34,9 @@ class AngularController extends Controller {
     public function index()
     {
     	$data = [];
-    	$data['seo_title'] = Voyager::setting('title', '');
-        $data['seo_keywords'] = Voyager::setting('seo_keywords', '');
-        $data['seo_description'] = Voyager::setting('seo_description', '');
+    	$data['seo_title'] = setting('seo_title.', '');
+        $data['seo_keywords'] = setting('seo_keywords.', '');
+        $data['seo_description'] = setting('seo_description.', '');
         $data['seo_image'] = '/images/me.jpg';
       	return view('angular.main', $data);
     }
@@ -52,14 +52,14 @@ class AngularController extends Controller {
         return response([
             'locale' => $locale,
             'fullName' => $locale == 'ru' ? 'Олег Борисенко' : 'Oleh Borysenko',
-            'email' => Voyager::setting('email', 'oleh@bodev.pro'),
+            'email' => setting('email.', 'oleh@bodev.pro'),
             'birthday' => '22.10.1994',
             'birthplace' => $locale == 'ru' ? 'Украина, г. Днипро' : 'Dnipro, Ukraine',
-            'skype' => Voyager::setting('skype', 'o lehstail'),
-            'position' => Voyager::setting('header_title', 'Software Developer'),
-            'subposition' => Voyager::setting('header_subtitle', ''),
-            'aboutMeLong' => Voyager::setting('about_me_long_' . $locale, ''),
-            'aboutMeShort' => Voyager::setting('about_me_short_' . $locale, ''),
+            'skype' => setting('skype.', 'olehstail'),
+            'position' => setting('header_title.', 'Software Developer'),
+            'subposition' => setting('header_subtitle.', ''),
+            'aboutMeLong' => setting('about_me_long_' . $locale . '.', ''),
+            'aboutMeShort' => setting('about_me_short_' . $locale . '.', ''),
             'socialLinks' => [
                 'vk' => 'https://vk.com/bodev_pro',
                 'fb' => 'https://www.facebook.com/bodev.pro',
