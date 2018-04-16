@@ -252,7 +252,7 @@
             <p>
                 <span>Made by Borysenko Oleh
                 &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;</span>
-                Copyright © 2017
+                Copyright © 2017 - {{ date("Y") }}
                 &nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;
                 All rights reserved
             </p>
