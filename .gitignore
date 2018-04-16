@@ -11,7 +11,6 @@ node_modules/
 bootstrap/cache/
 .env.*.php
 .env.php
-/composer.lock
 typings
 
 .rocketeer/
@@ -60,4 +59,3 @@ Thumbs.db
 _ide_helper.php
 
 /*.log
-package-lock.json
