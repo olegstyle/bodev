@@ -181,6 +181,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
