@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 use App\Enums\DictionaryCountTypeEnum;
 use App\Models\DictionaryCounter;
 use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 /**
  * Class DictionaryController
@@ -71,5 +72,10 @@ class DictionaryController extends Controller
     {
         DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHARE_REDIRECT);
         return redirect('https://play.google.com/store/apps/details?id=' . $appName);
+    }
+
+    public function privacyPolicy(): View
+    {
+        return view('pages.privacy_policy');
     }
 }

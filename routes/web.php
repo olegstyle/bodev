@@ -29,3 +29,4 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::get('dictionary/{appName}/{dict}', 'DictionaryController@show');
+Route::get('dictionary/privacy_policy', 'DictionaryController@privacyPolicy');
