@@ -28,5 +28,5 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
+Route::get('dictionary/{appName}/privacy_policy', 'DictionaryController@privacyPolicy');
 Route::get('dictionary/{appName}/{dict}', 'DictionaryController@show');
-Route::get('dictionary/privacy_policy', 'DictionaryController@privacyPolicy');

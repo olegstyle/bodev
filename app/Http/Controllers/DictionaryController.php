@@ -21,7 +21,7 @@ use Illuminate\View\View;
  */
 class DictionaryController extends Controller
 {
-
+    const GOOGLE_PLAY_BASE_URL = 'https://play.google.com/store/apps/details?id={id}';
     /**
      * getLike
      * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
@@ -71,11 +71,23 @@ class DictionaryController extends Controller
     public function show($appName, $dict)
     {
         DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHARE_REDIRECT);
-        return redirect('https://play.google.com/store/apps/details?id=' . $appName);
+
+        return redirect($this->getGoogleUrlForrAppName($appName));
     }
 
-    public function privacyPolicy(): View
+    public function privacyPolicy(string $appName): View
     {
-        return view('pages.privacy_policy');
+        $appNameTranslated = preg_replace('/^dictionary\./i', '', trans('dictionary.' . $appName));
+
+        return view('pages.privacy_policy', [
+            'appName' => $appName,
+            'appNameTranslated' => $appNameTranslated,
+            'googleUrl' => $this->getGoogleUrlForrAppName($appName),
+        ]);
+    }
+
+    public function getGoogleUrlForrAppName(string $appName): string
+    {
+        return str_replace('{id}', $appName, self::GOOGLE_PLAY_BASE_URL);
     }
 }
