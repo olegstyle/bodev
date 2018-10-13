@@ -78,7 +78,16 @@ $appLink = '<a href="' . $googleUrl . '">' . $appNameTranslated . '</a>';
             областях.
         </p>
 
-        <h3>5. Контактная информация</h3>
+        <h3>5. Реклама</h3>
+        <p>
+            Данное приложение использует рекламу от провайдера Appodeal.<br>
+            Политику приватности провайдера можете найти по ссылке: <br>
+            <a href="https://www.appodeal.com/privacy-policy" target="_blank" rel="nofollow noopener">
+                https://www.appodeal.com/privacy-policy
+            </a>
+        </p>
+
+        <h3>6. Контактная информация</h3>
         <p>
             По общим вопросам обращайтесь в службу поддержки пользователей
             по адресу <a href="mailto:bodevpro@gmail.com">bodevpro@gmail.com</a>.
