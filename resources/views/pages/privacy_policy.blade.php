@@ -60,7 +60,7 @@ $appLink = '<a href="' . $googleUrl . '">' . $appNameTranslated . '</a>';
             а
             также в целях защиты себя или третьих лиц от ущерба и противоправных действий. В случае продажи или
             реструктуризации нашего бизнеса ваши данные могут быть переданы вместе с ним.<br>
-            Политику приватности Appodeal (компания) можете найти по ссылке: <br>
+            Политику приватности Appodeal можете найти по ссылке: <br>
             <a href="https://www.appodeal.com/privacy-policy" target="_blank" rel="nofollow noopener">
                 https://www.appodeal.com/privacy-policy
             </a>

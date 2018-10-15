@@ -66,7 +66,7 @@ class DictionaryController extends Controller
 
     public function privacyPolicy(string $appName): View
     {
-        $appNameTranslated = preg_replace('/^dictionary\./i', '', trans('dictionary.' . preg_replace('/\./', '_', $appName)));
+        $appNameTranslated = preg_replace('/^dictionary\./i', '', trans('dictionary.' . $appName));
 
         return view('pages.privacy_policy', [
             'appName' => $appName,
