@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: olegs
- * Date: 18.01.2017
- * Time: 8:59
- */
 
 namespace App\Http\Controllers;
 
@@ -22,9 +16,8 @@ use Illuminate\View\View;
 class DictionaryController extends Controller
 {
     const GOOGLE_PLAY_BASE_URL = 'https://play.google.com/store/apps/details?id={id}';
+
     /**
-     * getLike
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
      * @param int $dict
      * @param string $type
@@ -42,8 +35,6 @@ class DictionaryController extends Controller
     }
 
     /**
-     * addLike
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
      * @param int $dict
      * @param string $type
@@ -62,8 +53,6 @@ class DictionaryController extends Controller
     }
 
     /**
-     * show
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
      * @param string $appName
      * @param int $dict
      * @return Response
