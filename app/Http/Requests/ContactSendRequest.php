@@ -3,49 +3,27 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
 
-/**
- * Class ContactSendRequest
- * @package App\Http\Requests
- *
- * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
- */
 class ContactSendRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
-    public function rules()
+    public function rules(): array
     {
         return [
-            'name' => 'required|string|max:64',
-            'email' => 'required|email',
-            'message' => 'required|string|min:5|max:255',
-            'captcha' => 'required|recaptcha',
-
+            'name' => ['required', 'string', 'max:64'],
+            'email' => ['required', 'email'],
+            'message' => ['required', 'string', 'min:5', 'max:255'],
+            'captcha' => ['required', 'recaptcha'],
         ];
     }
 
-    /**
-     * response
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param array $errors
-     * @return \Response
-     */
-    public function response(array $errors)
+    public function response(array $errors): JsonResponse
     {
-        return response(['status' => false, 'errors' => $errors], 400);
+        return response()->json(['status' => false, 'errors' => $errors], JsonResponse::HTTP_BAD_REQUEST);
     }
 }

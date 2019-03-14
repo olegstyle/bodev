@@ -2,66 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\DictionaryCountTypeEnum;
+use App\Enums\DictionaryCountType;
 use App\Models\DictionaryCounter;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-/**
- * Class DictionaryController
- * @package App\Http\Controllers
- *
- * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
- */
 class DictionaryController extends Controller
 {
-    const GOOGLE_PLAY_BASE_URL = 'https://play.google.com/store/apps/details?id={id}';
+    public const GOOGLE_PLAY_BASE_URL = 'https://play.google.com/store/apps/details?id={id}';
 
-    /**
-     * @param string $appName
-     * @param int $dict
-     * @param string $type
-     * @return Response
-     */
-    public function getByType($appName, $dict, $type)
+    public function getByType(string $appName, string $dict, string $type): JsonResponse
     {
         $type = strtolower($type);
-        if (DictionaryCountTypeEnum::isValid($type)) {
-            return response([
-                'data' => DictionaryCounter::getDict($appName, $dict, $type),
+        if (DictionaryCountType::isValid($type)) {
+            return response()->json([
+                'data' => DictionaryCounter::getDict($appName, (int) $dict, $type),
             ]);
         }
-        return response('', 400);
+
+        return response()->json([], JsonResponse::HTTP_BAD_REQUEST);
     }
 
-    /**
-     * @param string $appName
-     * @param int $dict
-     * @param string $type
-     * @return Response
-     */
-    public function addByType($appName, $dict, $type)
+    public function addByType(string $appName, string $dict, string $type): JsonResponse
     {
         $type = strtolower($type);
-        if (DictionaryCountTypeEnum::isValid($type)) {
-            return response([
-                'data' => DictionaryCounter::incrementDict($appName, $dict, $type),
-
+        if (DictionaryCountType::isValid($type)) {
+            return response()->json([
+                'data' => DictionaryCounter::incrementDict($appName, (int) $dict, $type),
             ]);
         }
-        return response('', 400);
+        return response()->json([], JsonResponse::HTTP_BAD_REQUEST);
     }
 
-    /**
-     * @param string $appName
-     * @param int $dict
-     * @return Response
-     */
-    public function show($appName, $dict)
+    public function show(string $appName, string $dict): RedirectResponse
     {
-        DictionaryCounter::incrementDict($appName, $dict, DictionaryCountTypeEnum::SHARE_REDIRECT);
+        DictionaryCounter::incrementDict($appName, (int) $dict, DictionaryCountType::SHARE_REDIRECT);
 
-        return redirect($this->getGoogleUrlForrAppName($appName));
+        return redirect($this->getGoogleUrlForAppName($appName));
     }
 
     public function privacyPolicy(string $appName): View
@@ -71,11 +50,11 @@ class DictionaryController extends Controller
         return view('pages.privacy_policy', [
             'appName' => $appName,
             'appNameTranslated' => $appNameTranslated,
-            'googleUrl' => $this->getGoogleUrlForrAppName($appName),
+            'googleUrl' => $this->getGoogleUrlForAppName($appName),
         ]);
     }
 
-    public function getGoogleUrlForrAppName(string $appName): string
+    public function getGoogleUrlForAppName(string $appName): string
     {
         return str_replace('{id}', $appName, self::GOOGLE_PLAY_BASE_URL);
     }

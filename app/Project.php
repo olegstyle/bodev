@@ -2,7 +2,9 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * App\Project
@@ -20,30 +22,29 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $date_start
  * @property string $date_end
  * @property string $link
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereDateEnd($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereDateStart($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereDescriptionEn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereDescriptionRu($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereGistEn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereGistRu($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereImageUrl($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereLink($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereNameEn($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereNameRu($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Project whereUpdatedAt($value)
- * @mixin \Eloquent
+ *
+ * @method static Builder|static whereCreatedAt($value)
+ * @method static Builder|static whereDateEnd($value)
+ * @method static Builder|static whereDateStart($value)
+ * @method static Builder|static whereDescriptionEn($value)
+ * @method static Builder|static whereDescriptionRu($value)
+ * @method static Builder|static whereGistEn($value)
+ * @method static Builder|static whereGistRu($value)
+ * @method static Builder|static whereId($value)
+ * @method static Builder|static whereImageUrl($value)
+ * @method static Builder|static whereLink($value)
+ * @method static Builder|static whereNameEn($value)
+ * @method static Builder|static whereNameRu($value)
+ * @method static Builder|static whereUpdatedAt($value)
+ *
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProjectTechnicalStack[] $stacks
+ *
+ * @mixin Builder
  */
 class Project extends Model
 {
-    /**
-     * stacks
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function stacks() {
+    public function stacks(): HasMany
+    {
         return $this->hasMany(ProjectTechnicalStack::class);
     }
 }

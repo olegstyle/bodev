@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Models\DictionaryCounter
- *
  * @property int $id
  * @property \Carbon\Carbon|null $created_at
  * @property \Carbon\Carbon|null $updated_at
@@ -14,53 +13,41 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $e_dict
  * @property string $f_type
  * @property int|null $f_count
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereEDict($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereFAppName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereFCount($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereFType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\DictionaryCounter whereUpdatedAt($value)
- * @mixin \Eloquent
+ *
+ * @method static Builder|static whereCreatedAt($value)
+ * @method static Builder|static whereEDict($value)
+ * @method static Builder|static whereFAppName($value)
+ * @method static Builder|static whereFCount($value)
+ * @method static Builder|static whereFType($value)
+ * @method static Builder|static whereId($value)
+ * @method static Builder|static whereUpdatedAt($value)
+ *
+ * @mixin Builder
  */
 class DictionaryCounter extends Model
 {
-    /** @var string */
     protected $table = 'dictionary_counter';
 
-    protected $fillable = ['f_app_name', 'e_dict', 'f_type', 'f_count'];
     protected $visible = ['f_app_name', 'e_dict', 'f_type', 'f_count'];
 
-    /**
-     * getDict
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param string $appName
-     * @param int $dict
-     * @param string $type
-     * @return DictionaryCounter|Model
-     */
-    public static function getDict($appName, $dict, $type)
+    public static function getDict(string $appName, int $dict, string $type): self
     {
-        return static::firstOrCreate([
-            'f_app_name' => $appName,
-            'f_type' => $type,
-            'e_dict' => $dict],
-            ['f_count' => 0]);
+        $model = new self();
+        $model->f_app_name = $appName;
+        $model->f_type = $type;
+        $model->e_dict = $dict;
+        $model->f_count = 0;
+        $model->save();
+
+        return $model;
     }
 
-    /**
-     * incrementDict
-     * @author Oleh Borysenko <oleg.borisenko@morefromit.com>
-     * @param string $appName
-     * @param int $dict
-     * @param string $type
-     * @return DictionaryCounter|Model
-     */
-    public static function incrementDict($appName, $dict, $type)
+    public static function incrementDict(string $appName, int $dict, string $type): self
     {
         $d = static::getDict($appName, $dict, $type);
-        $d->increment('f_count', 1);
+        $d->increment('f_count');
         $d->save();
+
         return $d;
     }
 }

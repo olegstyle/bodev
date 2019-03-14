@@ -2,12 +2,11 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Content
- *
- * @mixin \Eloquent
+ * @mixin Builder
  */
 class Content extends Model
 {

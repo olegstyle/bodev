@@ -2,11 +2,10 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Notifications\Notifiable;
-
+use TCG\Voyager\Models\User as Model;
 /**
- * App\User
- *
  * @property int $id
  * @property string $name
  * @property string $email
@@ -16,37 +15,23 @@ use Illuminate\Notifications\Notifiable;
  * @property \Carbon\Carbon|null $updated_at
  * @property string|null $avatar
  * @property int|null $role_id
+ *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereAvatar($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereEmail($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User wherePassword($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRememberToken($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereRoleId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\User whereUpdatedAt($value)
- * @mixin \Eloquent
+ * @method static Builder|static whereAvatar($value)
+ * @method static Builder|static whereCreatedAt($value)
+ * @method static Builder|static whereEmail($value)
+ * @method static Builder|static whereId($value)
+ * @method static Builder|static whereName($value)
+ * @method static Builder|static wherePassword($value)
+ * @method static Builder|static whereRememberToken($value)
+ * @method static Builder|static whereRoleId($value)
+ * @method static Builder|static whereUpdatedAt($value)
+ * @mixin Builder
  */
-class User extends \TCG\Voyager\Models\User
+class User extends Model
 {
     use Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    protected $fillable = ['name', 'email', 'password'];
+    protected $hidden = ['password', 'remember_token'];
 }
