@@ -85,7 +85,7 @@ $appLink = '<a href="' . $googleUrl . '">' . $appNameTranslated . '</a>';
         <h3>5. Контактная информация</h3>
         <p>
             По общим вопросам обращайтесь в службу поддержки пользователей
-            по адресу <a href="mailto:bodevpro@gmail.com">bodevpro@gmail.com</a>.
+            по адресу <a href="mailto:support@bodev.pro">support@bodev.pro</a>.
         </p>
     </div>
 @endsection

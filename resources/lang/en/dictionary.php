@@ -6,4 +6,5 @@ return [
     'pro.bodev.diets' => 'Тысяча и одна диета',
     'pro.bodev.dreambook' => 'Тысяча и одно сноведение',
     'pro.bodev.crib' => 'Тысяча и одна шпаргалка',
+    'pro.bodev.music_for_kids' => 'Тысяча и одна песенка'
 ];
