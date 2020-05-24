@@ -32,14 +32,14 @@ class DictionaryCounter extends Model
 
     public static function getDict(string $appName, int $dict, string $type): self
     {
-        $model = new self();
-        $model->f_app_name = $appName;
-        $model->f_type = $type;
-        $model->e_dict = $dict;
-        $model->f_count = 0;
-        $model->save();
-
-        return $model;
+        return static::firstOrCreate(
+            [
+                'f_app_name' => $appName,
+                'f_type' => $type,
+                'e_dict' => $dict
+            ],
+            ['f_count' => 0]
+        );
     }
 
     public static function incrementDict(string $appName, int $dict, string $type): self
