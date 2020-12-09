@@ -60,7 +60,7 @@ class AngularController extends Controller
 
     public function getTechStacks(): JsonResponse
     {
-        return response([
+        return response()->json([
             'success' => true,
             'data' => TechnicalStack::orderBy('date_start', 'desc')->orderBy('group_id', 'asc')->get(),
         ]);
@@ -78,6 +78,6 @@ class AngularController extends Controller
     {
         Mail::send(new ContactMail($request->input('name'), $request->input('email'), $request->input('message')));
 
-        return response(['success' => true]);
+        return response()->json(['success' => true]);
     }
 }

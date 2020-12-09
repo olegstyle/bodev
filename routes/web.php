@@ -10,7 +10,8 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-Route::get('/', "MainController@index");
+// Route::get('/', "MainController@index");
+Route::get('/', "AngularController@index");
 Route::group(['prefix' => 'angi'] , function() {
     Route::get('/', "AngularController@index");
     Route::get('getData', "AngularController@getData");
@@ -21,8 +22,7 @@ Route::group(['prefix' => 'angi'] , function() {
     Route::get('projects', "AngularController@getProjects");
 });
 
-Route::post('/sendmail', "MainController@sendMail");
-
+// Route::post('/sendmail', "MainController@sendMail");
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
